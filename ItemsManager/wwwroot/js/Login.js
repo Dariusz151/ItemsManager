@@ -50,7 +50,6 @@ function LoadTableByUser(userID) {
         dataType: "json",
         contentType: "application/json",
         success: function (fridge) {
-            //console.log(fridge);
             SaveArticles(fridge);
             FillTable(fridge);
         },
@@ -64,8 +63,6 @@ function SaveArticles(fridge) {
     $.each(fridge, function (index, item) {
         articlesTable[index] = item;
     });
-    //console.log("Articles: ");
-    //console.log(articlesTable);
 }
 
 function FillTable(fridge) {

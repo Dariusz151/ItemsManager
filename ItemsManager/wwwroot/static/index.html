@@ -17,11 +17,12 @@
     <script src="/js/jquery.textfill.js"></script>
 
     <!--<script src="/js/ChooseRecipe.js"></script>-->
+    <script src="/js/Login.js"></script>
 
-    <!--<script src="/js/LoadTable.js"></script>-->
-    <!--<script src="/js/Login.js"></script>-->
     <script src="/js/OnAddClick.js"></script>
     <script src="/js/DeleteElement.js"></script>
+    <script src="/js/SaveArticlesByUser.js"></script>
+    <script src="/js/SortTableByArticles.js"></script>
 
 </head>
 
@@ -57,13 +58,19 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col">
-                                    Artykuł
+                                    Artykuł <span>
+                                        <i class="fa fa-fw fa-sort" onclick="ChangeSortState(); return false;"></i>
+                                    </span>
                                 </div>
                                 <div class="col">
-                                    Ilość
+                                    Ilość <span>
+                                        <i class="fa fa-fw fa-sort"></i>
+                                    </span>
                                 </div>
                                 <div class="col">
-                                    Waga
+                                    Waga <span>
+                                        <i class="fa fa-fw fa-sort"></i>
+                                    </span>
                                 </div>
                                 <div class="col-lg-1">
                                 </div>
@@ -117,7 +124,6 @@
             </div>
         </div>
     </div>
-
-    <script src="/js/LoadTableByUser.js"></script>
+    <script src="/js/FillTableWithArticles.js"></script>
 </body>
 </html>

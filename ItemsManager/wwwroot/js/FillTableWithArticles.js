@@ -1,36 +1,10 @@
-﻿var articlesTable = [];
-var id = localStorage.getItem("userID");
+﻿function FillTable(articlesTable) {
+    var userID = localStorage.getItem("userID");
+    SaveArticlesByUser(userID);
 
-function LoadTableByUser(userID) {
-    
-    var urlAddress = "https://localhost:44378/api/SmartFridge";
-
-    $.ajax({
-        url: urlAddress + "/" + userID,
-        type: "GET",
-        dataType: "json",
-        contentType: "application/json",
-        success: function (fridge) {
-            SaveArticles(fridge);
-            FillTable(fridge);
-        },
-        error: function (request, message, error) {
-            console.log("error: " + request.status);
-            console.log("error: " + request.statusText);
-        }
-    });
-}
-
-function SaveArticles(fridge) {
-    $.each(fridge, function (index, item) {
-        articlesTable[index] = item;
-    });
-}
-
-function FillTable(fridge) {
     $("#cont_tableBody").children().remove();
-
-    $.each(fridge, function (index, item) {
+    
+    $.each(articlesTable, function (index, item) {
         AddFridgeItemToTable(index, item);
     });
 }
@@ -51,5 +25,5 @@ function AddFridgeItemToTable(index, item) {
     $("#row" + index + " .col_functions").html("<input class='form-check-input position-static' type='checkbox' id='checkbox" + index + "' value='option1' aria-label='aria'>");
 }
 
-LoadTableByUser(id);
+$('document').ready(FillTable(articlesTable));
 

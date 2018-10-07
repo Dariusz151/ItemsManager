@@ -22,8 +22,6 @@
         },
         error: function (jqXHR, exception) {
             console.log("error: " + jqXHR.status);
-            //console.log("error: " + jqXHR.responseText);
-            //console.log("error: " + exception);
         }
     });
 }
