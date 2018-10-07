@@ -16,7 +16,7 @@ namespace SmartFridge.Models
         private readonly string _selectByIdQuery = "SELECT [id_article], [article_name], [quantity], [weight], [id_user], [id_category] FROM [dbo].[articles] WHERE id_user=@id";
         private readonly string _insertQuery = "INSERT INTO [dbo].[articles] ([article_name], [quantity], [weight], [id_user], [id_category]) OUTPUT INSERTED.id_article VALUES(@param1,@param2,@param3,@param4,@param5)";
 
-        private readonly string _deleteQuery = "DELETE FROM Articles WHERE ID = @id";
+        private readonly string _deleteQuery = "DELETE FROM [dbo].[articles] WHERE [id_article] = @id";
         private readonly string _updateQuery = "UPDATE Articles SET [ArticleName] = @param1, [Quantity] = @param2, [Weight] = @param3 WHERE ID=@id";
 
         public DBFridgeRepository(IConfiguration configuration, IHostingEnvironment environment)
@@ -131,12 +131,6 @@ namespace SmartFridge.Models
 
         public async Task<int> CreateAsync(FridgeItem fridgeItem)
         {
-            Console.WriteLine("[Repo] item: " + fridgeItem.ArticleName);
-            Console.WriteLine("[Repo] item: " + fridgeItem.Weight);
-            Console.WriteLine("[Repo] item: " + fridgeItem.Quantity);
-            Console.WriteLine("[Repo] item: " + fridgeItem.UserID);
-            Console.WriteLine("[Repo] item: " + fridgeItem.CategoryID);
-
             int createdId = 0;
             if (_environment.IsDevelopment())
                 Console.WriteLine("(CreateAsync) in DBFridgeRepository ");

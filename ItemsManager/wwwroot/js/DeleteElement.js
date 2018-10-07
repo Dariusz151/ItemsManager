@@ -1,4 +1,6 @@
 ﻿function OnDeleteClick() {
+    var urlAddress = "https://localhost:44378/api/SmartFridge";
+    //var user_id = localStorage.getItem("userID");
 
     var ids_to_delete = [];
     var idSelector = function () { return this.id; };
@@ -6,23 +8,25 @@
 
     checked_checkboxes.forEach(function (value, index) {
         var number = value.substr("checkbox".length - value.length);
-        ids_to_delete[index] = articles_id[number];
+        ids_to_delete[index] = articlesTable[number];
     });
 
-    ids_to_delete.forEach(function (value) {
+    console.log(ids_to_delete);
+    console.log(ids_to_delete.length);
+
+    for (var i = 0; i < ids_to_delete.length; i++) {
         $.ajax({
-            url: urlAddress + "/" + value,
+            async:false,
+            url: urlAddress + "/" + ids_to_delete[i].id,
             type: "DELETE",
             contentType: "application/json",
             success: function (item, textStatus, jqXHR) {
-                
+                console.log('deleted');
             },
             error: function (jqXHR, exception) {
-              
+                console.log('error in delete');
             }
         });
-
-    });
-
-    LoadData();
+    }
+    window.location.replace("https://localhost:44378/static/index.html");
 }
