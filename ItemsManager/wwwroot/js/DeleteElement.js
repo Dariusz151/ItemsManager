@@ -1,6 +1,5 @@
 ﻿function OnDeleteClick() {
     var urlAddress = "https://localhost:44378/api/SmartFridge";
-    //var user_id = localStorage.getItem("userID");
 
     var ids_to_delete = [];
     var idSelector = function () { return this.id; };

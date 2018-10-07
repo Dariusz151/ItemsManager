@@ -9,6 +9,6 @@ namespace SmartFridge.Models
         Task<IEnumerable<FridgeItem>> GetAsync(int id);
         Task<int> CreateAsync(FridgeItem fridgeItem);
         Task<bool> DeleteAsync(int id);
-        Task<bool> UpdateAsync(FridgeItem item);
+        //Task<bool> UpdateAsync(FridgeItem item);
     }
 }

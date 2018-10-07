@@ -92,6 +92,7 @@ namespace SmartFridge.Controllers
             return BadRequest();
         }
         
+        [Obsolete]
         [Route("~/api/SmartFridge")]
         [HttpPut]
         [ProducesResponseType((int)HttpStatusCode.NoContent)]
