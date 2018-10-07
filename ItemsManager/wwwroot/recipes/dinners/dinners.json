@@ -1,0 +1,66 @@
+﻿{
+  "dinner_1": {
+    "components": [ "Kurczak", "Cebula", "Kasza jaglana", "Marchewka", "Słonecznik" ],
+    "recipe": "Ugotuj wsio 1"
+  },
+  "dinner_2": {
+    "components": [ "Kurczak", "Ryz", "Sos słodko-kwaśny" ],
+    "recipe": "Ugotuj wsio 2"
+  },
+  "dinner_3": {
+    "components": [ "Ser", "Mięso wołowe", "Bułka hamburgerowa" ],
+    "recipe": "Ugotuj wsio5"
+  },
+  "dinner_4": {
+    "components": [ "Mleko", "Płatki owsiane", "Banan" ],
+    "recipe": "Ugotuj wsio4"
+  },
+  "dinner_5": {
+    "components": [ "Fasola", "Groszek", "Jaja" ],
+    "recipe": "Ugotuj wsio3"
+  },
+  "dinner_6": {
+    "components": [ "Masło", "Ogórek", "Kajzerka" ],
+    "recipe": "Ugotuj wsio6"
+  },
+  "dinner_7": {
+    "components": [ "Jaja", "Pomidor", "Boczek" ],
+    "recipe": "Ugotuj wsio7"
+  },
+  "dinner_8": {
+    "components": [ "Miruna", "Cytryna", "Frytki" ],
+    "recipe": "Ugotuj wsio8"
+  },
+  "dinner_9": {
+    "components": [ "Krewetki", "Bułka tarta", "Masło czosnkowe", "Cebula", "Frytki" ],
+    "recipe": "Ugotuj wsio9"
+  },
+  "dinner_10": {
+    "components": [ "Kiwi", "Jabłko", "Pomarańcz", "Mleko", "Gruszka" ],
+    "recipe": "Ugotuj wsio10"
+  },
+  "dinner_11": {
+    "components": [ "Quinoa", "Tofu", "Szpinak" ],
+    "recipe": "Ugotuj wsio11"
+  },
+  "dinner_12": {
+    "components": [ "Kurczak", "Makaron", "Bulion" ],
+    "recipe": "Ugotuj wsio12"
+  },
+  "dinner_13": {
+    "components": [ "Sałata", "Ser feta", "Pomidor", "Kurczak", "Kukurydza" ],
+    "recipe": "Ugotuj wsio13"
+  },
+  "dinner_14": {
+    "components": [ "Kurczak", "Ziemniaki", "Ogórek", "Cebula" ],
+    "recipe": "Ugotuj wsio14"
+  },
+  "dinner_15": {
+    "components": [ "Mięso wołowe", "Rodzynki", "Ryż" ],
+    "recipe": "Ugotuj wsio15"
+  },
+  "dinner_16": {
+    "components": [ "Mięso wołowe", "Bułka hamburgerowa", "Cebula", "Pomidor", "Nachos" ],
+    "recipe": "Ugotuj wsio16"
+  }
+}

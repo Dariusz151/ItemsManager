@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <title>Smart Fridge App</title>
+
+    <link rel="icon" type="image/png" href="/images/icons/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel=stylesheet href="/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/vendor/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.textfill.js"></script>
+
+    <!--<script src="/js/ChooseRecipe.js"></script>-->
+
+    <!--<script src="/js/LoadTable.js"></script>-->
+    <!--<script src="/js/Login.js"></script>-->
+    <script src="/js/OnAddClick.js"></script>
+    <!--<script src="/js/DeleteElement.js"></script>-->
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="topHeader">
+
+            <div class="centerContent topHeaderText">
+                <a id="homeHref" href="index.html">Home</a><a class="divider"> | </a>
+                <a class="headerUnderline" href="Register.html">Register</a><a class="divider">  |  </a>
+                <a class="headerUnderline" href="Login.html">Log in</a>
+                <a class="divider">  |  </a>
+                <a>Hello,</a>
+                <a>Fridge</a>
+            </div>
+        </div>
+    </div>
+    <div class="mainContent">
+        <div class="centerContent">
+
+            <div class="logoPanel" id="logoHeader">
+                <img src="/images/fridge.png" width="150" height="140">
+                <a>Smart Fridge App.</a>
+            </div>
+            <div class="chooseRecipeDiv">
+                <button class="btn btn-primary" onclick="ChooseRecipe()">
+                    Choose recipe
+                </button>
+            </div>
+            <div class="foodTable">
+                <div class="foodTableContainer">
+                    <div class="foodTableHeader rounded">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    Artykuł
+                                </div>
+                                <div class="col">
+                                    Ilość
+                                </div>
+                                <div class="col">
+                                    Waga
+                                </div>
+                                <div class="col-lg-1">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tableBody rounded">
+                        <div class="container" id="cont_tableBody">
+                        </div>
+                    </div>
+                    <div class="tableTrash">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col"></div>
+                                <div class="col"></div>
+                                <div class="col"></div>
+                                <div class="col-lg-1" id="trash_div">
+                                    <button class="btn btn-primary" onclick="OnDeleteClick()"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="addItemInput">
+                        <div class="row myform">
+                            <div class="col-md-12">
+                                <form name="myform" role="form" novalidate>
+                                    <div class="form-inline">
+                                        <div class="form-group">
+                                            <label>Article Name</label>
+                                            <input required type="text" class="form-control" id="articleNameInput" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Quantity</label>
+                                            <input required type="text" class="form-control" id="quantityInput" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Weight</label>
+                                            <input required type="text" class="form-control" id="weightInput" />
+                                        </div>
+                                        <div class="form-group">
+                                            <button class="btn btn-primary" onclick="OnAddClick()">
+                                                Add new item
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/LoadTableByUser.js"></script>
+</body>
+</html>

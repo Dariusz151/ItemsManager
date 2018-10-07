@@ -1,0 +1,100 @@
+﻿html, body {
+    background-color: aliceblue !important;
+    font-size: 100%;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background-color: aliceblue;
+}
+
+.container-fluid {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: auto;
+}
+
+.topHeader {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100vw;
+    display: block;
+    background-color: aquamarine;
+    height: 5vh;
+}
+
+.centerContent {
+    width: 80vw;
+    margin: auto;
+}
+
+.topHeaderText {
+    text-align: right;
+    color: green;
+    font-size: 1em;
+    margin: auto;
+    line-height: 5vh;
+    text-decoration: none;
+    color: #222222;
+}
+a.headerUnderline{
+    text-decoration: underline !important;
+}
+
+.logoPanel {
+    padding-top: 4vh;
+    padding-bottom: 4vh;
+    margin-left: 0;
+}
+
+#logoHeader a {
+    padding-left: 5vw;
+    font-size: 3em;
+    font-family: 'Indie Flower', cursive;
+}
+
+.foodTable {
+    background-color: aliceblue;
+    width:80%;
+    margin-left:0;
+}
+
+.foodTableHeader{
+    border:1px #808080 solid;
+    background-color:blanchedalmond;
+}
+
+.tableBody {
+    border: 1px #808080 solid;
+    background-color: azure;
+}
+
+.addItemInput{
+    margin-top:10vh;
+}
+
+.form-check-input {
+    /*DO POPRAWY*/
+    float: left;
+}
+
+#trash_div p{
+    float: left;
+}
+
+.chooseRecipeDiv{
+    float:right;
+}
+
+.divider{
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+
+a#homeHref
+{
+    padding-right:50vw;
+}
+
+#loginForm{
+    width:20vw;
+}

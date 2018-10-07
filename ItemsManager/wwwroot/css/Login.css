@@ -1,0 +1,47 @@
+﻿body {
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+}
+
+.container {
+    font-family: Roboto,sans-serif;
+    background-color: antiquewhite;
+    border-style: 1px solid grey;
+    margin: 0 auto;
+    text-align: left;
+    opacity: 0.8;
+    box-shadow: 2px 5px 5px 0px #eee;
+}
+
+.register_label {
+    font-family: sans-serif;
+    font-size: 14px;
+    color: black;
+    margin-top: 10px;
+}
+
+div.register_row {
+    padding-top:1vh;
+    padding-bottom:1vh;
+}
+
+
+.heading {
+    text-decoration: bold;
+    text-align: center;
+    font-size: 30px;
+    color: black;
+    padding-top: 10px;
+}
+
+.sbutton {
+    color: white;
+    font-size: 20px;
+    border: 1px solid white;
+    background-color: #080808;
+    width: 100%;
+    margin-top: 4vh;
+    box-shadow: 0px 2px 2px 0px white;
+}
+
