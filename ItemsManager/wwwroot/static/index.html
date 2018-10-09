@@ -24,6 +24,8 @@
     <script src="/js/SaveArticlesByUser.js"></script>
     <script src="/js/SortTableByArticles.js"></script>
 
+    <script src="/js/Header_SetUserName.js"></script>
+
 </head>
 
 <body>
@@ -36,7 +38,7 @@
                 <a class="headerUnderline" href="Login.html">Log in</a>
                 <a class="divider">  |  </a>
                 <a>Hello,</a>
-                <a>Fridge</a>
+                <a id="header_userName"></a>
             </div>
         </div>
     </div>
@@ -56,6 +58,7 @@
                 <div class="foodTableContainer">
                     <div class="foodTableHeader rounded">
                         <div class="container">
+                            <input class="form-control" id="myInput" type="text" placeholder="Search..">
                             <div class="row">
                                 <div class="col">
                                     Artykuł <span>
@@ -81,6 +84,23 @@
                         <div class="container" id="cont_tableBody">
                         </div>
                     </div>
+
+
+                    <!-- TODO SERACH-->
+
+
+                    <!--<script>
+                        $(document).ready(function () {
+                            $("#myInput").on("keyup", function () {
+                                var value = $(this).val().toLowerCase();
+                                $(".row col_articleName").filter(function () {
+                                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                                });
+                            });
+                        });
+                    </script>-->
+
+
                     <div class="tableTrash">
                         <div class="container">
                             <div class="row">

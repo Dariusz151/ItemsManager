@@ -19,6 +19,7 @@ function SendLoginForm() {
              * 
              * */
             localStorage.setItem("userID", item);
+            localStorage.setItem("userName", login);
             window.location.replace("https://localhost:44378/static/index.html");
 
             //LoadTableByUser(item);
