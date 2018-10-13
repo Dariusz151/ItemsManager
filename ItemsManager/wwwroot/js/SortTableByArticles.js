@@ -18,6 +18,7 @@ function SortTableAlph(state) {
     articlesTable.sort(dynamicSort(propName));
     
     $("#cont_tableBody").children().remove();
+    $("#cont_tableBody").append(" <table class='table table-hover'><tbody id='myTable'></tbody></table> ");
     $.each(articlesTable, function (index, item) {
         AddFridgeItemToTable(index, item);
     });

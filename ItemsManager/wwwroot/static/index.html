@@ -25,7 +25,6 @@
     <script src="/js/SortTableByArticles.js"></script>
 
     <script src="/js/Header_SetUserName.js"></script>
-
 </head>
 
 <body>
@@ -55,10 +54,13 @@
                 </button>
             </div>
             <div class="foodTable">
+                <input id="myInput" type="text" placeholder="Search..">
+                <!--<input class="form-control" id="myInput" type="text" placeholder="Search.." onkeyup="myFunction()">-->
+
                 <div class="foodTableContainer">
                     <div class="foodTableHeader rounded">
                         <div class="container">
-                            <input class="form-control" id="myInput" type="text" placeholder="Search..">
+
                             <div class="row">
                                 <div class="col">
                                     Artykuł <span>
@@ -80,26 +82,16 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Dynamic table-->
+
                     <div class="tableBody rounded">
                         <div class="container" id="cont_tableBody">
+                           
                         </div>
                     </div>
 
-
-                    <!-- TODO SERACH-->
-
-
-                    <!--<script>
-                        $(document).ready(function () {
-                            $("#myInput").on("keyup", function () {
-                                var value = $(this).val().toLowerCase();
-                                $(".row col_articleName").filter(function () {
-                                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                                });
-                            });
-                        });
-                    </script>-->
-
+                    <!-- Table trash -->
 
                     <div class="tableTrash">
                         <div class="container">
@@ -113,6 +105,9 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Input/Add item -->
+
                     <div class="addItemInput">
                         <div class="row myform">
                             <div class="col-md-12">
