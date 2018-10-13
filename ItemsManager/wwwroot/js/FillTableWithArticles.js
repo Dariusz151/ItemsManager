@@ -25,9 +25,17 @@ function AddFridgeItemToTable(index, item) {
     $("#row" + index).append("<td class='col col_weight'></td");
     $("#row" + index + " .col_weight").html(item.weight);
 
+    //$("#row" + index).append("<td class='col-lg-1 col_functions'></td>");
+    //$("#row" + index + " .col_functions").html("<input class='form-check-input position-static' type='checkbox' id='checkbox" + index + "' value='option1' aria-label='aria'>");
+
     $("#row" + index).append("<td class='col-lg-1 col_functions'></td>");
-    $("#row" + index + " .col_functions").html("<input class='form-check-input position-static' type='checkbox' id='checkbox" + index + "' value='option1' aria-label='aria'>");
-    
+    $("#row" + index + " .col_functions").html("<label class='customcheck'><input type='checkbox' autocomplete='off'><span class='checkmark'></span></label>");
+
+
+   // <label class="btn btn-danger">
+   //     <input type="checkbox" autocomplete="off">
+   //         <span class="glyphicon glyphicon-ok"></span>
+			//</label>
 }
 
 $('document').ready(FillTable(articlesTable));
