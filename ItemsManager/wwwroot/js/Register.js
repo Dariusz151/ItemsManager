@@ -1,4 +1,12 @@
-﻿function SendRegisterForm() {
+﻿$(document).keypress(function (event) {
+    var keycode = (event.keyCode ? event.keyCode : event.which);
+    if (keycode == '13') {
+        SendRegisterForm();
+    }
+});
+
+
+function SendRegisterForm() {
     var fname = $("#register_fname").val();
     var login = $("#register_login").val();
     var email = $("#register_email").val();
@@ -27,21 +35,24 @@
             contentType: "application/json",
             data: JSON.stringify(data),
             success: function (item, textStatus, jqXHR) {
-                console.log('succes". Dodano: ' + login);
-                /*
-                * DODAC OBSLUGE ZGODNYCH HASEL
-                * WYCZYSCIC FORMULARZ PO SUKCESIE (DODANIU UZYTKOWNIKA)
-                * */
+                toastr.success('Added new user!', 'Success');
             },
             error: function (jqXHR, exception) {
-                console.log('err"');
+                toastr.error('Can\'t add new user!', 'Error');
             }
         });
     }
     else {
-        /*
-         * DODAC OBSLUGE NIEZGODNYCH HASEL
-         * */
-        console.log("Podane hasla roznia sie od siebie!");
+        toastr.error('The passwords you entered are different', 'Error');
     }
+    ClearForm();
+}
+
+function ClearForm() {
+    $("#register_fname").val('');
+    $("#register_login").val('');
+    $("#register_email").val('');
+    $("#register_phone").val('');
+    $("#password").val('');
+    $("#c_password").val('');
 }

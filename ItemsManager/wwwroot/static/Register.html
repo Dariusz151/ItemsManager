@@ -5,17 +5,33 @@
     <meta charset="utf-8" />
     <title>Smart Fridge App</title>
 
+    <!-- FAVICON -->
     <link rel="icon" type="image/png" href="/images/icons/favicon.ico" />
+
+    <!-- CUSTOM STYLESHEETS -->
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
     <link rel="stylesheet" type="text/css" href="/css/Register.css" />
-    <link rel=stylesheet href="/css/bootstrap.min.css">
+
+    <!-- FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/vendor/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/jquery.textfill.js"></script>
+
+
+    <!-- JQUERY LIBRARY -->
+    <script src="/js/lib/jquery.min.js"></script>
+    <script src="/js/lib/jquery.textfill.js"></script>
+
+    <!-- BOOTSTRAP LIBRARY -->
+    <script src="/js/lib/bootstrap.min.js"></script>
+    <link rel=stylesheet href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/vendor/css/bootstrap.min.css">
+
+    <!-- TOASTR LIBRARY -->
+    <link rel="stylesheet" href="/css/toastr.css" />
+    <link rel="stylesheet" href="/css/toastr.min.css" />
+    <script src="/js/lib/toastr.min.js"></script>
+
     <!--<script src="/js/ChooseRecipe.js"></script>-->
     <script src="/js/Register.js"></script>
 
@@ -52,97 +68,95 @@
 
                 <div class="row ">
                     <!--- Login ---->
-                    <div class="col-sm-12">
-                        <div class="row register_row">
-                            <div class="col-md-2">
-                                <label class="register_label required-label">Login</label>
-                            </div>
-                            <div class="col-md-4">
-                                <input type="text" name="login" id="register_login" placeholder="Enter your login" class="form-control">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--- Firstname ---->
-                    <div class="col-sm-12">
-                        <div class="row register_row">
-                            <div class="col-md-2">
-                                <label class="register_label required-label">First name</label>
-                            </div>
-                            <div class="col-md-4">
-                                <input type="text" name="fname" id="register_fname" placeholder="Enter your first name" class="form-control">
+                        <div class="col-sm-12">
+                            <div class="row register_row">
+                                <div class="col-md-2">
+                                    <label class="register_label required-label">Login</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" name="login" id="register_login" placeholder="Enter your login" class="form-control">
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!--- Email ---->
-                    <div class="col-sm-12">
-                        <div class="row register_row">
-                            <div class="col-md-2">
-                                <label class="register_label">Email</label>
-                            </div>
-                            <div class="col-md-4">
-                                <input type="email" name="email" id="register_email" placeholder="Enter your email" class="form-control">
+                        <!--- Firstname ---->
+                        <div class="col-sm-12">
+                            <div class="row register_row">
+                                <div class="col-md-2">
+                                    <label class="register_label required-label">First name</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" name="fname" id="register_fname" placeholder="Enter your first name" class="form-control">
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!--- Phone ---->
-                    <div class="col-sm-12">
-                        <div class="row register_row">
-                            <div class="col-md-2">
-                                <label class="register_label">Phone</label>
-                            </div>
-                            <div class="col-md-4">
-                                <input type="text" name="phone" id="register_phone" placeholder="Enter your phone" class="form-control">
+                        <!--- Email ---->
+                        <div class="col-sm-12">
+                            <div class="row register_row">
+                                <div class="col-md-2">
+                                    <label class="register_label">Email</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="email" name="email" id="register_email" placeholder="Enter your email" class="form-control">
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-
-                    <!-----For Password and confirm password---->
-                    <div class="col-sm-12">
-                        <div class="row register_row">
-                            <div class="col-md-2">
-                                <label class="register_label required-label">Password</label>
-                            </div>
-                            <div class="col-md-4">
-                                <input type="password" name="password" id="password" placeholder="Enter your password" class="form-control">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-12">
-                        <div class="row register_row">
-                            <div class="col-md-2">
-                                <label class="register_label required-label">Confirm password</label>
-                            </div>
-                            <div class="col-md-4">
-                                <input type="password" name="c_password" id="c_password" placeholder="Enter your password" class="form-control">
+                        <!--- Phone ---->
+                        <div class="col-sm-12">
+                            <div class="row register_row">
+                                <div class="col-md-2">
+                                    <label class="register_label">Phone</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" name="phone" id="register_phone" placeholder="Enter your phone" class="form-control">
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Submit button -->
 
-                    <div class="col-sm-12">
-                        <div class="row">
-                            <div class="col-md-2">
-
-                            </div>
-                            <div class="col-md-1">
-
-                            </div>
-                            <div class="col-md-2">
-                                <div class="btn btn-warning sbutton" onclick="SendRegisterForm()">Submit</div>
+                        <!-----For Password and confirm password---->
+                        <div class="col-sm-12">
+                            <div class="row register_row">
+                                <div class="col-md-2">
+                                    <label class="register_label required-label">Password</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="password" name="password" id="password" placeholder="Enter your password" class="form-control">
+                                </div>
                             </div>
                         </div>
-                    </div>
+
+                        <div class="col-sm-12">
+                            <div class="row register_row">
+                                <div class="col-md-2">
+                                    <label class="register_label required-label">Confirm password</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="password" name="c_password" id="c_password" placeholder="Enter your password" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit button -->
+
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <div class="col-md-2">
+
+                                </div>
+                                <div class="col-md-1">
+
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="btn btn-warning sbutton" onclick="SendRegisterForm()">Submit</div>
+                                </div>
+                            </div>
+                        </div>
                 </div>
             </div>
         </div>
     </div>
-
-
 </body>
 </html>
