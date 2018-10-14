@@ -1,6 +1,7 @@
 ﻿
 .stylish-input-group .input-group-addon {
     background: white !important;
+    padding-right:2vw;
 }
 
 .stylish-input-group .form-control {
@@ -12,4 +13,10 @@
 .stylish-input-group button {
     border: 0;
     background: transparent;
+}
+
+.stylish-input-group {
+    width: 100% !important;
+    /*float:right !important;
+*/
 }

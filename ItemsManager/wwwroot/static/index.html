@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
     <link rel="stylesheet" type="text/css" href="/css/checkboxStyle.css" />
     <link rel="stylesheet" type="text/css" href="/css/searchInputStyle.css" />
+    <link rel="stylesheet" type="text/css" href="/css/tableStyle.css" />
 
     <!-- FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
@@ -25,119 +26,168 @@
     <script src="/js/lib/bootstrap.min.js"></script>
     <link rel=stylesheet href="/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/vendor/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- TOASTR LIBRARY -->
     <link rel="stylesheet" href="/css/toastr.css" />
     <link rel="stylesheet" href="/css/toastr.min.css" />
     <script src="/js/lib/toastr.min.js"></script>
 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
     <!--<script src="/js/ChooseRecipe.js"></script>-->
     <script src="/js/Login.js"></script>
-
     <script src="/js/OnAddClick.js"></script>
     <script src="/js/DeleteElement.js"></script>
     <script src="/js/SaveArticlesByUser.js"></script>
     <script src="/js/SortTableByArticles.js"></script>
-
     <script src="/js/Filter.js"></script>
     <script src="/js/Header_SetUserName.js"></script>
+
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="topHeader">
 
-            <div class="centerContent topHeaderText">
-                <a id="homeHref" href="index.html">Home</a><a class="divider"> | </a>
-                <a class="headerUnderline" href="Register.html">Register</a><a class="divider">  |  </a>
-                <a class="headerUnderline" href="Login.html">Log in</a>
-                <a class="divider">  |  </a>
-                <a>Hello,</a>
-                <a id="header_userName"></a>
+    <!-- HEADER -->
+    <header class="py-2 bg-success">
+        <div class="container-fluid">
+            <div class="centerContent topHeaderText text-white">
+                <a class="h2 px-3 fl_left" href="index.html" id="header_home">Home</a>
+                <a class="h2 px-3 fl_right" href="#">Contact</a>
+                <a class="divider h2 fl_right">  |  </a>
+                <a class="h2 px-3 fl_right" href="#">About</a>
+                <a class="divider h2 fl_right">  |  </a>
+                <a class="h2 px-3 fl_right" href="Register.html">Register</a>
+                <a class="divider h2 fl_right">  |  </a>
+                <a class="h2 px-3 fl_right" href="Login.html">Log In</a>
             </div>
         </div>
-    </div>
-    <div class="mainContent">
-        <div class="centerContent">
+    </header>
 
-            <div class="logoPanel" id="logoHeader">
-                <img src="/images/fridge.png" width="150" height="140">
-                <a>Smart Fridge App.</a>
-            </div>
-            <div class="chooseRecipeDiv">
-                <button class="btn btn-primary" onclick="ChooseRecipe()">
-                    Choose recipe
-                </button>
-            </div>
-            <div class="foodTable">
-
-                <div class="input-group stylish-input-group">
-                    <input id="myInput" type="text" class="form-control" placeholder="Search">
-                    <span class="input-group-addon">
-                        <button type="submit">
-                            <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                    </span>
+    <div class="centerContent">
+        <div class="container" id="mainContainer">
+            <div class="row">
+                <div class="col-8">
+                    <div class="logoPanel" id="logoHeader">
+                        <img src="/images/fridge.png" width="150" height="140">
+                        <a>Smart Fridge App.</a>
+                    </div>
                 </div>
-                <br />
+                <div class="col-4">
+                    <div class="container" id="summaryContainer">
+                        <div class="row">
+                            Baza przepisow
+                        </div>
+                        <div class="row">
+                            Dodaj przepis
+                        </div>
+                        <div class="row">
+                            Moje konto
+                        </div>
+                        <div class="row">
+                            Ustawienia
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                <!--<input id="myInput" type="text" placeholder="Search..">-->
+            <div class="row">
 
-                <div class="foodTableContainer">
-                    <div class="foodTableHeader rounded">
-                        <div class="container">
+                <div class="col-lg-8" id="mainTableContainer">
 
-                            <div class="row">
-                                <div class="col">
-                                    Artykuł <span>
-                                        <i class="fa fa-fw fa-sort" onclick="ChangeSortState(); return false;"></i>
-                                    </span>
-                                </div>
-                                <div class="col">
-                                    Ilość <span>
-                                        <i class="fa fa-fw fa-sort"></i>
-                                    </span>
-                                </div>
-                                <div class="col">
-                                    Waga <span>
-                                        <i class="fa fa-fw fa-sort"></i>
-                                    </span>
-                                </div>
-                                <div class="col-lg-1">
-                                </div>
+                    <!-- SEARCH CONTAINER -->
+                    <div class="container" id="searchContainer">
+                        <div class="row p-2" id="searchInputDiv">
+                            <div class="input-group stylish-input-group">
+                                <input id="myInput" type="text" class="form-control" placeholder="Search">
+                                <span class="input-group-addon">
+                                    <button type="submit">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </button>
+                                </span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Dynamic table-->
+                    <!-- TABLE CONTAINER -->
 
-                    <div class="tableBody rounded">
-                        <div class="container" id="cont_tableBody">
+                    <div class="container">
+                        <div class="row">
+                            <div class="foodTableContainer">
 
+                                <!-- TABLE HEADER -->
+                                <div class="foodTableHeader bg-success text-white rounded">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-7 text-center">
+                                                <a class="h2">Artykuł </a><span>
+                                                    <i class="fa fa-fw fa-sort" onclick="ChangeSortState(); return false;"></i>
+                                                </span>
+                                            </div>
+                                            <div class="col-2 text-center">
+                                                <a class="h2"> Ilość </a>
+                                                <!--<span>
+                                                    <i class="fa fa-fw fa-sort"></i>
+                                                </span>-->
+                                            </div>
+                                            <div class="col-2 text-center">
+                                                <a class="h2"> Waga </a>
+                                                <!--<span>
+                                                    <i class="fa fa-fw fa-sort"></i>
+                                                </span>-->
+                                            </div>
+                                            <div class="col-lg-1 text-center">
+                                                <span class="glyphicon glyphicon-edit"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Dynamic table-->
+                                <div class="tableBody rounded">
+                                    <div class="container" id="cont_tableBody">
+
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                </div>
+                <div class="col-lg-4" id="mainMenuContainer">
+                    <div class="container">
+                        <div class="row">
+                            <a class="h2">Wybrane artykuly:</a>
+                        </div>
+                        <div class="row">
+                            <div id="selectedItemsList">
 
-                    <!-- Table trash -->
+                                <!-- skrypt z listenerem na checkboxy -->
+                                <!-- SELECTED ITEMS TABLE -->
+                                TABLE
 
-                    <div class="tableTrash">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col"></div>
-                                <div class="col"></div>
-                                <div class="col"></div>
-                                <div class="col-lg-1" id="trash_div">
-                                    <button class="btn btn-primary" onclick="OnDeleteClick()"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- CHOOSE RECIPE BUTTON -->
+                        <div class="row">
+                            <div class="chooseRecipeDiv">
+                                <button class="btn btn-primary" onclick="ChooseRecipe()">
+                                    Choose recipe
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <!-- Table trash -->
+                            <div class="tableTrash">
+                                <button class="btn btn-primary" onclick="OnDeleteClick()"><i class="fa fa-trash" aria-hidden="true"></i></button>
                             </div>
                         </div>
                     </div>
 
                     <!-- Input/Add item -->
-
                     <div class="addItemInput">
                         <div class="row myform">
                             <div class="col-md-12">
@@ -169,6 +219,16 @@
             </div>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="py-4 bg-success">
+        <div class="container">
+            <p class="m-0 text-center text-white footer-font">Copyright &copy; Smart Fridge App - 2018.</p>
+        </div>
+    </footer>
+
+
     <script src="/js/FillTableWithArticles.js"></script>
+
 </body>
 </html>

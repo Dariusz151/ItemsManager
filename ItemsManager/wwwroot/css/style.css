@@ -1,10 +1,10 @@
 ﻿html, body {
-    background-color: aliceblue !important;
     font-size: 100%;
     width: 100vw;
     height: 100vh;
     margin: 0;
-    background-color: aliceblue;
+    /*background-color: aliceblue;*/
+    background-color: white !important;
 }
 
 .container-fluid {
@@ -13,34 +13,30 @@
     height: auto;
 }
 
-.topHeader {
-    margin: 0 !important;
-    padding: 0 !important;
-    width: 100vw;
-    display: block;
-    background-color: aquamarine;
-    height: 5vh;
-}
 
 .centerContent {
-    width: 80vw;
+    width: 70vw;
     margin: auto;
+    background-color: #f2fff2 !important;
+    /*background-color:white;*/
+    /*border:1px #000 dashed;*/
 }
 
-.topHeaderText {
-    text-align: right;
-    color: green;
-    font-size: 1em;
-    margin: auto;
-    line-height: 5vh;
-    text-decoration: none;
-    color: #222222;
+.h2{
+    margin-top:.5rem !important;
 }
-a.headerUnderline{
-    text-decoration: underline !important;
+
+.fl_left{
+    float:left;
 }
+
+.fl_right{
+    float:right;
+}
+
 
 .logoPanel {
+    font-size:1.7em;
     padding-top: 4vh;
     padding-bottom: 4vh;
     margin-left: 0;
@@ -52,21 +48,59 @@ a.headerUnderline{
     font-family: 'Indie Flower', cursive;
 }
 
-.foodTable {
-    background-color: aliceblue;
-    width:80%;
-    margin-left:0;
-    font-size:120%;
+/*#mainTableContainer{
+    border:1px #000 solid;
+
 }
 
-.foodTableHeader{
-    border:1px #808080 solid;
-    background-color:blanchedalmond;
+#mainMenuContainer{
+    border:1px #000 solid;
+}
+
+.container {
+    border: 1px #000 solid;
+}
+
+.container-fluid {
+    border: 1px #000 solid;
+}*/
+
+#mainContainer {
+    /*border:1px #000 solid;*/
+    min-height: 90vh;
+    /*margin-left:4vw;
+    margin-right:4vw;*/
+    margin:auto;
+}
+
+#summaryContainer{
+    margin:0;
+    padding:0;
+    min-width:100%;
+    min-height:100%;
+}
+
+.foodTableContainer {
+    margin-top: 1vh;
+    width:100% !important;
+}
+
+.foodTableHeader {
+    padding-top:5px;
+    padding-bottom:5px;
+    border: 1px #808080 solid;
 }
 
 .tableBody {
-    border: 1px #808080 solid;
-    background-color: azure;
+    /*border: 1px #808080 solid;*/
+    /*background-color: azure;*/
+    background-color:lightcyan;
+}
+
+#myTable {
+    
+    font-family: 'Comic Sans MS', cursive;
+    font-size: 2em;
 }
 
 .addItemInput{
@@ -78,9 +112,6 @@ a.headerUnderline{
     float: left;
 }
 
-#trash_div p{
-    float: left;
-}
 
 .chooseRecipeDiv{
     float:right;
@@ -110,4 +141,35 @@ td, th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
+}
+
+
+
+.col_functions {
+    padding-top: 1% !important;
+    padding-left: 2% !important;
+    margin: 0 !important;
+}
+
+
+
+
+.footer-font{
+    font-size:1.4em;
+}
+
+
+
+header {
+    padding: 154px 1000px 100px;
+}
+
+@media (min-width: 992px) {
+    header {
+        padding: 156px 0 100px;
+    }
+}
+
+section {
+    padding: 150px 0;
 }
