@@ -13,7 +13,7 @@ function ChooseRecipe() {
         var number = value.substr("checkbox".length - value.length);
         selectedItems[index] = articlesTable[number].id;
     });
-    var selectedItems_names = [];
+
 
     selectedItems.forEach(function (value, index) {
         selectedItems_names[index] = articlesTable[articlesTable.findIndex(x => x.id === value)].articleName;

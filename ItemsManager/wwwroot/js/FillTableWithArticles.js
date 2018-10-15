@@ -29,7 +29,7 @@ function AddFridgeItemToTable(index, item) {
     //$("#row" + index + " .col_functions").html("<input class='form-check-input position-static' type='checkbox' id='checkbox" + index + "' value='option1' aria-label='aria'>");
 
     $("#row" + index).append("<td class='col-lg-1 text-center col_functions'></td>");
-    $("#row" + index + " .col_functions").html("<label class='customcheck'><input type='checkbox' autocomplete='off'><span class='checkmark'></span></label>");
+    $("#row" + index + " .col_functions").html("<label class='customcheck'><input type='checkbox' autocomplete='off' id='checkbox" + index + "' onchange='checkCheckboxes();'><span class='checkmark'></span></label>");
 
 
    // <label class="btn btn-danger">
