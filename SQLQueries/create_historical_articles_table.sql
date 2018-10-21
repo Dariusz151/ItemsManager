@@ -1,4 +1,4 @@
-CREATE TABLE [articles] (
+CREATE TABLE historical_articles (
     [id_article] int NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	[article_name] nvarchar(50) NOT NULL,
 	[quantity] int NULL,
@@ -10,6 +10,6 @@ CREATE TABLE [articles] (
 
 GO
 
-CREATE NONCLUSTERED INDEX IX_articles_article_name   
+CREATE NONCLUSTERED INDEX IX_hist_articles_article_name   
     ON [dbo].[articles](article_name);   
 GO

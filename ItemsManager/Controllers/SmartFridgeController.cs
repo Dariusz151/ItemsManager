@@ -48,6 +48,13 @@ namespace SmartFridge.Controllers
         [ProducesResponseType((int)HttpStatusCode.MethodNotAllowed)]
         public async Task<IActionResult> CreateAsync([FromBody] FridgeItem item)
         {
+
+            Console.WriteLine("fridgeItem1: " + item.CreatedAt);
+            Console.WriteLine("fridgeItem2: " + item.ArticleName);
+            Console.WriteLine("fridgeItem3: " + item.CategoryID);
+            Console.WriteLine("fridgeItem4: " + item.Quantity);
+            Console.WriteLine("fridgeItem5: " + item.Weight);
+
             if (item == null)
             {
                 Console.WriteLine("[HttpPost] Jestem w Item=Null, zwracam BadRequest");
@@ -73,6 +80,8 @@ namespace SmartFridge.Controllers
                 Console.WriteLine("[HttpPost] CategoryID NullOrEmpty");
                 return BadRequest();
             }
+            
+            item.CreatedAt = DateTime.Now;
 
             int createdId = await _repository.CreateAsync(item);
             Console.WriteLine("Controller, createdID: " + createdId);

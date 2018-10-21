@@ -8,7 +8,8 @@
     data.Quantity = $("#quantityInput").val();
     data.Weight = $("#weightInput").val();
     data.UserID = parseInt(userID);
-    data.CategoryID = 1;
+    data.CreatedAt = '2018-01-01 00:00:00'; //DEFAULT, Controller overrides with DateTime.Now
+    data.CategoryID = 1014;
     
     $.ajax({
         async: false,

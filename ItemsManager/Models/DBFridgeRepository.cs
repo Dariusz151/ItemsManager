@@ -14,7 +14,7 @@ namespace SmartFridge.Models
         private static IHostingEnvironment _environment;
         private readonly string _selectAllQuery = "SELECT [id_article], [article_name], [quantity], [weight], [id_user], [id_category] FROM [dbo].[articles]";
         private readonly string _selectByIdQuery = "SELECT [id_article], [article_name], [quantity], [weight], [id_user], [id_category] FROM [dbo].[articles] WHERE id_user=@id";
-        private readonly string _insertQuery = "INSERT INTO [dbo].[articles] ([article_name], [quantity], [weight], [id_user], [id_category]) OUTPUT INSERTED.id_article VALUES(@param1,@param2,@param3,@param4,@param5)";
+        private readonly string _insertQuery = "INSERT INTO [dbo].[articles] ([article_name], [quantity], [weight], [createdAt], [id_user], [id_category]) OUTPUT INSERTED.id_article VALUES(@param1,@param2,@param3,@param4,@param5,@param6)";
 
         private readonly string _deleteQuery = "DELETE FROM [dbo].[articles] WHERE [id_article] = @id";
         //private readonly string _updateQuery = "UPDATE Articles SET [ArticleName] = @param1, [Quantity] = @param2, [Weight] = @param3 WHERE ID=@id";
@@ -131,6 +131,12 @@ namespace SmartFridge.Models
 
         public async Task<int> CreateAsync(FridgeItem fridgeItem)
         {
+            Console.WriteLine("fridgeItem1: " + fridgeItem.CreatedAt);
+            Console.WriteLine("fridgeItem2: " + fridgeItem.ArticleName);
+            Console.WriteLine("fridgeItem3: " + fridgeItem.CategoryID);
+            Console.WriteLine("fridgeItem4: " + fridgeItem.Quantity);
+            Console.WriteLine("fridgeItem5: " + fridgeItem.Weight);
+
             int createdId = 0;
             if (_environment.IsDevelopment())
                 Console.WriteLine("(CreateAsync) in DBFridgeRepository ");
@@ -144,8 +150,9 @@ namespace SmartFridge.Models
                 cmd.Parameters.AddWithValue("@param1", fridgeItem.ArticleName);
                 cmd.Parameters.AddWithValue("@param2", fridgeItem.Quantity);
                 cmd.Parameters.AddWithValue("@param3", fridgeItem.Weight);
-                cmd.Parameters.AddWithValue("@param4", fridgeItem.UserID);
-                cmd.Parameters.AddWithValue("@param5", fridgeItem.CategoryID);
+                cmd.Parameters.AddWithValue("@param4", fridgeItem.CreatedAt);
+                cmd.Parameters.AddWithValue("@param5", fridgeItem.UserID);
+                cmd.Parameters.AddWithValue("@param6", fridgeItem.CategoryID);
                 try
                 {
                     connection.Open();
