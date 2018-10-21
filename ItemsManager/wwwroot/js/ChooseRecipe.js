@@ -5,21 +5,33 @@ $(document).ready(function () {
 });
 
 function ChooseRecipe() {
-    var selectedItems = [];
-    var idSelector = function () { return this.id; };
-    var checked_checkboxes = $(":checkbox:checked").map(idSelector).get();
-
-    checked_checkboxes.forEach(function (value, index) {
-        var number = value.substr("checkbox".length - value.length);
-        selectedItems[index] = articlesTable[number].id;
-    });
-
-
-    selectedItems.forEach(function (value, index) {
-        selectedItems_names[index] = articlesTable[articlesTable.findIndex(x => x.id === value)].articleName;
-    });
-
     var dinnerNumbers = WhichRecipe(selectedItems_names, recipes);
+
+    if (dinnerNumbers.length != 0) {
+        $('#recipeModal').modal('show');
+
+        $("#modalHeader").text(dinnerNumbers[0]);
+        $("#modalContent").text(recipes[dinnerNumbers[0]].recipe);
+
+        // TODO:
+
+        //$(".recipeImg").html("<img src='/recipes/img/kurczak_slodko_kwasny.jpg' height='280px' width='400px' />");
+    }
+    else {
+        toastr.error('There are no recipes with this articles', 'Error');
+    }
+}
+
+function WhichRecipe(selectedItems_names, recipes) {
+    var dinnerNumbers = [];
+    var name = "";
+    
+    for (var k = 1; k <= Object.keys(recipes).length; k++) {
+        name = "dinner_" + k;
+        if (ContainsAll(selectedItems_names, recipes[name].components))
+            dinnerNumbers.push(name);
+    }
+    return dinnerNumbers;
 }
 
 function ContainsAll(array1, array2) {
@@ -27,22 +39,9 @@ function ContainsAll(array1, array2) {
 }
 
 function GetAllRecipes() {
-
     $.getJSON("/recipes/dinners/dinners.json", function (json) {
-        console.log(json);
+        //console.log("Recipes " + json);
         recipes = json;
     });
-}
-
-function WhichRecipe(selectedItems_names, recipes) {
-    var dinnerNumbers = [];
-    var name = "";
-    console.log("dlugos " + Object.keys(recipes).length);
-    for (var k = 1; k <= Object.keys(recipes).length; k++) {
-        name = "dinner_" + k;
-        if (ContainsAll(selectedItems_names, recipes[name].components))
-            dinnerNumbers.push(name);
-        console.log(recipes[name].components);
-    }
-    return dinnerNumbers;
+    setTimeout(function () { $("#numberOfRecipes").text(Object.keys(recipes).length); }, 200);
 }

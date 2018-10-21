@@ -26,7 +26,7 @@ function EditList(selectedItems_names) {
 
     $("#selectedItemsList").append("<ul></ul>");
     selectedItems_names.forEach(function (item) {
-        $("ul").append("<h2>" + item + "</h2>")
+        $("ul").append("<li><h2>" + item + "</li></h2>")
     });
     
 }

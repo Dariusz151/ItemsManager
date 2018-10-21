@@ -19,6 +19,7 @@
         data: JSON.stringify(data),
         success: function (item, textStatus, jqXHR) {
             console.log('added');
+            location.reload();
         },
         error: function (jqXHR, exception) {
             console.log("error: " + jqXHR.status);
