@@ -22,6 +22,10 @@
     <script src="/js/lib/jquery.min.js"></script>
     <script src="/js/lib/jquery.textfill.js"></script>
 
+    <!-- POPPER.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+
+
     <!-- BOOTSTRAP LIBRARY -->
     <script src="/js/lib/bootstrap.min.js"></script>
     <link rel=stylesheet href="/css/bootstrap.min.css">
@@ -30,6 +34,7 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
 
     <!-- TOASTR LIBRARY -->
     <link rel="stylesheet" href="/css/toastr.css" />
@@ -96,36 +101,59 @@
             </div>
 
             <div class="row">
-
-                <div class="col-lg-8" id="mainTableContainer">
-
-
+                <div class="row">
+                    <!--<div class="col-lg-8" id="mainTableContainer">-->
                     <!-- Input/Add item -->
-                    <div class="addItemInput">
-                        <div class="row myform">
-                            <div class="col-md-8">
-                                <form name="myform" role="form" validate>
-                                    <div class="form-inline">
-                                        <div class="form-group" id="articleNameDiv">
-                                            <input placeholder="Article name..." required type="text" class="form-control input-lg" id="articleNameInput" />
-                                        </div>
-                                        <div class="form-group" id="quantityDiv">
-                                            <input placeholder="Quantity..." type="number" class="form-control input-lg" id="quantityInput" />
-                                        </div>
-                                        <div class="form-group" id="weightDiv">
-                                            <input placeholder="Weight..." type="number" class="form-control input-lg" id="weightInput" />
-                                        </div>
-                                    </div>
-                                </form>
+                    <!--<div class="addItemInput">
+        <div class="row myform">-->
+                    <!--<div class="col-md-7">
+        <form name="myform" role="form" validate>
 
+        </form>
+
+    </div>-->
+                    <!--<div class="col-md-2">-->
+                    <!-- CATEGORIES ID DROPDOWN -->
+                    <form class="inline">
+
+                        <div class="form-group">
+                            <div class="form-group" id="articleNameDiv">
+                                <input placeholder="Article name..." required type="text" class="form-control input-lg" id="articleNameInput" />
                             </div>
-                            <div class="col-md-4">
-                                <div id="addBtn">
-                                    <button class="btn icon-btn btn-success" onclick="OnAddClick()"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>Add</button>
-                                </div>
+                            <div class="form-group" id="quantityDiv">
+                                <input placeholder="Quantity..." type="number" class="form-control input-lg" id="quantityInput" />
+                            </div>
+                            <div class="form-group" id="weightDiv">
+                                <input placeholder="Weight..." type="number" class="form-control input-lg" id="weightInput" />
                             </div>
                         </div>
-                    </div>
+
+                        <div class="form-group">
+                            <select class="custom-select" required>
+                                <option value="">Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                            <div class="invalid-feedback">Example invalid custom select feedback</div>
+                        </div>
+
+
+                        <div class="col-md-2">
+                            <div id="addBtn">
+                                <button class="btn icon-btn btn-success" onclick="OnAddClick()"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>Add</button>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+
+
+                            <!--</div>-->
+                            
+                        <!--</div>
+                    </div>-->
 
 
                     <!-- SEARCH CONTAINER -->
@@ -221,7 +249,7 @@
                                         <div class="modal fade" id="recipeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered">
                                                 <div class="modal-content">
-                                                    
+
                                                     <div class="modal-header modal-header-success">
                                                         <h3 id="modalHeader"></h3>
                                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
