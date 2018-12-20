@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Hosting;
 using ItemsManager.Models.Interfaces;
 using System.Text;
+using ItemsManager.Models.Helpers;
 
 namespace ItemsManager.Models.Repositories
 {
@@ -142,20 +143,13 @@ namespace ItemsManager.Models.Repositories
             Console.WriteLine(recipe.Ingredients);
             Console.WriteLine(recipe.Name);
 
-            StringBuilder ingredientsXML = new StringBuilder();
-           
-            foreach (var el in recipe.Ingredients)
-            {
-                ingredientsXML.Append("<ingredient>");
-                ingredientsXML.Append("<name>");
-                ingredientsXML.Append(el.Name.ToString());
-                ingredientsXML.Append("</name>");
-                ingredientsXML.Append("<weight>");
-                ingredientsXML.Append(el.Weight.ToString());
-                ingredientsXML.Append("</weight>");
-                ingredientsXML.Append("</ingredient>");
-            }
+            var ingredientsXML = recipe.Ingredients.XmlSerializeToString();
+            Console.WriteLine(ingredientsXML);
 
+            var ingredientsString = ingredientsXML.XmlDeserializeFromString<List<Ingredient>>();
+            Console.WriteLine(ingredientsString);
+
+            
             using (SqlConnection connection = new SqlConnection(_connectionString))
             using (SqlCommand cmd = new SqlCommand())
             {
