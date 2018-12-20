@@ -13,9 +13,10 @@ function SendLoginForm() {
     var login_data = {};
     login_data.Login = login;
     login_data.Password = pswd;
-    
+    console.log(login_data);
+
     $.ajax({
-        url: "https://localhost:44378/api/Login",
+        url: "https://localhost:44378/api/Login", //44378
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify(login_data),
