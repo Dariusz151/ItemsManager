@@ -1,4 +1,6 @@
 ﻿using System.IO;
+using ItemsManager.Models.Interfaces;
+using ItemsManager.Models.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -26,6 +28,7 @@ namespace ItemsManager
             //services.AddScoped<ISmartFridgeRepository, InMemoryFridgeRepository>();
             services.AddScoped<ISmartFridgeRepository, DBFridgeRepository>();
             services.AddScoped<IUsersRepository, DBUsersRepository>();
+            services.AddScoped<IRecipesRepository, RecipesRepository>();
             services.AddMvc();
             services.AddSingleton<IConfiguration>(Configuration);
 

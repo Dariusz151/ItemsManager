@@ -1,6 +1,6 @@
-CREATE TABLE [recipes] (
-    [recipe_id] int NOT NULL IDENTITY(1,1) PRIMARY KEY,
-	[recipe_name] nvarchar(50) NOT NULL,
+CREATE TABLE [article] (
+    [article_id] int NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	[article_name] nvarchar(50) NOT NULL,
 	[quantity] int NULL,
 	[weight] int NULL,
 	[createdAt] datetime not null,
