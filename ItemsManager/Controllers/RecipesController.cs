@@ -36,7 +36,7 @@ namespace ItemsManager.Controllers
         //[ProducesResponseType((int)HttpStatusCode.NotFound)]
         //public async Task<IActionResult> GetAsync(int id)
         //{
-           
+
         //    //var list = await _repository.GetAsync(id);
 
         //    //if (list == null)
@@ -44,27 +44,40 @@ namespace ItemsManager.Controllers
         //    //return Json(list);
         //}
 
-        //[HttpPost]
-        //[ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(int))]
-        //[ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        //[ProducesResponseType((int)HttpStatusCode.MethodNotAllowed)]
-        //public async Task<IActionResult> CreateAsync([FromBody] Recipe item)
-        //{
+        [HttpPost]
+        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(int))]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType((int)HttpStatusCode.MethodNotAllowed)]
+        public async Task<IActionResult> CreateAsync([FromBody] Recipe item)
+        {
+            Console.WriteLine("item:");
+
+            Console.WriteLine(item.Description);
+            Console.WriteLine(item.Ingredients);
+            Console.WriteLine(item.Name);
+
+            if (string.IsNullOrEmpty(item.Name.ToString()))
+            {
+                Console.WriteLine("[HttpPost] Recipe name NullOrEmpty");
+                return BadRequest();
+            }
+            if (string.IsNullOrEmpty(item.Ingredients.ToString()))
+            {
+                Console.WriteLine("[HttpPost] Recipe ingredients NullOrEmpty");
+                return BadRequest();
+            }
+            if (string.IsNullOrEmpty(item.Description.ToString()))
+            {
+                Console.WriteLine("[HttpPost] Recipe description NullOrEmpty");
+                return BadRequest();
+            }
             
-        //    //if (string.IsNullOrEmpty(item.CategoryID.ToString()))
-        //    //{
-        //    //    Console.WriteLine("[HttpPost] CategoryID NullOrEmpty");
-        //    //    return BadRequest();
-        //    //}
+            int createdId = await _repository.CreateAsync(item);
 
-        //    //item.CreatedAt = DateTime.Now;
-
-        //    //int createdId = await _repository.CreateAsync(item);
-           
-        //    //if (createdId > 0)
-        //    //    return Json(createdId);
-        //    //return BadRequest();
-        //}
+            if (createdId > 0)
+                return Json(createdId);
+            return BadRequest();
+        }
 
         //[HttpDelete("{id}")]
         //[ProducesResponseType((int)HttpStatusCode.NoContent)]
@@ -85,7 +98,7 @@ namespace ItemsManager.Controllers
         //[ProducesResponseType((int)HttpStatusCode.MethodNotAllowed)]
         //public async Task<IActionResult> UpdateAsync([FromBody] FridgeItem item)
         //{
-            
+
         //    //if (string.IsNullOrEmpty(item.Weight.ToString()))
         //    //{
         //    //    Console.WriteLine("[HttpPut] Weight NullOrEmpty");

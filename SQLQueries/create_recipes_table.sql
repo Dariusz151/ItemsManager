@@ -6,7 +6,7 @@ CREATE TABLE [recipes] (
 	[recipe_name] nvarchar(50) NOT NULL,
 	[ingredients] nvarchar(1000) NOT NULL,
 	[description] nvarchar(max) NOT NULL,
-	[createdAt] datetime not null,
+	[createdAt] DATETIME2(3) CONSTRAINT DF_recipes_Created DEFAULT (SYSDATETIME())
 );
 
 GO

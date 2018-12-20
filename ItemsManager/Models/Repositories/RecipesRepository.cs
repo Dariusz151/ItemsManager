@@ -6,6 +6,7 @@ using System.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Hosting;
 using ItemsManager.Models.Interfaces;
+using System.Text;
 
 namespace ItemsManager.Models.Repositories
 {
@@ -15,7 +16,7 @@ namespace ItemsManager.Models.Repositories
         private static IHostingEnvironment _environment;
         private readonly string _selectAllQuery = "SELECT [recipe_id], [recipe_name], [createdAt] FROM [dbo].[recipes]";
         private readonly string _selectByIdQuery = "SELECT [recipe_name], [ingredients], [description], [createdAt] FROM [dbo].[recipes] WHERE recipe_id=@id";
-        private readonly string _insertQuery = "INSERT INTO [dbo].[recipes] ([recipe_name], [ingredients], [description], [createdAt]) OUTPUT INSERTED.recipe_id VALUES(@param1,@param2,@param3,@param4)";
+        private readonly string _insertQuery = "INSERT INTO [dbo].[recipes] ([recipe_name], [ingredients], [description]) OUTPUT INSERTED.recipe_id VALUES(@param1,@param2,@param3)";
         private readonly string _deleteQuery = "DELETE FROM [dbo].[recipes] WHERE [recipe_id] = @id";
         //private readonly string _updateQuery = "UPDATE Articles SET [ArticleName] = @param1, [Quantity] = @param2, [Weight] = @param3 WHERE ID=@id";
 
@@ -131,40 +132,54 @@ namespace ItemsManager.Models.Repositories
         //    return list;
         //}
 
-        //public async Task<int> CreateAsync(Recipe fridgeItem)
-        //{
-           
-        //    int createdId = 0;
-        //    if (_environment.IsDevelopment())
-        //        Console.WriteLine("(CreateAsync) in RecipesRepository ");
+        public async Task<int> CreateAsync(Recipe recipe)
+        {
+            int createdId = 0;
+            if (_environment.IsDevelopment())
+                Console.WriteLine("(CreateAsync) in RecipesRepository ");
 
-        //    using (SqlConnection connection = new SqlConnection(_connectionString))
-        //    using (SqlCommand cmd = new SqlCommand())
-        //    {
-        //        cmd.Connection = connection;
-        //        cmd.CommandType = CommandType.Text;
-        //        cmd.CommandText = _insertQuery;
-        //        //cmd.Parameters.AddWithValue("@param1", fridgeItem.ArticleName);
-        //        //cmd.Parameters.AddWithValue("@param2", fridgeItem.Quantity);
-        //        //cmd.Parameters.AddWithValue("@param3", fridgeItem.Weight);
-        //        //cmd.Parameters.AddWithValue("@param4", fridgeItem.CreatedAt);
-        //        //cmd.Parameters.AddWithValue("@param5", fridgeItem.UserID);
-        //        //cmd.Parameters.AddWithValue("@param6", fridgeItem.CategoryID);
-        //        try
-        //        {
-        //            connection.Open();
-        //            createdId = Convert.ToInt32(await cmd.ExecuteScalarAsync());
-        //            Console.WriteLine("CreatedID: " + createdId);
-        //        }
-        //        catch (Exception e)
-        //        {
-        //            Console.WriteLine(e.Message.ToString(), "Error Message");
-        //        }
-        //        if (connection.State == ConnectionState.Open)
-        //            connection.Close();
-        //    }
-        //    return createdId;
-        //}
+            Console.WriteLine(recipe.Description);
+            Console.WriteLine(recipe.Ingredients);
+            Console.WriteLine(recipe.Name);
+
+            StringBuilder ingredientsXML = new StringBuilder();
+           
+            foreach (var el in recipe.Ingredients)
+            {
+                ingredientsXML.Append("<ingredient>");
+                ingredientsXML.Append("<name>");
+                ingredientsXML.Append(el.Name.ToString());
+                ingredientsXML.Append("</name>");
+                ingredientsXML.Append("<weight>");
+                ingredientsXML.Append(el.Weight.ToString());
+                ingredientsXML.Append("</weight>");
+                ingredientsXML.Append("</ingredient>");
+            }
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                cmd.Connection = connection;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = _insertQuery;
+                cmd.Parameters.AddWithValue("@param1", recipe.Name);
+                cmd.Parameters.AddWithValue("@param2", ingredientsXML.ToString());
+                cmd.Parameters.AddWithValue("@param3", recipe.Description);
+                try
+                {
+                    connection.Open();
+                    createdId = Convert.ToInt32(await cmd.ExecuteScalarAsync());
+                    Console.WriteLine("CreatedID: " + createdId);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message.ToString(), "Error Message");
+                }
+                if (connection.State == ConnectionState.Open)
+                    connection.Close();
+            }
+            return createdId;
+        }
 
         //public async Task<bool> DeleteAsync(int id)
         //{

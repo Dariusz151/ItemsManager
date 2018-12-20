@@ -9,8 +9,8 @@ namespace ItemsManager.Models.Interfaces
     {
         Task<IEnumerable<Recipe>> GetAllAsync();
         //Task<IEnumerable<Recipe>> GetAsync(int id);
-        //Task<int> CreateAsync(Recipe fridgeItem);
+        Task<int> CreateAsync(Recipe recipe);
         //Task<bool> DeleteAsync(int id);
-        //Task<bool> UpdateAsync(FridgeItem item);
+        //Task<bool> UpdateAsync(Recipe recipe);
     }
 }
