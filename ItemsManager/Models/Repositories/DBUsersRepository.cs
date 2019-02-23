@@ -6,44 +6,41 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Text;
-
-
-
+using Serilog;
+using Microsoft.Extensions.Logging;
 
 namespace SmartFridge.Models
 {
-    /*
-     * 
-     * 
-     *     //CASTOWANIE BYTE NA VARBINARY OGARNAC@@@@@
-     *     LOGIN CONTROLLER
-     * 
-     * 
-     * */
-
     public class DBUsersRepository : IUsersRepository
     {
-        private static string _connectionString;    // "Server=DESKTOP-U1KKR9S\\SQLEXPRESS;Database=FridgeDB;Trusted_Connection=True;";
+        private readonly ILogger<DBUsersRepository> _log;
+        private static string _connectionString; 
         private static IHostingEnvironment _environment;
         private readonly string _insertQuery = "INSERT INTO [dbo].[registered_users] ([login], [first_name], [salt], [password], [email], [phone], [id_role]) OUTPUT INSERTED.id_user VALUES(@login, @fname, CAST(@salt as VARBINARY(50)), CAST(@pass as VARBINARY(MAX)), @email, @phone, @id_role)";
-
         private readonly string _selectQuery = "SELECT [id_user], [salt], [password] FROM [dbo].[registered_users] WHERE [login] = @login";
 
-        public DBUsersRepository(IConfiguration configuration, IHostingEnvironment environment)
+        public DBUsersRepository(IConfiguration configuration, IHostingEnvironment environment, ILogger<DBUsersRepository> log)
         {
             _connectionString = configuration["ConnectionStrings:DefaultConnection"];
             _environment = environment;
+            _log = log;
         }
         
         public async Task<int> RegisterAsync(UserDTO user)
         {
             int createdId = 0;
-
             var salt = HashHelper.CreateSalt(8);
             var hashedPassword = HashHelper.GenerateSaltedHash(Encoding.UTF8.GetBytes(user.Password), salt);
-            Console.WriteLine("Register, Salt: " + salt);
-            Console.WriteLine("Register, pswd: " + hashedPassword);
-            
+           
+            if (_environment.IsDevelopment())
+            {
+                Console.WriteLine("(RegisterAsync) in DBUsersRepos");
+            }
+            if (_environment.IsProduction())
+            {
+                _log.LogInformation("(RegisterAsync) in DBUsersRepos");
+            }
+
             using (SqlConnection connection = new SqlConnection(_connectionString))
             using (SqlCommand cmd = new SqlCommand())
             {
@@ -71,15 +68,24 @@ namespace SmartFridge.Models
                 if (connection.State == ConnectionState.Open)
                     connection.Close();
             }
-
             return createdId;
         }
 
         public async Task<int> LoginAsync(UserDTO user)
         {
             int userID = 0;
+            int userIDFromDB = 0;
             byte[] salt;
             byte[] hashedPass;
+
+            if (_environment.IsDevelopment())
+            {
+                Console.WriteLine("(LoginAsync) in DBUsersRepos");
+            }
+            if (_environment.IsProduction())
+            {
+                _log.LogInformation("(LoginAsync) in DBUsersRepos");
+            }
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             using (SqlCommand cmd = new SqlCommand())
@@ -93,20 +99,15 @@ namespace SmartFridge.Models
                     connection.Open();
                     using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
                     {
-                        Console.WriteLine("Count: " + reader.FieldCount);
                         if (reader.HasRows)
                         {
                             reader.Read();
-                            userID = (int)reader["id_user"];
+                            userIDFromDB = (int)reader["id_user"];
                             salt = (byte[])reader["salt"];
                             hashedPass = (byte[])reader["password"];
-                            Console.WriteLine("Salt " + salt);
-                            Console.WriteLine("hashedPass: " + hashedPass);
                             var hashEnteredPassword = HashHelper.GenerateSaltedHash(Encoding.UTF8.GetBytes(user.Password), salt);
-                            Console.WriteLine("Poprawne haslo: " + Convert.ToBase64String(hashedPass));
-                            Console.WriteLine("Wpisane haslo: " + Convert.ToBase64String(hashEnteredPassword));
                             if (hashEnteredPassword.SequenceEqual(hashedPass))
-                                return userID;
+                                userID = userIDFromDB;
                         }
                         else
                         {
@@ -122,8 +123,7 @@ namespace SmartFridge.Models
                 if (connection.State == ConnectionState.Open)
                     connection.Close();
             }
-
-            Console.WriteLine("IsSucces from repo: " + userID);
+            
             return userID;
         }
     }

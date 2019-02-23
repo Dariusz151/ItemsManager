@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using ItemsManager.Domain;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace SmartFridge.Models
@@ -9,6 +10,5 @@ namespace SmartFridge.Models
         Task<IEnumerable<FridgeItem>> GetAsync(int id);
         Task<int> CreateAsync(FridgeItem fridgeItem);
         Task<bool> DeleteAsync(int id);
-        //Task<bool> UpdateAsync(FridgeItem item);
     }
 }

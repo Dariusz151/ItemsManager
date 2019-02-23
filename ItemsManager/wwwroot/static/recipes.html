@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-
+    <script src="/js/config.url_settings.js"></script>
     <meta charset="utf-8" />
     <title>Smart Fridge App</title>
 
@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="/css/checkboxStyle.css" />
     <link rel="stylesheet" type="text/css" href="/css/searchInputStyle.css" />
     <link rel="stylesheet" type="text/css" href="/css/tableStyle.css" />
+    <link rel="stylesheet" type="text/css" href="/css/recipes.css" />
 
     <!-- FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
@@ -25,7 +26,6 @@
     <!-- POPPER.JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 
-
     <!-- BOOTSTRAP LIBRARY -->
     <script src="/js/lib/bootstrap.min.js"></script>
     <link rel=stylesheet href="/css/bootstrap.min.css">
@@ -35,27 +35,23 @@
     <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-
     <!-- TOASTR LIBRARY -->
     <link rel="stylesheet" href="/css/toastr.css" />
     <link rel="stylesheet" href="/css/toastr.min.css" />
     <script src="/js/lib/toastr.min.js"></script>
 
-    <!--<script src="/js/ChooseRecipe.js"></script>-->
-    <!--<script src="/js/Login.js"></script>-->
-    <!--<script src="/js/OnAddClick.js"></script>-->
-    <!--<script src="/js/DeleteElement.js"></script>-->
-    <!--<script src="/js/SaveArticlesByUser.js"></script>-->
-    <!--<script src="/js/SortTableByArticles.js"></script>-->
-    <!--<script src="/js/Filter.js"></script>-->
-    <script src="/js/Header_SetUserName.js"></script>
-    <!--<script src="/js/SelectedArts.js"></script>-->
+    <!-- CUSTOM SCRIPTS -->
+    <script src="/js/util.loader.js"></script>
+    <script src="/js/recipes.send_recipe.js"></script>
+    <script src="/js/util.set_header.js"></script>
+    <script src="/js/util.filter_table.js"></script>
+    <script src="/js/util.set_header.js"></script>
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-
 </head>
 
 <body>
+    <div id="preloader"></div>
 
     <!-- HEADER -->
     <header class="py-2 bg-success">
@@ -64,11 +60,13 @@
                 <a class="h2 px-3 fl_left" href="index.html" id="header_home">Home</a>
                 <a class="h2 px-3 fl_right" href="#">Contact</a>
                 <a class="divider h2 fl_right">  |  </a>
-                <a class="h2 px-3 fl_right" href="#">About</a>
+                <a class="h2 px-3 fl_right" href="about.html">About</a>
                 <a class="divider h2 fl_right">  |  </a>
                 <a class="h2 px-3 fl_right" href="Register.html">Register</a>
                 <a class="divider h2 fl_right">  |  </a>
-                <a class="h2 px-3 fl_right" href="Login.html">Log In</a>
+                <a class="h2 px-3 fl_right" href="Login.html">Log in</a>
+                <a class="divider h2 fl_right">  |  </a>
+                <div class="userName"></div>
             </div>
         </div>
     </header>
@@ -77,7 +75,7 @@
         <div class="container" id="mainContainer">
             <div class="row">
                 <div class="col-8">
-                    <div class="logoPanel" id="logoHeader">
+                    <div class="logoPanel" id="logoHeader" onclick="location.href='/static';">
                         <img src="/images/fridge.png" width="150" height="140">
                         <a>Smart Fridge App.</a>
                     </div>
@@ -98,35 +96,57 @@
                                 <div class="modal-content">
 
                                     <div class="modal-header">
-                                        <h4 class="modal-title text-center">Add new article</h4>
+                                        <h3 class="modal-title text-center">Add new recipe</h3>
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     </div>
                                     <div class="modal-body">
 
-                                        <!-- TODO : POPRAWIC WYGLAD FORMULARZA-->
-                                        <!--<form class="inline">
+                                        <div class="container" id="recipesModalDiv">
 
-                                            <div class="form-group">
-                                                <div class="form-group" id="articleNameDiv">
-                                                    <input placeholder="Article name..." required type="text" class="form-control input-lg" id="articleNameInput" />
+                                            <form role="form" class="form-horizontal">
+                                                <div class="form-group">
+                                                    <label for="RecipesModalName">Name</label>
+                                                    <input type="text" class="form-control" id="RecipesModalName" placeholder="Enter recipe name...">
                                                 </div>
-                                                <div class="form-group" id="quantityDiv">
-                                                    <input placeholder="Quantity..." type="number" class="form-control input-lg" id="quantityInput" />
+                                                <br />
+                                                <hr />
+                                                <div class="form-group">
+                                                    <label for="RecipesModalName">Ingredients</label>
                                                 </div>
-                                                <div class="form-group" id="weightDiv">
-                                                    <input placeholder="Weight..." type="number" class="form-control input-lg" id="weightInput" />
+                                                <div class="RecipesModalDynamicInputs">
+                                                    <div class="form-group">
+                                                        <div class="col-sm-6">
+                                                            <input type="text" class="form-control" placeholder="Ingredient">
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <input type="number" class="form-control" placeholder="Weight">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-sm-6"><input type="text" class="form-control" placeholder="Ingredient"></div>
+                                                        <div class="col-sm-6"><input type="number" class="form-control" placeholder="Weight"></div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div id="addBtn">
-                                                    <button class="btn icon-btn btn-success" onclick="OnAddClick()"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>Add</button>
+                                                <div class="glyphis">
+                                                    <span class="text-center clickable" onclick="RecipesModalAddNewInputs();"><i class="glyphicon glyphicon-plus"></i></span>
+                                                    <span class="text-center clickable" onclick="RecipesModalDeleteNewInputs();"><i class="glyphicon glyphicon-minus"></i></span>
                                                 </div>
-                                            </div>
-                                        </form>-->
-
+                                                <br />
+                                                <hr />
+                                                <div class="form-group">
+                                                    <label for="RecipesModalDescription">Description</label>
+                                                    <textarea class="form-control" id="RecipesModalDescription" rows="6"></textarea>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col">
+                                                        <button type="submit" class="btn btn-info pull-right" onclick="SendRecipe(); return false;"><h3>Submit</h3></button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal"><h3>Close</h3></button>
                                     </div>
                                 </div>
                             </div>
@@ -159,22 +179,13 @@
                             <div class="foodTableHeader bg-success text-white rounded">
                                 <div class="container">
                                     <div class="row">
-                                        <div class="col-7 text-center">
+                                        <div class="col-8 text-center">
                                             <a class="h2">Recipe </a><span>
                                                 <i class="fa fa-fw fa-sort" onclick="ChangeSortState(); return false;"></i>
                                             </span>
                                         </div>
-                                        <div class="col-2 text-center">
-                                            <a class="h2"> Name </a>
-                                            <!--<span>
-                                                <i class="fa fa-fw fa-sort"></i>
-                                            </span>-->
-                                        </div>
-                                        <div class="col-2 text-center">
+                                        <div class="col-3 text-center">
                                             <a class="h2"> Date </a>
-                                            <!--<span>
-                                                <i class="fa fa-fw fa-sort"></i>
-                                            </span>-->
                                         </div>
                                         <div class="col-lg-1 text-center">
                                             <span class="glyphicon glyphicon-edit"></span>
@@ -198,18 +209,12 @@
 
     <!-- Footer -->
     <footer class="py-4 bg-success">
-        <div class="container">
+        <div class="container container_footer">
             <p class="m-0 text-center text-white footer-font">
-                Copyright &copy; Smart Fridge App - 2018.
-                <a class="col-12"></a>
-                <a href="https://www.facebook.com/SmartFridge"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
-                <a href="https://plus.google.com/SmartFridge"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
-                <a href="mailto:SmartFridge@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+                &reg; Smart Fridge App - 2019.
             </p>
         </div>
     </footer>
-
-    <script src="/js/FillTableWithArticles.js"></script>
-
+    <script src="/js/recipes.fill_table.js"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-
+    <script src="/js/config.url_settings.js"></script>
     <meta charset="utf-8" />
     <title>Smart Fridge App</title>
 
@@ -13,6 +13,8 @@
     <link rel="stylesheet" type="text/css" href="/css/checkboxStyle.css" />
     <link rel="stylesheet" type="text/css" href="/css/searchInputStyle.css" />
     <link rel="stylesheet" type="text/css" href="/css/tableStyle.css" />
+    <link rel="stylesheet" type="text/css" href="/css/side_menu.css" />
+    <link rel="stylesheet" type="text/css" href="/css/under_table.css" />
 
     <!-- FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
@@ -25,7 +27,6 @@
     <!-- POPPER.JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 
-
     <!-- BOOTSTRAP LIBRARY -->
     <script src="/js/lib/bootstrap.min.js"></script>
     <link rel=stylesheet href="/css/bootstrap.min.css">
@@ -35,27 +36,31 @@
     <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-
     <!-- TOASTR LIBRARY -->
     <link rel="stylesheet" href="/css/toastr.css" />
     <link rel="stylesheet" href="/css/toastr.min.css" />
     <script src="/js/lib/toastr.min.js"></script>
 
-    <script src="/js/ChooseRecipe.js"></script>
-    <!--<script src="/js/Login.js"></script>-->
-    <script src="/js/OnArticleAddClick.js"></script>
-    <script src="/js/DeleteElement.js"></script>
-    <script src="/js/SaveArticlesByUser.js"></script>
-    <script src="/js/SortTableByArticles.js"></script>
-    <script src="/js/Filter.js"></script>
-    <script src="/js/Header_SetUserName.js"></script>
-    <script src="/js/SelectedArts.js"></script>
+    <!-- CUSTOM SCRIPTS -->
+    <script src="/js/util.loader.js"></script>
+    <script src="/js/util.set_header.js"></script>
+    <script src="/js/util.filter_table.js"></script>
+
+    <script src="/js/articles.sort_table.js"></script>
+    <script src="/js/articles.on_add_click.js"></script>
+    <script src="/js/articles.save_by_user.js"></script>
+    <script src="/js/articles.selected_articles.js"></script>
+
+    <script src="/js/delete.delete_element.js"></script>
+
+    <script src="/js/recipes.choose_recipe.js"></script>
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
 </head>
 
 <body>
+    <div id="preloader"></div>
 
     <!-- HEADER -->
     <header class="py-2 bg-success">
@@ -64,11 +69,13 @@
                 <a class="h2 px-3 fl_left" href="index.html" id="header_home">Home</a>
                 <a class="h2 px-3 fl_right" href="#">Contact</a>
                 <a class="divider h2 fl_right">  |  </a>
-                <a class="h2 px-3 fl_right" href="#">About</a>
+                <a class="h2 px-3 fl_right" href="about.html">About</a>
                 <a class="divider h2 fl_right">  |  </a>
                 <a class="h2 px-3 fl_right" href="Register.html">Register</a>
                 <a class="divider h2 fl_right">  |  </a>
-                <a class="h2 px-3 fl_right" href="Login.html">Log In</a>
+                <a class="h2 px-3 fl_right" href="Login.html">Log in</a>
+                <a class="divider h2 fl_right">  |  </a>
+                <div class="userName"></div>
             </div>
         </div>
     </header>
@@ -77,94 +84,63 @@
         <div class="container" id="mainContainer">
             <div class="row">
                 <div class="col-8">
-                    <div class="logoPanel" id="logoHeader">
-                        <img src="/images/fridge.png" width="150" height="140">
+                    <div class="logoPanel" id="logoHeader" onclick="location.reload();">
+                        <img src="/images/fridge.png" width="150" height="140" href="#">
                         <a>Smart Fridge App.</a>
                     </div>
                 </div>
-                <div class="col-4">
-                    <div class="container" id="summaryContainer">
-                        <div class="row">
-                            <a class="h2 px-3" href="recipes.html">Baza przepisow</a>
-                            
-                        </div>
-                        <div class="row">
-                            Dodaj przepis
-                        </div>
-                        <div class="row">
-                            Moje konto
-                        </div>
-                        <div class="row">
-                            Ustawienia
-                        </div>
+                <div class="col-4" id="sideMenuOuter">
+                    <div class="row sideMenuInner">
+                        <div class="btn btn-secondary sideMenuInnerBtn" onclick="location.href='/static/recipes.html';" id="addArticleBtn"> Recipes list</div>
+                    </div>
+                    <div class="row sideMenuInner">
+                        <div class="btn btn-secondary sideMenuInnerBtn" data-toggle="modal" data-target="#myModal" id="addArticleBtn">Add new article</div>
                     </div>
                 </div>
             </div>
 
             <div class="row">
-
-
                 <!------------- MODAL ------------->
-
                 <div class="row" id="addArticleBtnModal">
                     <div class="container">
-
-                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="addArticleBtn">Add article</button>
 
                         <div class="modal fade" id="myModal" role="dialog">
                             <div class="modal-dialog">
                                 <div class="modal-content">
-
                                     <div class="modal-header">
-                                        <h4 class="modal-title text-center">Add new article</h4>
+                                        <h3 class="modal-title text-center">Add new article</h3>
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     </div>
                                     <div class="modal-body">
-
-                                        <!-- TODO : POPRAWIC WYGLAD FORMULARZA-->
-                                        <form class="inline">
-
-                                            <div class="form-group">
-                                                <div class="form-group" id="articleNameDiv">
-                                                    <input placeholder="Article name..." required type="text" class="form-control input-lg" id="articleNameInput" />
+                                        <div class="container" id="articlesModalDiv">
+                                            <form role="form" class="form-horizontal">
+                                                <div class="form-group">
+                                                    <label for="ArticleModalName">Name</label>
+                                                    <input type="text" class="form-control" id="ArticleModalName" placeholder="Enter article name...">
                                                 </div>
-                                                <div class="form-group" id="quantityDiv">
-                                                    <input placeholder="Quantity..." type="number" class="form-control input-lg" id="quantityInput" />
+                                                <div class="form-group">
+                                                    <label for="QuantityModal">Quantity</label>
+                                                    <input type="number" class="form-control" id="QuantityModal" placeholder="Enter quantity...">
                                                 </div>
-                                                <div class="form-group" id="weightDiv">
-                                                    <input placeholder="Weight..." type="number" class="form-control input-lg" id="weightInput" />
+                                                <div class="form-group">
+                                                    <label for="WeightModal">Weight</label>
+                                                    <input type="number" class="form-control" id="WeightModal" placeholder="Enter weight...">
                                                 </div>
-                                            </div>
-
-                                            <!--<div class="form-group">
-                                                <select class="custom-select" required>
-                                                    <option value="">Open this select menu</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
-                                                </select>
-                                                <div class="invalid-feedback">Example invalid custom select feedback</div>
-                                            </div>-->
-                                            <div class="col-md-2">
-                                                <div id="addBtn">
-                                                    <button class="btn icon-btn btn-success" onclick="OnAddClick()"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>Add</button>
+                                                <div class="form-group">
+                                                    <div class="col">
+                                                        <button type="submit" class="btn btn-info pull-right" onclick="OnAddClick(); return false;"><h3>Submit</h3></button>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </form>
-
+                                            </form>
+                                        </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal"><h3>Close</h3></button>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
-
-
                 </div>
 
                 <!-- SEARCH CONTAINER -->
@@ -198,15 +174,9 @@
                                         </div>
                                         <div class="col-2 text-center">
                                             <a class="h2">  Quantity </a>
-                                            <!--<span>
-                                                <i class="fa fa-fw fa-sort"></i>
-                                            </span>-->
                                         </div>
                                         <div class="col-2 text-center">
                                             <a class="h2"> Weight </a>
-                                            <!--<span>
-                                                <i class="fa fa-fw fa-sort"></i>
-                                            </span>-->
                                         </div>
                                         <div class="col-lg-1 text-center">
                                             <span class="glyphicon glyphicon-edit"></span>
@@ -218,75 +188,102 @@
                             <!-- Dynamic table-->
                             <div class="tableBody rounded">
                                 <div class="container" id="cont_tableBody">
-
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
-
             </div>
-
-            <div class="col-lg-4" id="mainMenuContainer">
-                <div class="container">
-
-                    <div class="helperGap"></div>
-
-                    <!-- WYBRANE ARTYKULY LIST -->
-                    <div class="row">
+            <div class="container underTableContainer">
+                <div class="row" id="underTableInner">
+                    <div class="col underTableLeft">
                         <a class="h2">Selected articles:</a>
-                    </div>
-                    <div class="row">
                         <div id="selectedItemsList">
 
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-9">
+                    <div class="col underTableRight">
+                        <div class="chooseRecipeOuter">
+                            <div class="availRecipes">
+                                <h3 class="text-black-50">Available recipes: <p id="availRecipesNumber">Null</p></h3>
+                            </div>
 
-                            <!-- CHOOSE RECIPE BUTTON -->
-                            <div class="chooseRecipeDiv">
-
-                                <h3 class="text-black-50">Available recipes:</h3>
-                                <br></br>
-                                <button data-toggle="modal" class="btn btn-primary" id="chooseRecipeBtn" onclick="ChooseRecipe()">
-                                    <h2>Choose recipe</h2>
+                            <button data-toggle="modal" class="btn btn-secondary" id="chooseRecipeBtn" onclick="ChooseRecipe()">
+                                <h2>Choose recipe</h2>
+                            </button>
+                            <div class="trashBox">
+                                <button data-toggle="modal" class="btn btn-secondary" id="trashBtn" onclick="OnDeleteClick()">
+                                    <h2>Delete</h2>
                                 </button>
-
-                                <div class="container">
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="recipeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered">
-                                            <div class="modal-content">
-
-                                                <div class="modal-header modal-header-success">
-                                                    <h3 id="modalHeader"></h3>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                </div>
-
-                                                <div class="modal-body">
-                                                    <p id="modalContent"></p>
-                                                    <div class="recipeImg">
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
                             </div>
                         </div>
-                        <div class="col-lg-3">
+                    </div>
+                </div>
 
-                            <!-- Table trash -->
-                            <div class="tableTrash">
-                                <h3 class="text-black-50" id="numberOfRecipes"></h3>
-                                <br></br>
-                                <button class="btn btn-primary" onclick="OnDeleteClick()"><i class="fa fa-trash-o" id="trashIcon" aria-hidden="true"></i></button>
+                <div class="container">
+                    <!-- Modal -->
+                    <div class="modal fade" id="recipeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-lg">
+                            <div class="modal-content">
+
+                                <div class="modal-header modal-header-success">
+                                    <h3>Matched recipe</h3>
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                </div>
+
+                                <div class="modal-body">
+
+                                    <div id="carouselRecipes" class="carousel slide" data-ride="carousel">
+
+                                        <!--<ol class="carousel-indicators">
+                                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                        </ol>-->
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <div class="modalHeader">
+                                                    <h3 id="modalHeader1"></h3>
+                                                </div>
+                                                <div class="modalContent">
+                                                    <p id="modalContent1"></p>
+                                                </div>
+
+                                                <!--<img class="d-block w-100 modalImg" src="/images/recipes/chicken1.jpg" alt="Chicken 1" max-width="400" max-height="500">-->
+                                            </div>
+                                            <div class="carousel-item">
+                                                <div class="modalHeader">
+                                                    <h3 id="modalHeader2"></h3>
+                                                </div>
+
+                                                <div class="modalContent">
+                                                    <p id="modalContent2"></p>
+                                                </div>
+                                                <!-- <img class="d-block w-100 modalImg" src="/images/recipes/chicken2.jpg" alt="Chicken 2" max-width="400" max-height="500">-->
+                                            </div>
+                                            <div class="carousel-item">
+                                                <div class="modalHeader">
+                                                    <h3 id="modalHeader3"></h3>
+                                                </div>
+
+                                                <div class="modalContent">
+                                                    <p id="modalContent3"></p>
+                                                </div>
+                                                <!-- <img class="d-block w-100 modalImg" src="/images/recipes/chicken3.jpg" alt="Chicken 3" max-width="400" max-height="500">-->
+                                            </div>
+                                        </div>
+                                        <a class="carousel-control-prev" href="#carouselRecipes" role="button" data-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="false"></span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="#carouselRecipes" role="button" data-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="false"></span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    </div>
+
+                                    <p id="modalContent"></p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -294,25 +291,16 @@
             </div>
         </div>
     </div>
-    </div>
+
 
     <!-- Footer -->
     <footer class="py-4 bg-success">
-        <div class="container">
+        <div class="container container_footer">
             <p class="m-0 text-center text-white footer-font">
-                Copyright &copy; Smart Fridge App - 2018.
-                <a class="col-12"></a>
-                <a href="https://www.facebook.com/SmartFridge"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
-                <a href="https://plus.google.com/SmartFridge"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
-                <a href="mailto:SmartFridge@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+                &reg; Smart Fridge App - 2019.
             </p>
-
-
         </div>
     </footer>
-
-
-    <script src="/js/FillTableWithArticles.js"></script>
-
+    <script src="/js/articles.fill_table.js"></script>
 </body>
 </html>

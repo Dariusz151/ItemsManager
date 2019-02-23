@@ -1,5 +1,4 @@
-﻿/* The customcheck */
-.customcheck {
+﻿.customcheck {
     display: block;
     position: relative;
     padding-left: 35px;
@@ -12,32 +11,30 @@
     user-select: none;
 }
 
-    /* Hide the browser's default checkbox */
-    .customcheck input {
-        position: absolute;
-        opacity: 0;
-        cursor: pointer;
-    }
+.customcheck input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
 
-/* Create a custom checkbox */
 .checkmark {
     position: absolute;
     top: 0;
     left: 0;
     height: 25px;
     width: 25px;
-    background-color: #ecc;
+    background-color: #adadad;
     border-radius: 5px;
 }
 
 /* On mouse-over, add a grey background color */
 .customcheck:hover input ~ .checkmark {
-    background-color: #f77;
+    background-color: green;
 }
 
 /* When the checkbox is checked, add a blue background */
 .customcheck input:checked ~ .checkmark {
-    background-color: #ff0000;
+    background-color: forestgreen;
     border-radius: 5px;
 }
 

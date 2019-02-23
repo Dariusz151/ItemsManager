@@ -1,0 +1,53 @@
+﻿.underTableContainer
+{
+    margin:0 !important;
+    padding-top:3vh;
+   
+}
+
+.underTableLeft{
+    /*border: 1px solid blue;*/
+}
+
+.underTableRight {
+    /*border: 1px solid blue;*/
+}
+
+#chooseRecipeBtn {
+   width:50%;
+   margin:auto;
+   position:absolute;
+   left:4vw;
+   top:6vh;
+}
+
+.chooseRecipeOuter{
+    position:relative;
+}
+
+.availRecipes
+{
+    position:absolute;
+    left: 4vw;
+    top:1vh;
+    /*border:1px solid violet;*/
+}
+
+.availRecipes p{
+    display:inline;
+}
+
+.trashBox {
+    position: absolute;
+    left: 24vw;
+    top: 6vh;
+    display: inline;
+}
+
+#selectedItemsList ol{
+    font-size:3rem;
+}
+
+#selectedItemsList h2 {
+    font-size: 3rem;
+}

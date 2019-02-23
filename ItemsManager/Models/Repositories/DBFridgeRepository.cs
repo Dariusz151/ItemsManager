@@ -5,33 +5,41 @@ using System.Data.SqlClient;
 using System.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Logging;
+using ItemsManager.Domain;
 
 namespace SmartFridge.Models
 {
     public class DBFridgeRepository : ISmartFridgeRepository
     {
-        private static string _connectionString;    // "Server=DESKTOP-U1KKR9S\\SQLEXPRESS;Database=FridgeDB;Trusted_Connection=True;";
+        private readonly ILogger<DBFridgeRepository> _log;
+        private static string _connectionString;
         private static IHostingEnvironment _environment;
-        private readonly string _selectAllQuery = "SELECT [id_article], [article_name], [quantity], [weight], [id_user], [id_category] FROM [dbo].[articles]";
-        private readonly string _selectByIdQuery = "SELECT [id_article], [article_name], [quantity], [weight], [id_user], [id_category] FROM [dbo].[articles] WHERE id_user=@id";
-        private readonly string _insertQuery = "INSERT INTO [dbo].[articles] ([article_name], [quantity], [weight], [createdAt], [id_user], [id_category]) OUTPUT INSERTED.id_article VALUES(@param1,@param2,@param3,@param4,@param5,@param6)";
+        private readonly string _selectAllQuery = "SELECT [article_id], [article_name], [quantity], [weight], [id_user], [id_category] FROM [dbo].[article]";
+        private readonly string _selectByIdQuery = "SELECT [article_id], [article_name], [quantity], [weight], [id_user], [id_category] FROM [dbo].[article] WHERE id_user=@id";
+        private readonly string _insertQuery = "INSERT INTO [dbo].[article] ([article_name], [quantity], [weight], [createdAt], [id_user], [id_category]) OUTPUT INSERTED.article_id VALUES(@param1,@param2,@param3,@param4,@param5,@param6)";
+        private readonly string _deleteQuery = "DELETE FROM [dbo].[article] WHERE [article_id] = @id";
 
-        private readonly string _deleteQuery = "DELETE FROM [dbo].[articles] WHERE [id_article] = @id";
-        //private readonly string _updateQuery = "UPDATE Articles SET [ArticleName] = @param1, [Quantity] = @param2, [Weight] = @param3 WHERE ID=@id";
-
-        public DBFridgeRepository(IConfiguration configuration, IHostingEnvironment environment)
+        public DBFridgeRepository(IConfiguration configuration, IHostingEnvironment environment, ILogger<DBFridgeRepository> log)
         {
             _connectionString = configuration["ConnectionStrings:DefaultConnection"];
             _environment = environment;
+            _log = log;
         }
 
         public async Task<IEnumerable<FridgeItem>> GetAllAsync()
         {
-            Console.WriteLine("GetAllAsync()");
             IList<FridgeItem> list = null;
-            if (_environment.IsDevelopment())
-                Console.WriteLine("(GetAllAsync) in DBFridgeRepos");
 
+            if (_environment.IsDevelopment())
+            {
+                Console.WriteLine("(GetAllAsync) in DBFridgeRepos");
+            }
+            if (_environment.IsProduction())
+            {
+                _log.LogInformation("(GetAllAsync) in DBFridgeRepos");
+            }
+                
             using (SqlConnection connection = new SqlConnection(_connectionString))
             using (SqlCommand cmd = new SqlCommand())
             {
@@ -80,8 +88,15 @@ namespace SmartFridge.Models
         public async Task<IEnumerable<FridgeItem>> GetAsync(int id)
         {
             IList<FridgeItem> list = null;
+            
             if (_environment.IsDevelopment())
+            {
                 Console.WriteLine("(GetAsync) in DBFridgeRepos. ID :" + id);
+            }
+            if (_environment.IsProduction())
+            {
+                _log.LogInformation("(GetAsync) in DBFridgeRepos. ID :" + id);
+            }
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             using (SqlCommand cmd = new SqlCommand())
@@ -131,16 +146,17 @@ namespace SmartFridge.Models
 
         public async Task<int> CreateAsync(FridgeItem fridgeItem)
         {
-            Console.WriteLine("fridgeItem1: " + fridgeItem.CreatedAt);
-            Console.WriteLine("fridgeItem2: " + fridgeItem.ArticleName);
-            Console.WriteLine("fridgeItem3: " + fridgeItem.CategoryID);
-            Console.WriteLine("fridgeItem4: " + fridgeItem.Quantity);
-            Console.WriteLine("fridgeItem5: " + fridgeItem.Weight);
-
             int createdId = 0;
-            if (_environment.IsDevelopment())
-                Console.WriteLine("(CreateAsync) in DBFridgeRepository ");
 
+            if (_environment.IsDevelopment())
+            {
+                Console.WriteLine("(CreateAsync) in DBFridgeRepository ");
+            }
+            if (_environment.IsProduction())
+            {
+                _log.LogInformation("(CreateAsync) in DBFridgeRepository ");
+            }
+            
             using (SqlConnection connection = new SqlConnection(_connectionString))
             using (SqlCommand cmd = new SqlCommand())
             {
@@ -172,8 +188,15 @@ namespace SmartFridge.Models
         public async Task<bool> DeleteAsync(int id)
         {
             int rowsAffected = 0;
+           
             if (_environment.IsDevelopment())
-                Console.WriteLine("(DeleteAsync) in DBProvisionRepository ");
+            {
+                Console.WriteLine("(DeleteAsync) in DBFridgeRepository ");
+            }
+            if (_environment.IsProduction())
+            {
+                _log.LogInformation("(DeleteAsync) in DBFridgeRepository ");
+            }
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             using (SqlCommand cmd = new SqlCommand())

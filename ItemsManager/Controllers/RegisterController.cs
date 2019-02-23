@@ -1,7 +1,9 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using SmartFridge.Models;
+using ItemsManager.HTTPStatusMiddleware;
+using System.Net;
 
 namespace SmartFridge.Controllers
 {
@@ -10,55 +12,49 @@ namespace SmartFridge.Controllers
     [ApiController]
     public class RegisterController : Controller
     {
+        private readonly ILogger<RegisterController> _log;
         private static IUsersRepository _repository;
 
-        public RegisterController(IUsersRepository repository)
+        public RegisterController(IUsersRepository repository, ILogger<RegisterController> log)
         {
             _repository = repository;
+            _log = log;
         }
-
-        //[HttpGet]
-        //public async Task<IActionResult> GetAllAsync()
-        //{
-        //    var list = new String[]
-        //    {
-        //        "siema", "siema2", "tu beda wszyscy users"
-        //    };
-        //    if (list == null)
-        //        return NotFound();
-        //    return Json(list);
-        //}
-
+        
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         [HttpPost]
         public async Task<IActionResult> RegisterAsync([FromBody] UserDTO user)
         {
-            Console.WriteLine("[Controller] item: " + user.Login);
-            Console.WriteLine("[Controller] item: " + user.Firstname);
-            Console.WriteLine("[Controller] item: " + user.Email);
-            Console.WriteLine("[Controller] item: " + user.Phone);
-            Console.WriteLine("[Controller] item: " + user.Password);
-
             if (user == null)
             {
-                Console.WriteLine("[HttpPost RegisterController] Jestem w Item=Null, zwracam BadRequest");
-                return BadRequest();
+                return BadRequest(new ApiStatus(400, "UserNull", "The user object is null."));
             }
             if (string.IsNullOrEmpty(user.Login))
             {
-                Console.WriteLine("[HttpPost RegisterController] Login NullOrEmpty");
-                return BadRequest();
+                return BadRequest(new ApiStatus(400, "LoginEmpty", "The login is null or empty."));
             }
             if (string.IsNullOrEmpty(user.Password))
             {
-                Console.WriteLine("[HttpPost RegisterController] Password NullOrEmpty");
-                return BadRequest();
+                return BadRequest(new ApiStatus(400, "PasswordEmpty", "The password is null or empty."));
             }
-            
+            if (string.IsNullOrEmpty(user.Firstname))
+            {
+                return BadRequest(new ApiStatus(400, "FirstnameEmpty", "The first name is null or empty."));
+            }
+            if (string.IsNullOrEmpty(user.Email))
+            {
+                user.Email = "none";
+            }
+            if (string.IsNullOrEmpty(user.Phone))
+            {
+                user.Phone = "none";
+            }
+
             int createdId = await _repository.RegisterAsync(user);
-            Console.WriteLine("RegisterController, createdID: " + createdId);
+            //_log.LogInformation("RegisterController, createdID: " + createdId);
             if (createdId > 0)
-                return Json(createdId);
-            return BadRequest();
+                return Ok(new ApiStatus(200, "CreatedUser", "User registered successfully."));
+            return BadRequest(new ApiStatus(400, "UnknownError", "Unknown bad request error."));
         }
     }
 }

@@ -1,0 +1,27 @@
+﻿#recipesModalDiv h3{
+    font-size:2rem;
+}
+
+#recipesModalDiv label {
+    font-size: 2rem;
+}
+
+#recipesModalDiv textarea {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.5rem;
+}
+
+#recipesModalDiv ::placeholder {
+    
+    font-size: 1.5rem;
+}
+
+
+.clickable {
+    cursor: pointer;
+}
+
+.glyphis{
+    margin:auto;
+    font-size:2.5rem;
+}

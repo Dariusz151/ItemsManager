@@ -3,8 +3,7 @@
     width: 100vw;
     height: 100vh;
     margin: 0;
-    /*background-color: aliceblue;*/
-    background-color: white !important;
+    background-color: #e6e6e6 !important;
 }
 
 .container-fluid {
@@ -13,27 +12,15 @@
     height: auto;
 }
 
-
 .centerContent {
     width: 70vw;
     margin: auto;
-    background-color: #f2fff2 !important;
-    /*background-color:white;*/
-    /*border:1px #000 dashed;*/
+    background-color: #f8f8f8 !important;
 }
 
 .h2{
     margin-top:.5rem !important;
 }
-
-.fl_left{
-    float:left;
-}
-
-.fl_right{
-    float:right;
-}
-
 
 .logoPanel {
     font-size:1.7em;
@@ -42,34 +29,19 @@
     margin-left: 0;
 }
 
+#logoHeader
+{
+    cursor:pointer;
+}
+
 #logoHeader a {
     padding-left: 5vw;
     font-size: 3em;
     font-family: 'Indie Flower', cursive;
 }
 
-/*#mainTableContainer{
-    border:1px #000 solid;
-
-}
-
-#mainMenuContainer{
-    border:1px #000 solid;
-}
-
-.container {
-    border: 1px #000 solid;
-}
-
-.container-fluid {
-    border: 1px #000 solid;
-}*/
-
 #mainContainer {
-    /*border:1px #000 solid;*/
     min-height: 90vh;
-    /*margin-left:4vw;
-    margin-right:4vw;*/
     margin:auto;
 }
 
@@ -79,84 +51,6 @@
     min-width:100%;
     min-height:100%;
 }
-
-.foodTableContainer {
-    margin-top: 1vh;
-    width:100% !important;
-}
-
-.foodTableHeader {
-    padding-top:5px;
-    padding-bottom:5px;
-    border: 1px #808080 solid;
-}
-
-.tableBody {
-    /*border: 1px #808080 solid;*/
-    /*background-color: azure;*/
-    background-color:lightcyan;
-}
-
-#myTable {
-    
-    font-family: 'Comic Sans MS', cursive;
-    font-size: 2em;
-}
-
-
-
-.form-check-input {
-    /*DO POPRAWY*/
-    float: left;
-}
-
-
-.chooseRecipeDiv{
-    float:right;
-}
-
-.divider{
-    padding-left: 1vw;
-    padding-right: 1vw;
-}
-
-a#homeHref
-{
-    padding-right:50vw;
-}
-
-#loginForm{
-    width:20vw;
-}
-
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}
-
-
-
-.col_functions {
-    padding-top: 1% !important;
-    padding-left: 2% !important;
-    margin: 0 !important;
-}
-
-
-
-
-.footer-font{
-    font-size:1.4em;
-}
-
-
 
 header {
     padding: 154px 1000px 100px;
@@ -168,115 +62,17 @@ header {
     }
 }
 
-section {
-    padding: 150px 0;
-}
-
-
-/*
-   CSS FOR FOOTER INSTAGRAM ETC.
-
-*/
-
-.social:hover {
-    -webkit-transform: scale(1.1);
-    -moz-transform: scale(1.1);
-    -o-transform: scale(1.1);
-}
-
-.social {
-    -webkit-transform: scale(0.8);
-    /* Browser Variations: */
-    -moz-transform: scale(0.8);
-    -o-transform: scale(0.8);
-    -webkit-transition-duration: 0.5s;
-    -moz-transition-duration: 0.5s;
-    -o-transition-duration: 0.5s;
-}
-
-/*
-   END CSS FOR FOOTER INSTAGRAM ETC.
-
-*/
-
 #selectedItemsList {
     min-height: 40vh;
-    /*border: 1px #808080 solid;*/
 }
 
 .chooseRecipeDiv{
     min-width:100%;
 }
 
-#chooseRecipeBtn{
-    min-width:100%;
+#addArticleBtn {
+    font-size: 2.4rem;
 }
-
-.helperGap{
-    height:44px;
-}
-
-
-/*
-    ADD NEW ITEMS STYLES
-*/
-
-.addItemInput {
-   margin-top:3vh;
-   margin-bottom:3vh;
-   font-size:1.5em;
-}
-
-#articleNameDiv{
-    margin-right:1vw;
-}
-#articleNameDiv input {
-    width: 10vw;
-}
-
-#quantityDiv {
-    margin-right: 1vw;
-}
-#quantityDiv input{
-    width:5vw;
-}
-
-#weightDiv {
-    margin-right: 1vw;
-}
-#weightDiv input{
-    width:5vw;
-}
-
-#addBtn{
-    width:8vw;
-    height:3vh;
-}
-#addBtn button {
-    font-size: 1.5em;
-    width:120%;
-}
-
-.btn-glyphicon {
-    padding: 8px;
-    background: #ffffff;
-    margin-right: 4px;
-}
-
-.icon-btn {
-    padding: 1px 15px 3px 2px;
-    border-radius: 50px;
-}
-
-/*
-    TRASH
-*/
-
-#trashIcon{
-    font-size:2.85em;
-}
-
-
 
 .modal-header-success {
     color: #fff;
@@ -291,7 +87,61 @@ section {
     border-top-right-radius: 5px;
 }
 
-#addArticleBtnModal
-{
-    margin:auto !important;
+.modalHeader h3{
+    text-align:center;
+    background-color:aliceblue;
+    font-size:3rem;
 }
+
+.modalContent{
+    padding-left:15%;
+    text-align:justify;
+    font-size:2rem;
+}
+
+.carousel-item {
+    background-color: white;
+}
+
+.footer-font {
+    font-size: 1.4em;
+}
+
+div#preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    background: #fff url('/images/ajax-loader.gif') no-repeat center center;
+}
+
+.helperGap {
+    height: 44px;
+}
+
+.divider {
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+
+.fl_left {
+    float: left;
+}
+
+.fl_right {
+    float: right;
+}
+
+.col_functions {
+    padding-top: 1% !important;
+    padding-left: 2% !important;
+    margin: 0 !important;
+}
+
+a#homeHref {
+    padding-right: 50vw;
+}
+

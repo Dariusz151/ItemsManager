@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-
+    <script src="/js/config.url_settings.js"></script>
     <meta charset="utf-8" />
     <title>Smart Fridge App</title>
 
@@ -10,16 +10,18 @@
 
     <!-- CUSTOM STYLESHEET -->
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="/css/Login.css" />
+    <link rel="stylesheet" type="text/css" href="/css/login.css" />
 
     <!-- FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-
     <!-- JQUERY LIBRARY -->
     <script src="/js/lib/jquery.min.js"></script>
     <script src="/js/lib/jquery.textfill.js"></script>
+
+    <!-- POPPER.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 
     <!-- BOOTSTRAP LIBRARY -->
     <script src="/js/lib/bootstrap.min.js"></script>
@@ -35,17 +37,21 @@
     <link rel="stylesheet" href="/css/toastr.min.css" />
     <script src="/js/lib/toastr.min.js"></script>
 
+    <!-- CUSTOM SCRIPTS -->
+    <script src="/js/login.send_form.js"></script>
+    <script src="/js/util.loader.js"></script>
+    <script src="/js/util.set_header.js"></script>
 
-    <!--<script src="/js/ChooseRecipe.js"></script>-->
-    <script src="/js/Login.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-    <!-- <script src="/js/LoadTable.js"></script> -->
-    <!--<script src="/js/OnAddClick.js"></script>-->
-    <!--<script src="/js/DeleteElement.js"></script>-->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </head>
 
 <body>
+    <div id="preloader"></div>
 
     <!-- HEADER -->
     <header class="py-2 bg-success">
@@ -54,11 +60,13 @@
                 <a class="h2 px-3 fl_left" href="index.html" id="header_home">Home</a>
                 <a class="h2 px-3 fl_right" href="#">Contact</a>
                 <a class="divider h2 fl_right">  |  </a>
-                <a class="h2 px-3 fl_right" href="#">About</a>
+                <a class="h2 px-3 fl_right" href="about.html">About</a>
                 <a class="divider h2 fl_right">  |  </a>
                 <a class="h2 px-3 fl_right" href="Register.html">Register</a>
                 <a class="divider h2 fl_right">  |  </a>
-                <a class="h2 px-3 fl_right" href="Login.html">Log In</a>
+                <a class="h2 px-3 fl_right" href="Login.html">Log in</a>
+                <a class="divider h2 fl_right">  |  </a>
+                <div class="userName"></div>
             </div>
         </div>
     </header>
@@ -66,8 +74,8 @@
     <div class="centerContent">
         <div class="container" id="mainContainer">
             <div class="row">
-                <div class="col-8">
-                    <div class="logoPanel" id="logoHeader">
+                <div class="col-12">
+                    <div class="logoPanel" id="logoHeader" onclick="location.href='/static';">
                         <img src="/images/fridge.png" width="150" height="140">
                         <a>Smart Fridge App.</a>
                     </div>
@@ -75,42 +83,28 @@
             </div>
             <div class="row">
                 <div class="container">
-                    <header class="heading"> Login </header><hr></hr>
                     <div class="row ">
-
-                        <!-- Login -->
-
-                        <div class="col-sm-12">
-                            <div class="row register_row">
-                                <div class="col-md-2">
-                                    <label class="register_label">Login</label>
-                                </div>
-                                <div class="col-md-4">
-                                    <input type="text" name="login" id="login_login" placeholder="Enter your login" class="form-control ">
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Password -->
-
-                        <div class="col-sm-12">
-                            <div class="row register_row">
-                                <div class="col-md-2">
-                                    <label class="register_label">Password</label>
-                                </div>
-                                <div class="col-md-4">
-                                    <input type="password" name="password" id="login_password" placeholder="Enter your password" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12">
-                            <div class="row">
-                                <div class="col-md-2">
-                                </div>
-                                <div class="col-md-1">
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="btn btn-warning sbutton" onclick="SendLoginForm()">Submit</div>
+                        <div id="login">
+                            <div class="container">
+                                <div id="login-row" class="row justify-content-center align-items-center">
+                                    <div id="login-column" class="col-md-6">
+                                        <div class="login-box col-md-12">
+                                            <div id="login-form" class="form">
+                                                <h3 class="text-center text-black-50">Login</h3>
+                                                <div class="form-group">
+                                                    <label for="username" class="text-black-50">Username:</label><br>
+                                                    <input type="text" name="username" id="login_login" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="password" class="text-black-50">Password:</label><br>
+                                                    <input type="password" name="password" id="login_password" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <button type="submit" name="submit" class="btn btn-secondary btn-md" onclick="SendLoginForm();">Submit</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -119,13 +113,13 @@
             </div>
         </div>
     </div>
-
     <!-- Footer -->
     <footer class="py-4 bg-success">
-        <div class="container">
-            <p class="m-0 text-center text-white footer-font">Copyright &copy; Smart Fridge App - 2018.</p>
+        <div class="container container_footer">
+            <p class="m-0 text-center text-white footer-font">
+                 &reg; Smart Fridge App - 2019.
+            </p>
         </div>
     </footer>
-
 </body>
 </html>

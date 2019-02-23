@@ -4,9 +4,41 @@
 
 .foodTable{
     width:100%;
-    
 }
 
 .foodTableContainer{
     width:70%;
+}
+
+#myTable {
+    font-family: 'Comic Sans MS', cursive;
+    font-size: 2em;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.tableBody {
+    background-color: #e6e6e6;
+}
+
+
+.foodTableContainer {
+    margin-top: 1vh;
+    width: 100% !important;
+}
+
+.foodTableHeader {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 1px #808080 solid;
 }

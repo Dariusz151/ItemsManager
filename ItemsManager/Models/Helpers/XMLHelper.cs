@@ -40,7 +40,5 @@ namespace ItemsManager.Models.Helpers
 
             return result;
         }
-
-
     }
 }

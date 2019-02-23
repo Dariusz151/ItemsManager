@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="/js/config.url_settings.js"></script>
+    <meta charset="utf-8" />
+    <title>Smart Fridge App</title>
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="/images/icons/favicon.ico" />
+
+    <!-- CUSTOM STYLESHEET -->
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/about.css" />
+
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- JQUERY LIBRARY -->
+    <script src="/js/lib/jquery.min.js"></script>
+    <script src="/js/lib/jquery.textfill.js"></script>
+
+    <!-- POPPER.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+
+    <!-- BOOTSTRAP LIBRARY -->
+    <script src="/js/lib/bootstrap.min.js"></script>
+    <link rel=stylesheet href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/vendor/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- TOASTR LIBRARY -->
+    <link rel="stylesheet" href="/css/toastr.css" />
+    <link rel="stylesheet" href="/css/toastr.min.css" />
+    <script src="/js/lib/toastr.min.js"></script>
+
+    <!-- CUSTOM SCRIPTS -->
+    <script src="/js/util.loader.js"></script>
+    <script src="/js/util.set_header.js"></script>
+
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="preloader"></div>
+
+    <!-- HEADER -->
+    <header class="py-2 bg-success">
+        <div class="container-fluid">
+            <div class="centerContent topHeaderText text-white">
+                <a class="h2 px-3 fl_left" href="index.html" id="header_home">Home</a>
+                <a class="h2 px-3 fl_right" href="#">Contact</a>
+                <a class="divider h2 fl_right">  |  </a>
+                <a class="h2 px-3 fl_right" href="about.html">About</a>
+                <a class="divider h2 fl_right">  |  </a>
+                <a class="h2 px-3 fl_right" href="Register.html">Register</a>
+                <a class="divider h2 fl_right">  |  </a>
+                <a class="h2 px-3 fl_right" href="Login.html">Log in</a>
+                <a class="divider h2 fl_right">  |  </a>
+                <div class="userName"></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="centerContent">
+        <div class="container" id="mainContainer">
+            <div class="row">
+                <div class="col-8">
+                    <div class="logoPanel" id="logoHeader" onclick="location.href='/static';">
+                        <img src="/images/fridge.png" width="150" height="140">
+                            <a>Smart Fridge App.</a>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="row">
+                <div class="container">
+                    <div class="aboutHeader">
+                        <h1>About</h1>
+                    </div>
+                    <div class="row" id="aboutContent">
+                        <h2>
+                            Purpose and usage
+                        </h2>
+                        <p>
+                            &emsp;&emsp;Roughly one third of the food produced in the world for human consumption every year — approximately 1.3 billion tonnes — gets lost or wasted.
+                            The smart fridge application has been created to help us not to waste food in our houses.
+                            Just by smart use of food products we can decrease this serious problem.
+                            <br />
+                            &emsp;&emsp;Smart fridge app allows us storage list of food in our fridge and keep track of expiration dates.
+                            Also, by choosing specific items application will return us some example recipes.
+                            The recipes database is public, so all users can add own recipes and look out for others.
+                            Of course I intend develop this application and add new features soon. Be patient!
+                        </p>
+
+                        <h2>
+                            About technical issues:
+                        </h2>
+                        <p>
+                            &emsp;&emsp;The application was created for educational purposes, so I'll be grateful for all feedback about site and app.
+                            I'm focusing on back-end technologies so please forgive me for front-end layer.
+                            I know HTML/CSS/JS just a little bit, so the page appearance leave a lot to be desired. But feedback also will be appreciated.
+                        </p>
+                        <p>
+                            Used technologies: <br /><b>.NET Core 2.1   |   MSSQL   |   jQuery   |   HTML/CSS   |   Javascript   </b>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-4 bg-success">
+        <div class="container container_footer">
+            <p class="m-0 text-center text-white footer-font">
+                &reg; Smart Fridge App - 2019.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
