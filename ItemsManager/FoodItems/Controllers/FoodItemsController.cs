@@ -21,21 +21,21 @@ namespace ItemsManager.Articles.Controllers
             _repository = repository;
         }
 
-        [HttpGet]
-        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(FoodItem))]
-        [ProducesResponseType((int)HttpStatusCode.NotFound)]
-        public async Task<IActionResult> GetAllAsync()
-        {
-            var list = await _repository.GetAllAsync();
-            if (list == null)
-                return NotFound();
-            return Ok(list);
-        }
+        //[HttpGet]
+        //[ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(FoodItem))]
+        //[ProducesResponseType((int)HttpStatusCode.NotFound)]
+        //public async Task<IActionResult> GetAllAsync()
+        //{
+        //    var list = await _repository.GetAllAsync();
+        //    if (list == null)
+        //        return NotFound();
+        //    return Ok(list);
+        //}
 
         [HttpGet("{id}")]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(FoodItem))]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
-        public async Task<IActionResult> GetAsync(int id)
+        public async Task<IActionResult> GetAsync(Guid id)
         {
             var list = await _repository.GetAsync(id);
 
@@ -80,7 +80,7 @@ namespace ItemsManager.Articles.Controllers
                     command.UserId)
                 );
 
-            if (createdId > 0)
+            if (createdId != Guid.Empty)
                 return Ok(new ApiStatus(200, "Created", createdId.ToString()));
             return BadRequest(new ApiStatus(400, "UnknownError", "Unknown SmartFridgeCreate error."));
         }

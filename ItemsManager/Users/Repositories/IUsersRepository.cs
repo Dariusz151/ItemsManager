@@ -8,6 +8,6 @@ namespace ItemsManager.Users.Repositories
     public interface IUsersRepository
     {
         Task<Guid> LoginAsync(LoginUser user);
-        Task<Guid> RegisterAsync(User user);
+        Task<bool> RegisterAsync(User user);
     }
 }

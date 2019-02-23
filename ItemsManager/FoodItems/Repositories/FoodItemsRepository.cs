@@ -85,7 +85,7 @@ namespace ItemsManager.FoodItems.Repositories
             return list;
         }
 
-        public async Task<IEnumerable<FoodItemDTO>> GetAsync(int id)
+        public async Task<IEnumerable<FoodItemDTO>> GetAsync(Guid id)
         {
             IList<FoodItemDTO> list = null;
 
@@ -143,9 +143,9 @@ namespace ItemsManager.FoodItems.Repositories
             return list;
         }
 
-        public async Task<int> CreateAsync(FoodItem foodItem)
+        public async Task<Guid> CreateAsync(FoodItem foodItem)
         {
-            int createdId = 0;
+            Guid createdId = Guid.Empty;
 
             if (_environment.IsDevelopment())
             {
@@ -171,7 +171,7 @@ namespace ItemsManager.FoodItems.Repositories
                 try
                 {
                     connection.Open();
-                    createdId = Convert.ToInt32(await cmd.ExecuteScalarAsync());
+                    createdId = (Guid)await cmd.ExecuteScalarAsync();
                     Console.WriteLine("CreatedID: " + createdId);
                 }
                 catch (Exception e)

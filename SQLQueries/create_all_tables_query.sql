@@ -71,7 +71,8 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[registered_users](
-	[id_user] [int] IDENTITY(1,1) NOT NULL,
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[id_user] [uniqueidentifier] NOT NULL,
 	[login] [nvarchar](50) NOT NULL,
 	[first_name] [varchar](255) NOT NULL,
 	[salt] [varbinary](50) NOT NULL,
@@ -88,6 +89,8 @@ UNIQUE NONCLUSTERED
 	[login] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
+
+
 GO
 
 ALTER TABLE [dbo].[registered_users]  WITH CHECK ADD FOREIGN KEY([id_role])
@@ -104,12 +107,13 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[article](
-	[article_id] [int] IDENTITY(1,1) NOT NULL,
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[article_id] [uniqueidentifier] NOT NULL,
 	[article_name] [nvarchar](50) NOT NULL,
 	[quantity] [int] NULL,
 	[weight] [int] NULL,
 	[createdAt] [datetime] NOT NULL,
-	[id_user] [int] NULL,
+	[id_user] [uniqueidentifier] NULL,
 	[id_category] [int] NULL,
 PRIMARY KEY CLUSTERED 
 (
@@ -135,7 +139,8 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[recipes](
-	[recipe_id] [int] IDENTITY(1,1) NOT NULL,
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[recipe_id] [uniqueidentifier] NOT NULL,
 	[recipe_name] [nvarchar](50) NOT NULL,
 	[ingredients] [nvarchar](1000) NOT NULL,
 	[description] [nvarchar](max) NOT NULL,

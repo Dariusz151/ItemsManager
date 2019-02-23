@@ -18,7 +18,7 @@ namespace ItemsManager.Users.Repositories
         private readonly ILogger<UsersRepository> _logger;
         private static string _connectionString;
         private static IHostingEnvironment _environment;
-        private readonly string _insertQuery = "INSERT INTO [dbo].[registered_users] ([login], [first_name], [salt], [password], [email], [phone], [id_role]) OUTPUT INSERTED.id_user VALUES(@login, @fname, CAST(@salt as VARBINARY(50)), CAST(@pass as VARBINARY(MAX)), @email, @phone, @id_role)";
+        private readonly string _insertQuery = "INSERT INTO [dbo].[registered_users] ([id_user], [login], [first_name], [salt], [password], [email], [phone], [id_role]) OUTPUT INSERTED.id VALUES(@id_user, @login, @fname, CAST(@salt as VARBINARY(50)), CAST(@pass as VARBINARY(MAX)), @email, @phone, @id_role)";
         private readonly string _selectQuery = "SELECT [id_user], [salt], [password] FROM [dbo].[registered_users] WHERE [login] = @login";
 
         public UsersRepository(IConfiguration configuration, IHostingEnvironment environment, ILogger<UsersRepository> logger)
@@ -28,9 +28,9 @@ namespace ItemsManager.Users.Repositories
             _logger = logger;
         }
 
-        public async Task<Guid> RegisterAsync(User user)
+        public async Task<bool> RegisterAsync(User user)
         {
-            Guid createdId = Guid.Empty;
+            int createdId = 0;
             var salt = HashHelper.CreateSalt(8);
             var hashedPassword = HashHelper.GenerateSaltedHash(Encoding.UTF8.GetBytes(user.Password), salt);
 
@@ -49,6 +49,7 @@ namespace ItemsManager.Users.Repositories
                 cmd.Connection = connection;
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = _insertQuery;
+                cmd.Parameters.AddWithValue("@id_user", user.Id);
                 cmd.Parameters.AddWithValue("@login", user.Login);
                 cmd.Parameters.AddWithValue("@fname", user.Firstname);
                 cmd.Parameters.AddWithValue("@salt", salt);
@@ -60,8 +61,7 @@ namespace ItemsManager.Users.Repositories
                 try
                 {
                     connection.Open();
-                    createdId = (Guid)await cmd.ExecuteScalarAsync();
-                    Console.WriteLine("CreatedID: " + createdId);
+                    createdId = Convert.ToInt32(await cmd.ExecuteScalarAsync());
                 }
                 catch (Exception e)
                 {
@@ -70,7 +70,7 @@ namespace ItemsManager.Users.Repositories
                 if (connection.State == ConnectionState.Open)
                     connection.Close();
             }
-            return createdId;
+            return createdId > 0;
         }
 
         public async Task<Guid> LoginAsync(LoginUser command)

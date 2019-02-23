@@ -14,13 +14,13 @@ namespace ItemsManager.Users.Commands
         public int Role { get; }
 
         [JsonConstructor]
-        public CreateUser(string login, string fname, string email, string phone, string pswd, int role)
+        public CreateUser(string login, string firstname, string email, string phone, string password, int role)
         {
             Login = login;
-            Firstname = fname;
+            Firstname = firstname;
             Email = email;
             Phone = phone;
-            Password = pswd;
+            Password = password;
             Role = role;
         }
     }

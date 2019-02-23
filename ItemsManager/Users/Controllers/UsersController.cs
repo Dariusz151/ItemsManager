@@ -59,8 +59,10 @@ namespace ItemsManager.Users.Controllers
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         [Route("api/[controller]/register")]
         [HttpPost]
-        public async Task<IActionResult> RegisterAsync([FromBody] CreateUser command)
+        public async Task<IActionResult> RegisterAsync(CreateUser command)
         {
+            Console.WriteLine(command);
+
             if (command == null)
             {
                 return BadRequest(new ApiStatus(400, "UserNull", "The user object is null."));
@@ -86,7 +88,7 @@ namespace ItemsManager.Users.Controllers
                 return BadRequest(new ApiStatus(400, "PhoneEmpty", "The phone number is null or empty."));
             }
 
-            var createdId = await _repository.RegisterAsync(
+            var isRegistered = await _repository.RegisterAsync(
                 new User(
                     command.Login,
                     command.Firstname,
@@ -97,7 +99,7 @@ namespace ItemsManager.Users.Controllers
                 ));
 
             //_log.LogInformation("RegisterController, createdID: " + createdId);
-            if (createdId != Guid.Empty)
+            if (isRegistered)
                 return Ok(new ApiStatus(200, "CreatedUser", "User registered successfully."));
             return BadRequest(new ApiStatus(400, "UnknownError", "Unknown bad request error."));
         }
