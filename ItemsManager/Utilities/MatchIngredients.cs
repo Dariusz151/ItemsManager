@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ItemsManager.Domain;
-using ItemsManager.Models.DTO;
+
+using ItemsManager.Recipes.Domain;
+using ItemsManager.Recipes.DTO;
 
 namespace ItemsManager.Utilities
 {
     public class MatchIngredients
     {
-        public static IEnumerable<RecipeDTO> Match(IEnumerable<RecipeDTO> recipes, List<Ingredient> list)
+        public static IEnumerable<RecipeDetailsDTO> Match(IEnumerable<RecipeDetailsDTO> recipes, List<Ingredient> list)
         {
-            List<RecipeDTO> matchedList = new List<RecipeDTO>();
-            List<RecipeDTO> filteredMatchedList = new List<RecipeDTO>();
+            List<RecipeDetailsDTO> matchedList = new List<RecipeDetailsDTO>();
+            List<RecipeDetailsDTO> filteredMatchedList = new List<RecipeDetailsDTO>();
 
             List<string> matchedListNames = new List<string>();
             List<string> articlesFromUser = new List<string>();
