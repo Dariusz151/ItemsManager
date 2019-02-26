@@ -1,7 +1,10 @@
 ﻿using System.IO;
 using ItemsManager.FoodItems.Repositories;
 using ItemsManager.Recipes.Repositories;
+using ItemsManager.Users.Domain.Repositories;
+using ItemsManager.Users.Domain.Services;
 using ItemsManager.Users.Repositories;
+using ItemsManager.Users.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -37,6 +40,8 @@ namespace ItemsManager
             services.AddScoped<IFoodItemsRepository, FoodItemsRepository>();
             services.AddScoped<IUsersRepository, UsersRepository>();
             services.AddScoped<IRecipesRepository, RecipesRepository>();
+            services.AddScoped<IUsersService, UsersService>();
+            services.AddScoped<IEncrypter, Encrypter>();
             services.AddMvc();
             services.AddSingleton<IConfiguration>(Configuration);
         }

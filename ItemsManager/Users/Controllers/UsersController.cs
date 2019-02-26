@@ -3,6 +3,7 @@ using ItemsManager.HttpResponse;
 using ItemsManager.HTTPStatusMiddleware;
 using ItemsManager.Users.Commands;
 using ItemsManager.Users.Domain;
+using ItemsManager.Users.Domain.Repositories;
 using ItemsManager.Users.Repositories;
 using ItemsManager.Users.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -69,58 +70,18 @@ namespace ItemsManager.Users.Controllers
             {
                 await _usersService.RegisterAsync(command.Login, command.Email, command.Password, command.Firstname);
 
-                return Ok();
+                return Ok(new ApiStatus(200, "CreatedUser", "User registered successfully."));
             }
             catch (SmartFridgeException ex)
             {
                 _logger.LogError(ex, ex.Message);
+                return BadRequest(new ApiStatus(400, ex.Code, ex.Message));
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, ex.Message);
+                return BadRequest(new ApiStatus(400, "Unknown error", ex.Message));
             }
-
-
-
-            //if (command == null)
-            //{
-            //    return BadRequest(new ApiStatus(400, "UserNull", "The user object is null."));
-            //}
-            //if (string.IsNullOrEmpty(command.Login))
-            //{
-            //    return BadRequest(new ApiStatus(400, "LoginEmpty", "The login is null or empty."));
-            //}
-            //if (string.IsNullOrEmpty(command.Password))
-            //{
-            //    return BadRequest(new ApiStatus(400, "PasswordEmpty", "The password is null or empty."));
-            //}
-            //if (string.IsNullOrEmpty(command.Firstname))
-            //{
-            //    return BadRequest(new ApiStatus(400, "FirstnameEmpty", "The first name is null or empty."));
-            //}
-            //if (string.IsNullOrEmpty(command.Email))
-            //{
-            //    return BadRequest(new ApiStatus(400, "EmailEmpty", "The email is null or empty."));
-            //}
-            //if (string.IsNullOrEmpty(command.Phone))
-            //{
-            //    return BadRequest(new ApiStatus(400, "PhoneEmpty", "The phone number is null or empty."));
-            //}
-
-            //var isRegistered = await _repository.RegisterAsync(
-            //    new User(
-            //        command.Login,
-            //        command.Firstname,
-            //        command.Email,
-            //        command.Phone,
-            //        command.Password,
-            //        command.Role
-            //    ));
-
-            //_log.LogInformation("RegisterController, createdID: " + createdId);
-            if (isRegistered)
-                return Ok(new ApiStatus(200, "CreatedUser", "User registered successfully."));
-            return BadRequest(new ApiStatus(400, "UnknownError", "Unknown bad request error."));
         }
     }
 }

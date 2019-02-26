@@ -1,9 +1,9 @@
 ﻿using ItemsManager.Users.Commands;
-using ItemsManager.Users.Domain;
+using ItemsManager.Users.Domain.Models;
 using System;
 using System.Threading.Tasks;
 
-namespace ItemsManager.Users.Repositories
+namespace ItemsManager.Users.Domain.Repositories
 {
     public interface IUsersRepository
     {

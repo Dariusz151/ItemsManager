@@ -1,5 +1,7 @@
 ﻿using ItemsManager.Common.Exceptions;
 using ItemsManager.Users.Domain;
+using ItemsManager.Users.Domain.Models;
+using ItemsManager.Users.Domain.Repositories;
 using ItemsManager.Users.Domain.Services;
 using ItemsManager.Users.Repositories;
 using System;
@@ -24,8 +26,9 @@ namespace ItemsManager.Users.Services
             throw new NotImplementedException();
         }
 
-        public async Task RegisterAsync(string login, string email, string password, string firstname)
+        public async Task<bool> RegisterAsync(string login, string email, string password, string firstname)
         {
+            bool isSuccess = false;
             var user = await _repository.GetAsync(login);
             if (user != null)
             {
@@ -35,7 +38,9 @@ namespace ItemsManager.Users.Services
             user = new User(login, firstname, email);
             user.SetPassword(password, _encrypter);
 
-            await _repository.RegisterAsync(user);
+            isSuccess = await _repository.RegisterAsync(user);
+
+            return isSuccess;
         }
     }
 }

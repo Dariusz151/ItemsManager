@@ -1,0 +1,39 @@
+2019-02-26 21:23:36.108 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/register application/json 93
+2019-02-26 21:23:36.789 +01:00 [Information] Route matched with "{action = \"RegisterAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)"
+2019-02-26 21:23:36.823 +01:00 [Information] Executed action "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)" in 18.0664ms
+2019-02-26 21:23:36.857 +01:00 [Error] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'ItemsManager.Users.Services.IUsersService' while attempting to activate 'ItemsManager.Users.Controllers.UsersController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-02-26 21:23:36.942 +01:00 [Information] Request finished in 836.5246ms 500 text/html; charset=utf-8
+2019-02-26 21:23:36.952 +01:00 [Information] Connection id ""0HLKS50BDRLJ6"", Request id ""0HLKS50BDRLJ6:00000001"": the application completed without reading the entire request body.
+2019-02-26 21:28:03.508 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/register application/json 93
+2019-02-26 21:28:03.751 +01:00 [Information] Route matched with "{action = \"RegisterAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)"
+2019-02-26 21:28:04.035 +01:00 [Information] Executing action method "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)" with arguments (["ItemsManager.Users.Commands.CreateUser"]) - Validation state: Valid
+2019-02-26 21:28:46.215 +01:00 [Information] There is not such login in database.
+2019-02-26 21:30:06.320 +01:00 [Error] Unable to cast object of type 'System.Int32' to type 'System.Guid'.
+2019-02-26 21:32:11.905 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/register application/json 93
+2019-02-26 21:32:12.149 +01:00 [Information] Route matched with "{action = \"RegisterAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)"
+2019-02-26 21:32:12.255 +01:00 [Information] Executing action method "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)" with arguments (["ItemsManager.Users.Commands.CreateUser"]) - Validation state: Valid
+2019-02-26 21:32:16.719 +01:00 [Error] User name cant be empty.
+2019-02-26 21:34:44.289 +01:00 [Error] Violation of UNIQUE KEY constraint 'UQ__register__7838F272368A1550'. Cannot insert duplicate key in object 'dbo.registered_users'. The duplicate key value is (dariusz).
+2019-02-26 21:35:50.909 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/register application/json 98
+2019-02-26 21:35:51.215 +01:00 [Information] Route matched with "{action = \"RegisterAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)"
+2019-02-26 21:35:51.323 +01:00 [Information] Executing action method "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)" with arguments (["ItemsManager.Users.Commands.CreateUser"]) - Validation state: Valid
+2019-02-26 21:35:53.278 +01:00 [Information] There is not such login in database.
+2019-02-26 21:36:02.037 +01:00 [Information] Executed action method "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 10707.5116ms.
+2019-02-26 21:36:02.049 +01:00 [Information] Executing ObjectResult, writing value of type '"ItemsManager.HTTPStatusMiddleware.ApiStatus"'.
+2019-02-26 21:36:02.097 +01:00 [Information] Executed action "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)" in 10876.5118ms
+2019-02-26 21:36:02.116 +01:00 [Information] Request finished in 11208.5563ms 200 application/json; charset=utf-8

@@ -3,7 +3,7 @@ using ItemsManager.Users.Domain.Services;
 using System;
 using System.Text;
 
-namespace ItemsManager.Users.Domain
+namespace ItemsManager.Users.Domain.Models
 {
     public class User
     {
