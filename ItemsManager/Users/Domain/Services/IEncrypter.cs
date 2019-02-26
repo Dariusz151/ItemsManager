@@ -2,7 +2,7 @@
 {
     public interface IEncrypter
     {
-        byte[] CreateSalt(int size);
-        byte[] GenerateSaltedHash(byte[] plainText, byte[] salt);
+        string CreateSalt(int size);
+        string GenerateSaltedHash(byte[] plainText, byte[] salt);
     }
 }

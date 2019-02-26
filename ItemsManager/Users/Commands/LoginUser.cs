@@ -7,11 +7,11 @@ namespace ItemsManager.Users.Commands
     {
         public string Login { get; private set; }
         public string Password { get; private set; }
-
-        public LoginUser(string login, string pswd)
+        
+        public LoginUser(string login, string password)
         {
             Login = login;
-            Password = pswd;
+            Password = password;
         }
     }
 }

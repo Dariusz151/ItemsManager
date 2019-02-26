@@ -37,3 +37,371 @@ System.InvalidOperationException: Unable to resolve service for type 'ItemsManag
 2019-02-26 21:36:02.049 +01:00 [Information] Executing ObjectResult, writing value of type '"ItemsManager.HTTPStatusMiddleware.ApiStatus"'.
 2019-02-26 21:36:02.097 +01:00 [Information] Executed action "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)" in 10876.5118ms
 2019-02-26 21:36:02.116 +01:00 [Information] Request finished in 11208.5563ms 200 application/json; charset=utf-8
+2019-02-26 22:58:29.245 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/register application/json 100
+2019-02-26 22:58:29.509 +01:00 [Information] Route matched with "{action = \"RegisterAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)"
+2019-02-26 22:58:29.533 +01:00 [Information] Executed action "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)" in 17.2024ms
+2019-02-26 22:58:29.570 +01:00 [Error] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'ItemsManager.Common.Auth.JwtHandler' while attempting to activate 'ItemsManager.Users.Services.UsersService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-02-26 22:58:29.626 +01:00 [Information] Request finished in 382.9789ms 500 text/html; charset=utf-8
+2019-02-26 22:58:29.649 +01:00 [Information] Connection id ""0HLKS6LKDK736"", Request id ""0HLKS6LKDK736:00000001"": the application completed without reading the entire request body.
+2019-02-26 22:58:58.518 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/register application/json 100
+2019-02-26 22:58:58.521 +01:00 [Information] Route matched with "{action = \"RegisterAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)"
+2019-02-26 22:58:58.559 +01:00 [Information] Executed action "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)" in 6.6319ms
+2019-02-26 22:58:58.584 +01:00 [Error] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'ItemsManager.Common.Auth.JwtHandler' while attempting to activate 'ItemsManager.Users.Services.UsersService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-02-26 22:58:58.662 +01:00 [Information] Request finished in 137.0956ms 500 text/html; charset=utf-8
+2019-02-26 22:58:58.697 +01:00 [Information] Connection id ""0HLKS6LKDK736"", Request id ""0HLKS6LKDK736:00000002"": the application completed without reading the entire request body.
+2019-02-26 23:00:04.314 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/register application/json 100
+2019-02-26 23:00:04.597 +01:00 [Information] Route matched with "{action = \"RegisterAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)"
+2019-02-26 23:00:04.610 +01:00 [Information] Executed action "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)" in 6.3629ms
+2019-02-26 23:00:04.619 +01:00 [Error] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'ItemsManager.Common.Auth.JwtHandler' while attempting to activate 'ItemsManager.Users.Services.UsersService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-02-26 23:00:04.669 +01:00 [Information] Request finished in 358.4579ms 500 text/html; charset=utf-8
+2019-02-26 23:00:04.703 +01:00 [Information] Connection id ""0HLKS6MR96O5M"", Request id ""0HLKS6MR96O5M:00000001"": the application completed without reading the entire request body.
+2019-02-26 23:02:40.026 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api application/json 115
+2019-02-26 23:02:40.113 +01:00 [Information] Request finished in 85.6918ms 307 
+2019-02-26 23:02:40.119 +01:00 [Information] Connection id ""0HLKS6MR96O5M"", Request id ""0HLKS6MR96O5M:00000002"": the application completed without reading the entire request body.
+2019-02-26 23:02:40.248 +01:00 [Information] Request starting HTTP/1.1 POST https://localhost:5001/api application/json 115
+2019-02-26 23:02:40.276 +01:00 [Information] Request finished in 25.5469ms 404 
+2019-02-26 23:02:40.286 +01:00 [Information] Connection id ""0HLKS6MR96O5N"", Request id ""0HLKS6MR96O5N:00000001"": the application completed without reading the entire request body.
+2019-02-26 23:02:55.167 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/register application/json 105
+2019-02-26 23:02:55.170 +01:00 [Information] Route matched with "{action = \"RegisterAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)"
+2019-02-26 23:02:55.178 +01:00 [Information] Executed action "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)" in 2.2239ms
+2019-02-26 23:02:55.194 +01:00 [Error] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'ItemsManager.Common.Auth.JwtHandler' while attempting to activate 'ItemsManager.Users.Services.UsersService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-02-26 23:02:55.239 +01:00 [Information] Request finished in 71.4742ms 500 text/html; charset=utf-8
+2019-02-26 23:02:55.259 +01:00 [Information] Connection id ""0HLKS6MR96O5M"", Request id ""0HLKS6MR96O5M:00000003"": the application completed without reading the entire request body.
+2019-02-26 23:03:10.259 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/register application/json 105
+2019-02-26 23:03:10.262 +01:00 [Information] Route matched with "{action = \"RegisterAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)"
+2019-02-26 23:03:10.277 +01:00 [Information] Executed action "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)" in 3.2666ms
+2019-02-26 23:03:10.317 +01:00 [Error] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'ItemsManager.Common.Auth.JwtHandler' while attempting to activate 'ItemsManager.Users.Services.UsersService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-02-26 23:03:10.343 +01:00 [Information] Request finished in 86.1581ms 500 text/html; charset=utf-8
+2019-02-26 23:03:10.347 +01:00 [Information] Connection id ""0HLKS6MR96O5M"", Request id ""0HLKS6MR96O5M:00000004"": the application completed without reading the entire request body.
+2019-02-26 23:04:56.927 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/register application/json 111
+2019-02-26 23:04:57.194 +01:00 [Information] Route matched with "{action = \"RegisterAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)"
+2019-02-26 23:04:57.209 +01:00 [Information] Executed action "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)" in 9.3065ms
+2019-02-26 23:04:57.220 +01:00 [Error] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'ItemsManager.Common.Auth.JwtHandler' while attempting to activate 'ItemsManager.Users.Services.UsersService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-02-26 23:04:57.269 +01:00 [Information] Request finished in 353.8488ms 500 text/html; charset=utf-8
+2019-02-26 23:04:57.283 +01:00 [Information] Connection id ""0HLKS6PJM3VN7"", Request id ""0HLKS6PJM3VN7:00000001"": the application completed without reading the entire request body.
+2019-02-26 23:07:50.100 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/register application/json 111
+2019-02-26 23:07:50.489 +01:00 [Information] Route matched with "{action = \"RegisterAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)"
+2019-02-26 23:07:50.504 +01:00 [Information] Executed action "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)" in 7.999ms
+2019-02-26 23:07:50.514 +01:00 [Error] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'ItemsManager.Common.Auth.JwtHandler' while attempting to activate 'ItemsManager.Users.Services.UsersService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-02-26 23:07:50.562 +01:00 [Information] Request finished in 463.4682ms 500 text/html; charset=utf-8
+2019-02-26 23:07:50.581 +01:00 [Information] Connection id ""0HLKS6RAVMG2F"", Request id ""0HLKS6RAVMG2F:00000001"": the application completed without reading the entire request body.
+2019-02-26 23:10:25.451 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/register application/json 111
+2019-02-26 23:10:25.786 +01:00 [Information] Route matched with "{action = \"RegisterAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)"
+2019-02-26 23:10:25.806 +01:00 [Information] Executed action "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)" in 7.7259ms
+2019-02-26 23:10:25.818 +01:00 [Error] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'ItemsManager.Common.Auth.JwtHandler' while attempting to activate 'ItemsManager.Users.Services.UsersService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-02-26 23:10:25.911 +01:00 [Information] Request finished in 465.6144ms 500 text/html; charset=utf-8
+2019-02-26 23:10:25.942 +01:00 [Information] Connection id ""0HLKS6SOKQ6FD"", Request id ""0HLKS6SOKQ6FD:00000001"": the application completed without reading the entire request body.
+2019-02-26 23:11:31.624 +01:00 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/recipes  
+2019-02-26 23:11:31.918 +01:00 [Information] Route matched with "{action = \"GetAllAsync\", controller = \"Recipes\"}". Executing action "ItemsManager.Recipes.Controllers.RecipesController.GetAllAsync (ItemsManager)"
+2019-02-26 23:11:31.946 +01:00 [Information] Executing action method "ItemsManager.Recipes.Controllers.RecipesController.GetAllAsync (ItemsManager)" - Validation state: Valid
+2019-02-26 23:11:32.144 +01:00 [Information] Executed action method "ItemsManager.Recipes.Controllers.RecipesController.GetAllAsync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.NotFoundObjectResult" in 186.0872ms.
+2019-02-26 23:11:32.162 +01:00 [Information] Executing ObjectResult, writing value of type '"ItemsManager.HTTPStatusMiddleware.ApiStatus"'.
+2019-02-26 23:11:32.242 +01:00 [Information] Executed action "ItemsManager.Recipes.Controllers.RecipesController.GetAllAsync (ItemsManager)" in 318.1977ms
+2019-02-26 23:11:32.258 +01:00 [Information] Request finished in 635.5354ms 404 application/json; charset=utf-8
+2019-02-26 23:12:25.894 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/register application/json 111
+2019-02-26 23:12:26.165 +01:00 [Information] Route matched with "{action = \"RegisterAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)"
+2019-02-26 23:12:26.178 +01:00 [Information] Executed action "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)" in 6.6021ms
+2019-02-26 23:12:26.187 +01:00 [Error] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'ItemsManager.Common.Auth.JwtHandler' while attempting to activate 'ItemsManager.Users.Services.UsersService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-02-26 23:12:26.238 +01:00 [Information] Request finished in 348.796ms 500 text/html; charset=utf-8
+2019-02-26 23:12:26.276 +01:00 [Information] Connection id ""0HLKS6TSFO1RL"", Request id ""0HLKS6TSFO1RL:00000001"": the application completed without reading the entire request body.
+2019-02-26 23:13:37.736 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/register application/json 111
+2019-02-26 23:13:38.013 +01:00 [Information] Route matched with "{action = \"RegisterAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)"
+2019-02-26 23:13:38.242 +01:00 [Information] Executing action method "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)" with arguments (["ItemsManager.Users.Commands.CreateUser"]) - Validation state: Valid
+2019-02-26 23:14:21.686 +01:00 [Information] There is not such login in database.
+2019-02-26 23:14:21.718 +01:00 [Information] Executed action method "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 43468.7087ms.
+2019-02-26 23:14:21.732 +01:00 [Information] Executing ObjectResult, writing value of type '"ItemsManager.HTTPStatusMiddleware.ApiStatus"'.
+2019-02-26 23:14:21.754 +01:00 [Information] Executed action "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)" in 43733.9229ms
+2019-02-26 23:14:21.773 +01:00 [Information] Request finished in 44033.9592ms 200 application/json; charset=utf-8
+2019-02-26 23:15:25.172 +01:00 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/users/login application/json 47
+2019-02-26 23:15:25.427 +01:00 [Information] Request finished in 253.1976ms 307 
+2019-02-26 23:15:25.440 +01:00 [Information] Request starting HTTP/1.1 GET https://localhost:5001/api/users/login application/json 47
+2019-02-26 23:15:25.446 +01:00 [Information] Connection id ""0HLKS6VFH2LSR"", Request id ""0HLKS6VFH2LSR:00000001"": the application completed without reading the entire request body.
+2019-02-26 23:15:25.460 +01:00 [Information] Request finished in 13.8338ms 404 
+2019-02-26 23:15:25.470 +01:00 [Information] Connection id ""0HLKS6VFH2LST"", Request id ""0HLKS6VFH2LST:00000001"": the application completed without reading the entire request body.
+2019-02-26 23:17:08.128 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/login application/json 54
+2019-02-26 23:17:08.419 +01:00 [Information] Route matched with "{action = \"LoginAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)"
+2019-02-26 23:17:08.554 +01:00 [Information] Executing action method "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)" with arguments (["ItemsManager.Users.Commands.LoginUser"]) - Validation state: Valid
+2019-02-26 23:18:36.153 +01:00 [Error] Invalid attempt to read when no data is present.
+2019-02-26 23:18:38.567 +01:00 [Information] Executed action method "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.BadRequestObjectResult" in 90006.0747ms.
+2019-02-26 23:18:38.579 +01:00 [Information] Executing ObjectResult, writing value of type '"ItemsManager.HTTPStatusMiddleware.ApiStatus"'.
+2019-02-26 23:18:38.600 +01:00 [Information] Executed action "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)" in 90174.6531ms
+2019-02-26 23:18:38.613 +01:00 [Information] Request finished in 90491.1259ms 400 application/json; charset=utf-8
+2019-02-26 23:20:57.960 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/login application/json 54
+2019-02-26 23:20:58.267 +01:00 [Information] Route matched with "{action = \"LoginAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)"
+2019-02-26 23:20:58.421 +01:00 [Information] Executing action method "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)" with arguments (["ItemsManager.Users.Commands.LoginUser"]) - Validation state: Valid
+2019-02-26 23:21:53.028 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/login application/json 54
+2019-02-26 23:21:53.346 +01:00 [Information] Route matched with "{action = \"LoginAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)"
+2019-02-26 23:21:53.476 +01:00 [Information] Executing action method "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)" with arguments (["ItemsManager.Users.Commands.LoginUser"]) - Validation state: Valid
+2019-02-26 23:22:43.678 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/login application/json 54
+2019-02-26 23:22:43.988 +01:00 [Information] Route matched with "{action = \"LoginAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)"
+2019-02-26 23:22:44.123 +01:00 [Information] Executing action method "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)" with arguments (["ItemsManager.Users.Commands.LoginUser"]) - Validation state: Valid
+2019-02-26 23:23:45.510 +01:00 [Information] Executed action method "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.BadRequestObjectResult" in 61381.3926ms.
+2019-02-26 23:23:45.523 +01:00 [Information] Executing ObjectResult, writing value of type '"ItemsManager.HTTPStatusMiddleware.ApiStatus"'.
+2019-02-26 23:23:45.543 +01:00 [Information] Executed action "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)" in 61549.1843ms
+2019-02-26 23:23:45.555 +01:00 [Information] Request finished in 61878.1957ms 400 application/json; charset=utf-8
+2019-02-26 23:25:47.274 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/login application/json 54
+2019-02-26 23:25:47.574 +01:00 [Information] Route matched with "{action = \"LoginAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)"
+2019-02-26 23:25:47.722 +01:00 [Information] Executing action method "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)" with arguments (["ItemsManager.Users.Commands.LoginUser"]) - Validation state: Valid
+2019-02-26 23:26:29.433 +01:00 [Information] Executed action method "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.BadRequestObjectResult" in 41704.0114ms.
+2019-02-26 23:26:29.448 +01:00 [Information] Executing ObjectResult, writing value of type '"ItemsManager.HTTPStatusMiddleware.ApiStatus"'.
+2019-02-26 23:26:29.469 +01:00 [Information] Executed action "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)" in 41888.522ms
+2019-02-26 23:26:29.483 +01:00 [Information] Request finished in 42207.4327ms 400 application/json; charset=utf-8
+2019-02-26 23:27:03.541 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/login application/json 54
+2019-02-26 23:27:03.908 +01:00 [Information] Route matched with "{action = \"LoginAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)"
+2019-02-26 23:27:04.051 +01:00 [Information] Executing action method "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)" with arguments (["ItemsManager.Users.Commands.LoginUser"]) - Validation state: Valid
+2019-02-26 23:29:26.952 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/login application/json 54
+2019-02-26 23:29:27.332 +01:00 [Information] Route matched with "{action = \"LoginAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)"
+2019-02-26 23:29:27.473 +01:00 [Information] Executing action method "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)" with arguments (["ItemsManager.Users.Commands.LoginUser"]) - Validation state: Valid
+2019-02-26 23:31:49.106 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/login application/json 54
+2019-02-26 23:31:49.460 +01:00 [Information] Route matched with "{action = \"LoginAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)"
+2019-02-26 23:31:49.669 +01:00 [Information] Executing action method "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)" with arguments (["ItemsManager.Users.Commands.LoginUser"]) - Validation state: Valid
+2019-02-26 23:32:10.924 +01:00 [Information] Executed action method "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.BadRequestObjectResult" in 21248.3978ms.
+2019-02-26 23:32:10.937 +01:00 [Information] Executing ObjectResult, writing value of type '"ItemsManager.HTTPStatusMiddleware.ApiStatus"'.
+2019-02-26 23:32:10.957 +01:00 [Information] Executed action "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)" in 21490.1347ms
+2019-02-26 23:32:10.978 +01:00 [Information] Request finished in 21871.6011ms 400 application/json; charset=utf-8
+2019-02-26 23:32:33.612 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/login application/json 54
+2019-02-26 23:32:33.617 +01:00 [Information] Route matched with "{action = \"LoginAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)"
+2019-02-26 23:32:33.624 +01:00 [Information] Executing action method "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)" with arguments (["ItemsManager.Users.Commands.LoginUser"]) - Validation state: Valid
+2019-02-26 23:32:56.644 +01:00 [Information] Executed action method "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.BadRequestObjectResult" in 23016.9256ms.
+2019-02-26 23:32:56.646 +01:00 [Information] Executing ObjectResult, writing value of type '"ItemsManager.HTTPStatusMiddleware.ApiStatus"'.
+2019-02-26 23:32:56.650 +01:00 [Information] Executed action "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)" in 23029.6825ms
+2019-02-26 23:32:56.656 +01:00 [Information] Request finished in 23039.5618ms 400 application/json; charset=utf-8
+2019-02-26 23:32:59.580 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/login application/json 54
+2019-02-26 23:32:59.582 +01:00 [Information] Route matched with "{action = \"LoginAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)"
+2019-02-26 23:32:59.586 +01:00 [Information] Executing action method "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)" with arguments (["ItemsManager.Users.Commands.LoginUser"]) - Validation state: Valid
+2019-02-26 23:43:31.297 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/login application/json 54
+2019-02-26 23:43:31.604 +01:00 [Information] Route matched with "{action = \"LoginAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)"
+2019-02-26 23:43:31.749 +01:00 [Information] Executing action method "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)" with arguments (["ItemsManager.Users.Commands.LoginUser"]) - Validation state: Valid
+2019-02-26 23:44:04.968 +01:00 [Information] Executed action method "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.BadRequestObjectResult" in 33205.7894ms.
+2019-02-26 23:44:04.983 +01:00 [Information] Executing ObjectResult, writing value of type '"ItemsManager.HTTPStatusMiddleware.ApiStatus"'.
+2019-02-26 23:44:05.004 +01:00 [Information] Executed action "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)" in 33393.2555ms
+2019-02-26 23:44:05.020 +01:00 [Information] Request finished in 33725.4944ms 400 application/json; charset=utf-8
+2019-02-26 23:44:08.694 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/login application/json 54
+2019-02-26 23:44:08.698 +01:00 [Information] Route matched with "{action = \"LoginAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)"
+2019-02-26 23:44:08.702 +01:00 [Information] Executing action method "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)" with arguments (["ItemsManager.Users.Commands.LoginUser"]) - Validation state: Valid
+2019-02-26 23:49:29.449 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/login application/json 54
+2019-02-26 23:49:29.840 +01:00 [Information] Route matched with "{action = \"LoginAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)"
+2019-02-26 23:49:29.978 +01:00 [Information] Executing action method "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)" with arguments (["ItemsManager.Users.Commands.LoginUser"]) - Validation state: Valid
+2019-02-26 23:49:34.374 +01:00 [Information] Executed action method "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.BadRequestObjectResult" in 4389.7271ms.
+2019-02-26 23:49:34.398 +01:00 [Information] Executing ObjectResult, writing value of type '"ItemsManager.HTTPStatusMiddleware.ApiStatus"'.
+2019-02-26 23:49:34.426 +01:00 [Information] Executed action "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)" in 4576.9124ms
+2019-02-26 23:49:34.440 +01:00 [Information] Request finished in 5007.0283ms 400 application/json; charset=utf-8
+2019-02-26 23:57:37.634 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/login application/json 54
+2019-02-26 23:57:37.962 +01:00 [Information] Route matched with "{action = \"LoginAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)"
+2019-02-26 23:57:38.151 +01:00 [Information] Executing action method "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)" with arguments (["ItemsManager.Users.Commands.LoginUser"]) - Validation state: Valid

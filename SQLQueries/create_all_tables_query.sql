@@ -1,3 +1,10 @@
+CREATE DATABASE [dariusz151_smartfridge]
+
+GO
+
+USE [dariusz151_smartfridge]
+Go
+
 /****** Object:  Table [dbo].[articles_category]    Script Date: 05.01.2019 00:42:20 ******/
 SET ANSI_NULLS ON
 GO
@@ -75,10 +82,9 @@ CREATE TABLE [dbo].[registered_users](
 	[id_user] [uniqueidentifier] NOT NULL,
 	[login] [nvarchar](50) NOT NULL,
 	[first_name] [varchar](255) NOT NULL,
-	[salt] [varbinary](50) NOT NULL,
-	[password] [varbinary](255) NOT NULL,
+	[salt] [nvarchar](255) NOT NULL,
+	[password] [nvarchar](255) NOT NULL,
 	[email] [nvarchar](50) NULL,
-	[phone] [char](10) NULL,
 	[id_role] [int] NOT NULL,
 PRIMARY KEY CLUSTERED 
 (

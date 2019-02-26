@@ -1,0 +1,18 @@
+2019-02-27 00:04:35.556 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/register application/json 111
+2019-02-27 00:04:35.937 +01:00 [Information] Route matched with "{action = \"RegisterAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)"
+2019-02-27 00:04:36.079 +01:00 [Information] Executing action method "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)" with arguments (["ItemsManager.Users.Commands.CreateUser"]) - Validation state: Valid
+2019-02-27 00:04:39.737 +01:00 [Information] There is not such login in database.
+2019-02-27 00:04:39.774 +01:00 [Information] Executed action method "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 3685.5121ms.
+2019-02-27 00:04:39.787 +01:00 [Information] Executing ObjectResult, writing value of type '"ItemsManager.HTTPStatusMiddleware.ApiStatus"'.
+2019-02-27 00:04:39.809 +01:00 [Information] Executed action "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)" in 3865.6302ms
+2019-02-27 00:04:39.824 +01:00 [Information] Request finished in 4271.8508ms 200 application/json; charset=utf-8
+2019-02-27 00:04:59.247 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/login application/json 54
+2019-02-27 00:04:59.262 +01:00 [Information] Route matched with "{action = \"LoginAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)"
+2019-02-27 00:04:59.270 +01:00 [Information] Executing action method "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)" with arguments (["ItemsManager.Users.Commands.LoginUser"]) - Validation state: Valid
+2019-02-27 00:08:11.786 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/login application/json 54
+2019-02-27 00:08:12.266 +01:00 [Information] Route matched with "{action = \"LoginAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)"
+2019-02-27 00:08:12.512 +01:00 [Information] Executing action method "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)" with arguments (["ItemsManager.Users.Commands.LoginUser"]) - Validation state: Valid
+2019-02-27 00:09:02.471 +01:00 [Information] Executed action method "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 49953.1137ms.
+2019-02-27 00:09:02.485 +01:00 [Information] Executing ObjectResult, writing value of type '"ItemsManager.Common.Auth.JsonWebToken"'.
+2019-02-27 00:09:02.501 +01:00 [Information] Executed action "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)" in 50229.4618ms
+2019-02-27 00:09:02.516 +01:00 [Information] Request finished in 50731.6212ms 200 application/json; charset=utf-8

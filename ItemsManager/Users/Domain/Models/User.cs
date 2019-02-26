@@ -12,13 +12,20 @@ namespace ItemsManager.Users.Domain.Models
         public string Firstname { get; private set; }
         public string Email { get; private set; }
         public string Password { get; private set; }
-        public byte[] Salt { get; private set; }
+        public string Salt { get; private set; }
         public int Role { get; private set; }
         public DateTime CreatedAt { get; private set; }
 
         protected User()
         {
 
+        }
+
+        public User(Guid id, string password, string salt)
+        {
+            Id = id;
+            Password = password;
+            Salt = salt;
         }
 
         public User(string login, string firstname, string email)
@@ -46,17 +53,17 @@ namespace ItemsManager.Users.Domain.Models
             Role = 2;
             CreatedAt = DateTime.UtcNow;
         }
-
-        public void SetPassword(string pswd, IEncrypter encrypter)
+        
+        public void SetPassword(string password, IEncrypter encrypter)
         {
-            if (string.IsNullOrWhiteSpace(pswd))
+            if (string.IsNullOrWhiteSpace(password))
             {
                 //TODO: Validate password power?
                 throw new SmartFridgeException("empty_password", "Password cant be empty.");
             }
             
             Salt = encrypter.CreateSalt(8);
-            Password = Encoding.UTF8.GetString(encrypter.GenerateSaltedHash(Encoding.UTF8.GetBytes(pswd), Salt));
+            Password = encrypter.GenerateSaltedHash(Encoding.UTF8.GetBytes(password), Encoding.UTF8.GetBytes(Salt));
         }
 
         public void SetRole(int role)
@@ -64,9 +71,11 @@ namespace ItemsManager.Users.Domain.Models
             Role = role;
         }
 
-        public bool ValidatePassword(string pswd, IEncrypter encrypter)
+        public bool ValidatePassword(string password, string salt, IEncrypter encrypter)
         {
-            return Password.Equals(encrypter.GenerateSaltedHash(Encoding.UTF8.GetBytes(pswd), Salt));
+            var hashedPassword = encrypter.GenerateSaltedHash(Encoding.UTF8.GetBytes(password), Encoding.UTF8.GetBytes(salt));
+            
+            return Password.Equals(hashedPassword);
         }
     }
 }

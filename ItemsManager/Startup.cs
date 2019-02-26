@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using ItemsManager.Common.Auth;
 using ItemsManager.FoodItems.Repositories;
 using ItemsManager.Recipes.Repositories;
 using ItemsManager.Users.Domain.Repositories;
@@ -36,12 +37,13 @@ namespace ItemsManager
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddCors();
+            services.AddJwt(Configuration);
             
             services.AddScoped<IFoodItemsRepository, FoodItemsRepository>();
             services.AddScoped<IUsersRepository, UsersRepository>();
             services.AddScoped<IRecipesRepository, RecipesRepository>();
             services.AddScoped<IUsersService, UsersService>();
-            services.AddScoped<IEncrypter, Encrypter>();
+            services.AddSingleton<IEncrypter, Encrypter>();
             services.AddMvc();
             services.AddSingleton<IConfiguration>(Configuration);
         }
@@ -76,7 +78,7 @@ namespace ItemsManager
                           template: "{controller=Login}/{action=Login}/{id?}");
             });
 
-            app.UseAuthentication();
+            //app.UseAuthentication();
             app.UseDefaultFiles(options);
             app.UseStaticFiles();
             app.UseStaticFiles(new StaticFileOptions

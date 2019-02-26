@@ -1,10 +1,8 @@
-﻿using ItemsManager.Common.Exceptions;
-using ItemsManager.HttpResponse;
+﻿using ItemsManager.Common.Auth;
+using ItemsManager.Common.Exceptions;
 using ItemsManager.HTTPStatusMiddleware;
 using ItemsManager.Users.Commands;
-using ItemsManager.Users.Domain;
 using ItemsManager.Users.Domain.Repositories;
-using ItemsManager.Users.Repositories;
 using ItemsManager.Users.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -34,34 +32,22 @@ namespace ItemsManager.Users.Controllers
         [HttpPost]
         public async Task<IActionResult> LoginAsync([FromBody] LoginUser command)
         {
-            Guid userID = Guid.Empty;
-
-            if (command == null)
+            JsonWebToken token = new JsonWebToken();
+            
+            try
             {
-                return BadRequest(new ApiStatus(400, "ObjectNull", "The object is null."));
+                token = await _usersService.LoginAsync(command.Login, command.Password);
             }
-            if (string.IsNullOrEmpty(command.Login))
+            catch (SmartFridgeException ex)
             {
-                return BadRequest(new ApiStatus(400, "LoginEmpty", "The login is null or empty."));
+                return BadRequest(new ApiStatus(400, ex.Code, ex.Message));
             }
-            if (string.IsNullOrEmpty(command.Password))
-            {
-                return BadRequest(new ApiStatus(400, "PasswordEmpty", "The password is null or empty."));
-            }
-
-            userID = await _repository.LoginAsync(new LoginUser(command.Login, command.Password));
-
-            if (userID != Guid.Empty)
-            {
-                Response response = new Response();
-                response.StatusCode = 200;
-                response.UserID = userID;
-                return Ok(response);
-            }
-            return BadRequest(new ApiStatus(400, "UnknownError", "The unknown error."));
+            
+            return Ok(token);
         }
         
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
         [Route("api/[controller]/register")]
         [HttpPost]
         public async Task<IActionResult> RegisterAsync(CreateUser command)
@@ -74,12 +60,10 @@ namespace ItemsManager.Users.Controllers
             }
             catch (SmartFridgeException ex)
             {
-                _logger.LogError(ex, ex.Message);
                 return BadRequest(new ApiStatus(400, ex.Code, ex.Message));
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, ex.Message);
                 return BadRequest(new ApiStatus(400, "Unknown error", ex.Message));
             }
         }

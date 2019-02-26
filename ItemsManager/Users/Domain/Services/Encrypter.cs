@@ -5,16 +5,16 @@ namespace ItemsManager.Users.Domain.Services
 {
     public class Encrypter : IEncrypter
     {
-        public byte[] CreateSalt(int size)
+        public string CreateSalt(int size)
         {
             RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
             byte[] buff = new byte[size];
             rng.GetBytes(buff);
 
-            return buff;
+            return Convert.ToBase64String(buff);
         }
 
-        public byte[] GenerateSaltedHash(byte[] plainText, byte[] salt)
+        public string GenerateSaltedHash(byte[] plainText, byte[] salt)
         {
             HashAlgorithm algorithm = new SHA256Managed();
 
@@ -30,7 +30,7 @@ namespace ItemsManager.Users.Domain.Services
                 plainTextWithSaltBytes[plainText.Length + i] = salt[i];
             }
 
-            return algorithm.ComputeHash(plainTextWithSaltBytes);
+            return Convert.ToBase64String(algorithm.ComputeHash(plainTextWithSaltBytes));
         }
     }
 }
