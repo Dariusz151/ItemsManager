@@ -2,6 +2,7 @@
 
 namespace ItemsManager.Users.Commands
 {
+    //immutable
     public class LoginUser : ICommand
     {
         public string Login { get; private set; }
