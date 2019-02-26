@@ -3,6 +3,7 @@ using ItemsManager.HTTPStatusMiddleware;
 using ItemsManager.Users.Commands;
 using ItemsManager.Users.Domain;
 using ItemsManager.Users.Repositories;
+using ItemsManager.Users.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -17,11 +18,13 @@ namespace ItemsManager.Users.Controllers
     {
         private readonly IUsersRepository _repository;
         private readonly ILogger<UsersController> _logger;
+        private readonly IUsersService _usersService;
 
-        public UsersController(IUsersRepository repository, ILogger<UsersController> logger)
+        public UsersController(IUsersRepository repository, ILogger<UsersController> logger, IUsersService usersService)
         {
             _repository = repository;
             _logger = logger;
+            _usersService = usersService;
         }
 
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
@@ -61,8 +64,6 @@ namespace ItemsManager.Users.Controllers
         [HttpPost]
         public async Task<IActionResult> RegisterAsync(CreateUser command)
         {
-            Console.WriteLine(command);
-
             if (command == null)
             {
                 return BadRequest(new ApiStatus(400, "UserNull", "The user object is null."));
