@@ -1,10 +1,13 @@
-﻿using ItemsManager.Articles.Domain;
-using ItemsManager.FoodItems.Commands;
-using ItemsManager.FoodItems.Repositories;
+﻿using ItemsManager.FoodItems.Commands;
+using ItemsManager.FoodItems.Domain.Models;
+using ItemsManager.FoodItems.Domain.Repositories;
 using ItemsManager.HTTPStatusMiddleware;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Net;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace ItemsManager.Articles.Controllers
@@ -12,6 +15,7 @@ namespace ItemsManager.Articles.Controllers
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class FoodItemsController : ControllerBase
     {
         private static IFoodItemsRepository _repository;
@@ -21,21 +25,30 @@ namespace ItemsManager.Articles.Controllers
             _repository = repository;
         }
 
-        //[HttpGet]
-        //[ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(FoodItem))]
-        //[ProducesResponseType((int)HttpStatusCode.NotFound)]
-        //public async Task<IActionResult> GetAllAsync()
-        //{
-        //    var list = await _repository.GetAllAsync();
-        //    if (list == null)
-        //        return NotFound();
-        //    return Ok(list);
-        //}
+        [HttpGet]
+        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(FoodItem))]
+        [ProducesResponseType((int)HttpStatusCode.NotFound)]
+        public async Task<IActionResult> GetAsync()
+        {
+            Guid id = new Guid();
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            if (identity != null)
+            {
+                id = Guid.Parse(identity.Name);
+            }
+
+            var list = await _repository.GetAsync(id);
+
+            if (list == null)
+                return NotFound(new ApiStatus(404, "NotFoundError", "Cant get SmartFridge items."));
+            return Ok(list);
+        }
 
         [HttpGet("{id}")]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(FoodItem))]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
-        public async Task<IActionResult> GetAsync(Guid id)
+        
+        public async Task<IActionResult> GetByIdAsync(Guid id)
         {
             var list = await _repository.GetAsync(id);
 
@@ -49,7 +62,7 @@ namespace ItemsManager.Articles.Controllers
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         public async Task<IActionResult> CreateAsync([FromBody] CreateFoodItem command)
         {
-            if (command == null)
+            if (command is null)
             {
                 return BadRequest(new ApiStatus(400, "UnknownError", "Item null error."));
             }
@@ -70,9 +83,9 @@ namespace ItemsManager.Articles.Controllers
                 return BadRequest(new ApiStatus(400, "CategoryError", "Item category ID null error."));
             }
 
-            var createdId = await _repository.CreateAsync(
+            var isCreated = await _repository.CreateAsync(
                 new FoodItem(
-                    new Guid(),
+                    Guid.NewGuid(),
                     command.Name.ToLower(),
                     command.Weight,
                     command.Quantity,
@@ -80,8 +93,8 @@ namespace ItemsManager.Articles.Controllers
                     command.UserId)
                 );
 
-            if (createdId != Guid.Empty)
-                return Ok(new ApiStatus(200, "Created", createdId.ToString()));
+            if (isCreated)
+                return Ok(new ApiStatus(200, "Created", "Food item created."));
             return BadRequest(new ApiStatus(400, "UnknownError", "Unknown SmartFridgeCreate error."));
         }
 

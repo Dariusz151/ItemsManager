@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
-using ItemsManager.Articles.Domain;
+using ItemsManager.FoodItems.Domain.Models;
+using ItemsManager.FoodItems.Domain.Repositories;
 using ItemsManager.FoodItems.DTO;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -18,7 +19,7 @@ namespace ItemsManager.FoodItems.Repositories
         private static IHostingEnvironment _environment;
         private readonly string _selectAllQuery = "SELECT [article_id], [article_name], [quantity], [weight], [id_user], [id_category] FROM [dbo].[article]";
         private readonly string _selectByIdQuery = "SELECT [article_id], [article_name], [quantity], [weight], [id_user], [id_category] FROM [dbo].[article] WHERE id_user=@id";
-        private readonly string _insertQuery = "INSERT INTO [dbo].[article] ([article_name], [quantity], [weight], [createdAt], [id_user], [id_category]) OUTPUT INSERTED.article_id VALUES(@param1,@param2,@param3,@param4,@param5,@param6)";
+        private readonly string _insertQuery = "INSERT INTO [dbo].[article] ([article_id], [article_name], [quantity], [weight], [createdAt], [id_user], [id_category]) OUTPUT INSERTED.id VALUES(@param1,@param2,@param3,@param4,@param5,@param6, @param7)";
         private readonly string _deleteQuery = "DELETE FROM [dbo].[article] WHERE [article_id] = @id";
 
         public FoodItemsRepository(IConfiguration configuration, IHostingEnvironment environment, ILogger<FoodItemsRepository> logger)
@@ -31,11 +32,7 @@ namespace ItemsManager.FoodItems.Repositories
         public async Task<IEnumerable<FoodItemDTO>> GetAllAsync()
         {
             IList<FoodItemDTO> list = null;
-
-            if (_environment.IsDevelopment())
-            {
-                Console.WriteLine("(GetAllAsync) in DBFridgeRepos");
-            }
+            
             if (_environment.IsProduction())
             {
                 _logger.LogInformation("(GetAllAsync) in DBFridgeRepos");
@@ -50,9 +47,7 @@ namespace ItemsManager.FoodItems.Repositories
 
                 try
                 {
-                    Console.WriteLine("Try to open connection");
                     connection.Open();
-                    Console.WriteLine("Connection.Open();");
                     using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
                     {
                         if (reader.HasRows)
@@ -71,13 +66,13 @@ namespace ItemsManager.FoodItems.Repositories
                         }
                         else
                         {
-                            Console.WriteLine("No rows found.");
+                            _logger.LogInformation("No rows found.");
                         }
                     }
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e.Message.ToString(), "Error Message");
+                    _logger.LogError(e.Message.ToString(), "Error Message");
                 }
                 if (connection.State == ConnectionState.Open)
                     connection.Close();
@@ -88,14 +83,10 @@ namespace ItemsManager.FoodItems.Repositories
         public async Task<IEnumerable<FoodItemDTO>> GetAsync(Guid id)
         {
             IList<FoodItemDTO> list = null;
-
-            if (_environment.IsDevelopment())
-            {
-                Console.WriteLine("(GetAsync) in DBFridgeRepos. ID :" + id);
-            }
+            
             if (_environment.IsProduction())
             {
-                _logger.LogInformation("(GetAsync) in DBFridgeRepos. ID :" + id);
+                _logger.LogInformation("(GetAsync) in DBFridgeRepos. GUID :" + id);
             }
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -108,9 +99,7 @@ namespace ItemsManager.FoodItems.Repositories
 
                 try
                 {
-                    Console.WriteLine("Try to open connection");
                     connection.Open();
-                    Console.WriteLine("Connection.Open();");
                     using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
                     {
                         if (reader.HasRows)
@@ -129,13 +118,13 @@ namespace ItemsManager.FoodItems.Repositories
                         }
                         else
                         {
-                            Console.WriteLine("No rows found.");
+                            _logger.LogInformation("No rows found.");
                         }
                     }
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e.Message.ToString(), "Error Message");
+                    _logger.LogError(e.Message.ToString(), "Error Message");
                 }
                 if (connection.State == ConnectionState.Open)
                     connection.Close();
@@ -143,14 +132,10 @@ namespace ItemsManager.FoodItems.Repositories
             return list;
         }
 
-        public async Task<Guid> CreateAsync(FoodItem foodItem)
+        public async Task<bool> CreateAsync(FoodItem foodItem)
         {
-            Guid createdId = Guid.Empty;
-
-            if (_environment.IsDevelopment())
-            {
-                Console.WriteLine("(CreateAsync) in DBFridgeRepository ");
-            }
+            int createdId = 0;
+            
             if (_environment.IsProduction())
             {
                 _logger.LogInformation("(CreateAsync) in DBFridgeRepository ");
@@ -162,36 +147,33 @@ namespace ItemsManager.FoodItems.Repositories
                 cmd.Connection = connection;
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = _insertQuery;
-                cmd.Parameters.AddWithValue("@param1", foodItem.Name);
-                cmd.Parameters.AddWithValue("@param2", foodItem.Quantity);
-                cmd.Parameters.AddWithValue("@param3", foodItem.Weight);
-                cmd.Parameters.AddWithValue("@param4", foodItem.CreatedAt);
-                cmd.Parameters.AddWithValue("@param5", foodItem.UserId);
-                cmd.Parameters.AddWithValue("@param6", foodItem.CategoryId);
+                cmd.Parameters.AddWithValue("@param1", foodItem.Id);
+                cmd.Parameters.AddWithValue("@param2", foodItem.Name);
+                cmd.Parameters.AddWithValue("@param3", foodItem.Quantity);
+                cmd.Parameters.AddWithValue("@param4", foodItem.Weight);
+                cmd.Parameters.AddWithValue("@param5", foodItem.CreatedAt);
+                cmd.Parameters.AddWithValue("@param6", foodItem.UserId);
+                cmd.Parameters.AddWithValue("@param7", foodItem.CategoryId);
                 try
                 {
                     connection.Open();
-                    createdId = (Guid)await cmd.ExecuteScalarAsync();
-                    Console.WriteLine("CreatedID: " + createdId);
+                    createdId = (int)await cmd.ExecuteScalarAsync();
+                    _logger.LogInformation("CreatedID: " + createdId);
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e.Message.ToString(), "Error Message");
+                    _logger.LogError(e.Message.ToString(), "Error Message");
                 }
                 if (connection.State == ConnectionState.Open)
                     connection.Close();
             }
-            return createdId;
+            return createdId > 0;
         }
 
         public async Task<bool> DeleteAsync(Guid id)
         {
             int rowsAffected = 0;
-
-            if (_environment.IsDevelopment())
-            {
-                Console.WriteLine("(DeleteAsync) in DBFridgeRepository ");
-            }
+            
             if (_environment.IsProduction())
             {
                 _logger.LogInformation("(DeleteAsync) in DBFridgeRepository ");
@@ -209,11 +191,11 @@ namespace ItemsManager.FoodItems.Repositories
                 {
                     connection.Open();
                     rowsAffected = await cmd.ExecuteNonQueryAsync();
-                    Console.WriteLine("Rows Affected: " + rowsAffected);
+                    _logger.LogInformation("Rows Affected: " + rowsAffected);
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e.Message.ToString(), "Error Message");
+                    _logger.LogError(e.Message.ToString(), "Error Message");
                 }
                 if (connection.State == ConnectionState.Open)
                     connection.Close();
