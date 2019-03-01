@@ -1,0 +1,66 @@
+@apiUrl = http://localhost:5000
+
+@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjNDk3ZWQ2Mi0zOTQ0LTRmMDktODVlMC1kOTk0NTlhODQxZTYiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAiLCJpYXQiOjE1NTE0ODU0MTksImV4cCI6MTU1MTQ4NTcxOSwidW5pcXVlX25hbWUiOiJjNDk3ZWQ2Mi0zOTQ0LTRmMDktODVlMC1kOTk0NTlhODQxZTYifQ.I1wt3vEKT1rbotpXpfqZ0ANtehnyDbeDc2hVZoDe-OI
+
+### ================= CREATE USER ======================= #
+
+POST {{apiUrl}}/api/users/register
+content-type: application/json
+
+{
+    "Login": "smartfridge3",
+    "Firstname": "da",
+    "Email": "dardaiusz11@op.pl",
+    "Password": "smartfridge3"
+}
+
+### ================= LOGIN USER ======================= #
+
+POST {{apiUrl}}/api/users/login
+content-type: application/json
+
+{
+    "Login": "smartfridge",
+    "Password": "smartfridge"
+}
+
+### ================= GET FOOD ITEMS ======================= #
+
+GET {{apiUrl}}/api/FoodItems
+authorization: Bearer {{accessToken}}
+content-type: application/json
+
+
+### ================= CREATE FOOD ITEMS ======================= #
+
+POST {{apiUrl}}/api/FoodItems
+authorization: Bearer {{accessToken}}
+content-type: application/json
+
+{
+    "Name": "test2",
+    "Weight": 1,
+    "Quantity": 22,
+    "CategoryId": 1,
+    "UserId": "C497ED62-3944-4F09-85E0-D99459A841E6"
+}
+
+#### ================= RECIPES ======================= #
+
+POST {{apiUrl}}/api/Recipes
+authorization: Bearer {{accessToken}}
+content-type: application/json
+
+{
+    "Name": "recipe1",
+    "Description": "siema test",
+    "Ingredients": 
+	[
+		{"Name": "New", "Weight": "150"},
+		{"Name": "Test2", "Weight": "160"},
+		{"Name": "Test5", "Weight": "180"}
+    ]
+}
+
+
+
