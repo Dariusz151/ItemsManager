@@ -4,6 +4,8 @@ using ItemsManager.Recipes.Domain;
 using ItemsManager.Recipes.DTO;
 using ItemsManager.Recipes.Repositories;
 using ItemsManager.Utilities;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -15,6 +17,7 @@ namespace ItemsManager.Recipes.Controllers
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class RecipesController : ControllerBase
     {
         private readonly IRecipesRepository _repository;
@@ -39,22 +42,17 @@ namespace ItemsManager.Recipes.Controllers
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         public async Task<IActionResult> GetAsync(Guid id)
         {
-            var list = await _repository.GetAsync(id);
+            var recipeDetails = await _repository.GetAsync(id);
 
-            if (list == null)
+            if (recipeDetails == null)
                 return NotFound(new ApiStatus(404, "RecipeError", "Recipe not found."));
-            return Ok(list);
+            return Ok(recipeDetails);
         }
 
         [HttpPost]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         public async Task<IActionResult> CreateAsync([FromBody] CreateRecipe command)
         {
-            Console.WriteLine("create async recipe controller");
-            Console.WriteLine("item.desc " + command.Description);
-            Console.WriteLine("item.name " + command.Name);
-            Console.WriteLine("ietm.ingr " + command.Ingredients.ToString());
-
             if (string.IsNullOrEmpty(command.Name.ToString()))
             {
                 return BadRequest(new ApiStatus(400, "ItemNameError", "ItemName is null or empty."));
@@ -70,7 +68,7 @@ namespace ItemsManager.Recipes.Controllers
 
             command.Ingredients.ForEach(x => x.Name = x.Name.ToLower());
 
-            Guid createdId = await _repository.CreateAsync(
+            bool isCreated = await _repository.CreateAsync(
                 new Recipe(
                     new Guid(),
                     command.Name,
@@ -78,7 +76,7 @@ namespace ItemsManager.Recipes.Controllers
                     command.Ingredients
                  ));
 
-            if (createdId != Guid.Empty)
+            if (isCreated)
                 return Ok(new ApiStatus(200, "RecipeCreated", "Recipe created successfully."));
             return BadRequest(new ApiStatus(400, "RecipesError", "Recipes Bad Request."));
         }
@@ -90,7 +88,6 @@ namespace ItemsManager.Recipes.Controllers
         {
             IEnumerable<RecipeDetailsDTO> recipes = await _repository.GetAllRecipesAsync();
             
-            //Console.WriteLine("recipes:" + recipes.Count());
             var matchedRecipes = MatchIngredients.Match(recipes, list);
 
             if (matchedRecipes != null)
@@ -100,6 +97,5 @@ namespace ItemsManager.Recipes.Controllers
 
             return BadRequest(new ApiStatus(400, "CheckRecipeError", "Can't find and match any recipe."));
         }
-
     }
 }

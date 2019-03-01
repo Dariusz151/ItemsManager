@@ -10,7 +10,7 @@ namespace ItemsManager.Recipes.Repositories
     {
         Task<IEnumerable<RecipeDTO>> GetAllAsync();
         Task<RecipeDetailsDTO> GetAsync(Guid id);
-        Task<Guid> CreateAsync(Recipe recipe);
+        Task<bool> CreateAsync(Recipe recipe);
 
         Task<IEnumerable<RecipeDetailsDTO>> GetAllRecipesAsync();
     }
