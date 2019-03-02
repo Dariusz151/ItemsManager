@@ -1,6 +1,6 @@
 @apiUrl = http://localhost:5000
 
-@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjNDk3ZWQ2Mi0zOTQ0LTRmMDktODVlMC1kOTk0NTlhODQxZTYiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAiLCJpYXQiOjE1NTE1MjY2NzQsImV4cCI6MTU1MTUyNjk3NCwidW5pcXVlX25hbWUiOiJjNDk3ZWQ2Mi0zOTQ0LTRmMDktODVlMC1kOTk0NTlhODQxZTYifQ.Vh12ENnlhIWN_95L_Knu5nSVEz0Be8NGPPOKE-jjCUQ
+@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmMjdhZTI0OS1jMjBkLTQ3MTAtYWVmNi1jYWNmMjhiOWNkMTQiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAiLCJpYXQiOjE1NTE1Mjg1OTgsImV4cCI6MTU1MTUyODg5OCwidW5pcXVlX25hbWUiOiJmMjdhZTI0OS1jMjBkLTQ3MTAtYWVmNi1jYWNmMjhiOWNkMTQifQ.0HgRWqbdCyKXqcsQT20x7edCUkqJmO0WTL2Tu2nJ48k
 
 ### ================= CREATE USER ======================= #
 
@@ -8,10 +8,10 @@ POST {{apiUrl}}/api/users/register
 content-type: application/json
 
 {
-    "Login": "smartfridge3",
-    "Firstname": "da",
-    "Email": "dardaiusz11@op.pl",
-    "Password": "smartfridge3"
+    "Login": "2marca",
+    "Firstname": "marzec2",
+    "Email": "marzec2@op.pl",
+    "Password": "2marca"
 }
 
 ### ================= LOGIN USER ======================= #
@@ -20,8 +20,8 @@ POST {{apiUrl}}/api/users/login
 content-type: application/json
 
 {
-    "Login": "smartfridge",
-    "Password": "smartfridge"
+    "Login": "2marca",
+    "Password": "2marca"
 }
 
 ### ================= GET FOOD ITEMS ======================= #
@@ -38,11 +38,11 @@ authorization: Bearer {{accessToken}}
 content-type: application/json
 
 {
-    "Name": "test2",
+    "Name": "piwo",
     "Weight": 1,
     "Quantity": 22,
     "CategoryId": 1,
-    "UserId": "C497ED62-3944-4F09-85E0-D99459A841E6"
+    "UserId": "F27AE249-C20D-4710-AEF6-CACF28B9CD14"
 }
 
 
@@ -56,7 +56,7 @@ content-type: application/json
 
 #### ================= Get recipe details ======================= #
 
-@recipeGuid = e198f1db-4898-4c62-a34a-a182a17ddb9f
+@recipeGuid = 031c6c40-9bf5-42ac-8722-f8dd0b72e72b
 
 GET {{apiUrl}}/api/Recipes/{{recipeGuid}}
 authorization: Bearer {{accessToken}}
@@ -71,33 +71,16 @@ authorization: Bearer {{accessToken}}
 content-type: application/json
 
 {
-    "Name": "recipe2",
-    "Description": "siema test23",
+    "Name": "2marzec",
+    "Description": "siema marzec",
     "Ingredients": 
 	[
 		{"Name": "New", "Weight": "150"},
-		{"Name": "Test2", "Weight": "160"},
-		{"Name": "Test5", "Weight": "180"}
+		{"Name": "ziemniak", "Weight": "160"},
+		{"Name": "pyra", "Weight": "180"}
     ]
 }
 
-
-#### ================= CREATERECIPES ======================= #
-
-POST {{apiUrl}}/api/Recipes
-authorization: Bearer {{accessToken}}
-content-type: application/json
-
-{
-    "Name": "recipe1",
-    "Description": "siema test",
-    "Ingredients": 
-	[
-		{"Name": "New", "Weight": "150"},
-		{"Name": "Test2", "Weight": "160"},
-		{"Name": "Test5", "Weight": "180"}
-    ]
-}
 
 
 

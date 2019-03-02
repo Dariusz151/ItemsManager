@@ -264,5 +264,5 @@ __pycache__/
 
 # Logs ignore
 
-[Ll]ogs
-[Ss]erilogs
+[Ll]ogs/
+[Ss]erilogs/
