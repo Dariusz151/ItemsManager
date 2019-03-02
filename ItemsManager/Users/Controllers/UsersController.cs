@@ -1,6 +1,6 @@
 ﻿using ItemsManager.Common.Auth;
 using ItemsManager.Common.Exceptions;
-using ItemsManager.HTTPStatusMiddleware;
+using ItemsManager.Common.HTTP.Responses;
 using ItemsManager.Users.Commands;
 using ItemsManager.Users.Domain.Repositories;
 using ItemsManager.Users.Services;

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ItemsManager.HttpResponse
+namespace ItemsManager.Common.Types
 {
     public class Response
     {

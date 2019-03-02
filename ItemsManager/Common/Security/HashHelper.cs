@@ -1,6 +1,6 @@
 ﻿using System.Security.Cryptography;
 
-namespace ItemsManager.Utilities
+namespace ItemsManager.Common.Security
 {
     public static class HashHelper
     {

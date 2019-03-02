@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-
 using ItemsManager.Recipes.Domain;
 using ItemsManager.Recipes.DTO;
 
-namespace ItemsManager.Utilities
+namespace ItemsManager.Recipes.Utils
 {
     public class MatchIngredients
     {

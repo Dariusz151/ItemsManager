@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Threading.Tasks;
+﻿using System.Net;
 
-namespace ItemsManager.HTTPStatusMiddleware
+namespace ItemsManager.Common.HTTP.Responses
 {
     public class BadRequestError : ApiStatus
     {

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace ItemsManager.HTTPStatusMiddleware
+﻿namespace ItemsManager.Common.HTTP.Responses
 {
     public class ApiStatus
     {

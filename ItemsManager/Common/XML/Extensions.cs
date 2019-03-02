@@ -3,7 +3,7 @@ using System.IO;
 using System.Text;
 using System.Xml.Serialization;
 
-namespace ItemsManager.Utilities.XMLHelper
+namespace ItemsManager.Common.XML
 {
     public static class Extensions
     {

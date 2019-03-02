@@ -1,7 +1,6 @@
-﻿using ItemsManager.Recipes.Commands;
+﻿using ItemsManager.Common.XML;
 using ItemsManager.Recipes.Domain;
 using ItemsManager.Recipes.DTO;
-using ItemsManager.Utilities.XMLHelper;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;

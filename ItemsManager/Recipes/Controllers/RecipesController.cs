@@ -1,9 +1,9 @@
-﻿using ItemsManager.HTTPStatusMiddleware;
+﻿using ItemsManager.Common.HTTP.Responses;
 using ItemsManager.Recipes.Commands;
 using ItemsManager.Recipes.Domain;
 using ItemsManager.Recipes.DTO;
 using ItemsManager.Recipes.Repositories;
-using ItemsManager.Utilities;
+using ItemsManager.Recipes.Utils;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
