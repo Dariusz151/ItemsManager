@@ -20,7 +20,7 @@
     "ItemsManager": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "/static",
+      "launchUrl": "https://localhost:5001/static",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

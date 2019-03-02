@@ -264,5 +264,6 @@ __pycache__/
 
 # Logs ignore
 
-[Ll]ogs/
-[Ss]erilogs/
+ItemsManager/Logs/
+ItemsManager/appsettings.Development.json
+ItemsManager/appsettings.production.json
