@@ -1,6 +1,6 @@
 @apiUrl = http://localhost:5000
 
-@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmMjdhZTI0OS1jMjBkLTQ3MTAtYWVmNi1jYWNmMjhiOWNkMTQiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAiLCJpYXQiOjE1NTE1Mjg1OTgsImV4cCI6MTU1MTUyODg5OCwidW5pcXVlX25hbWUiOiJmMjdhZTI0OS1jMjBkLTQ3MTAtYWVmNi1jYWNmMjhiOWNkMTQifQ.0HgRWqbdCyKXqcsQT20x7edCUkqJmO0WTL2Tu2nJ48k
+@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmMjdhZTI0OS1jMjBkLTQ3MTAtYWVmNi1jYWNmMjhiOWNkMTQiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAiLCJpYXQiOjE1NTE1MzEyODUsImV4cCI6MTU1MTUzMTU4NSwidW5pcXVlX25hbWUiOiJmMjdhZTI0OS1jMjBkLTQ3MTAtYWVmNi1jYWNmMjhiOWNkMTQifQ.D31KQ8Z5qS8rTvY9ks5nQlw6fB9d05ov5e-aPKamim4
 
 ### ================= CREATE USER ======================= #
 
@@ -41,8 +41,7 @@ content-type: application/json
     "Name": "piwo",
     "Weight": 1,
     "Quantity": 22,
-    "CategoryId": 1,
-    "UserId": "F27AE249-C20D-4710-AEF6-CACF28B9CD14"
+    "CategoryId": 1
 }
 
 

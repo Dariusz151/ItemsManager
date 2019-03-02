@@ -11,16 +11,14 @@ namespace ItemsManager.FoodItems.Commands
         public int Weight { get; }
         public int Quantity { get; }
         public int CategoryId { get; }
-        public Guid UserId { get; }
 
         [JsonConstructor]
-        public CreateFoodItem(string name, int weight, int quantity, int categoryId, Guid userId)
+        public CreateFoodItem(string name, int weight, int quantity, int categoryId)
         {
             Name = name;
             Weight = weight;
             Quantity = quantity;
             CategoryId = categoryId;
-            UserId = userId;
         }
     }
 }
