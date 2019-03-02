@@ -3,6 +3,7 @@ using ItemsManager.Common.HTTP.Responses;
 using ItemsManager.FoodItems.Commands;
 using ItemsManager.FoodItems.Domain.Models;
 using ItemsManager.FoodItems.Domain.Repositories;
+using ItemsManager.FoodItems.Types;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

@@ -1,6 +1,6 @@
 ﻿using ItemsManager.Common.Types;
+using ItemsManager.FoodItems.Types;
 using Newtonsoft.Json;
-using System;
 
 namespace ItemsManager.FoodItems.Commands
 {
@@ -10,7 +10,7 @@ namespace ItemsManager.FoodItems.Commands
         public string Name { get; }
         public int Weight { get; }
         public int Quantity { get; }
-        public int CategoryId { get; }
+        public FoodCategory CategoryId { get; }
 
         [JsonConstructor]
         public CreateFoodItem(string name, int weight, int quantity, int categoryId)
@@ -18,7 +18,7 @@ namespace ItemsManager.FoodItems.Commands
             Name = name;
             Weight = weight;
             Quantity = quantity;
-            CategoryId = categoryId;
+            CategoryId = (FoodCategory)categoryId;
         }
     }
 }
