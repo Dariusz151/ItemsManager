@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using ItemsManager.FoodItems.Types;
+using System;
 
 namespace ItemsManager.Common.Types
 {
@@ -10,6 +8,6 @@ namespace ItemsManager.Common.Types
         int Weight { get; }
         int Quantity { get; }
         DateTime CreatedAt { get; }
-        int CategoryId { get; }
+        FoodCategory CategoryId { get; }
     }
 }
