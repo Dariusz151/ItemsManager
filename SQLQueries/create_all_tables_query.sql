@@ -35,7 +35,8 @@ VALUES
 	( 'Ryby'),
 	( 'Orzechy'),
 	( 'Napoje'),
-	( 'S³odycze')
+	( 'S³odycze'),
+	( 'Inne')
 
 GO
 
