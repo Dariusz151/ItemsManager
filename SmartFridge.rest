@@ -1,6 +1,6 @@
 @apiUrl = http://localhost:5000
 
-@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjNDk3ZWQ2Mi0zOTQ0LTRmMDktODVlMC1kOTk0NTlhODQxZTYiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAiLCJpYXQiOjE1NTE0ODU0MTksImV4cCI6MTU1MTQ4NTcxOSwidW5pcXVlX25hbWUiOiJjNDk3ZWQ2Mi0zOTQ0LTRmMDktODVlMC1kOTk0NTlhODQxZTYifQ.I1wt3vEKT1rbotpXpfqZ0ANtehnyDbeDc2hVZoDe-OI
+@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjNDk3ZWQ2Mi0zOTQ0LTRmMDktODVlMC1kOTk0NTlhODQxZTYiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAiLCJpYXQiOjE1NTE1MjY2NzQsImV4cCI6MTU1MTUyNjk3NCwidW5pcXVlX25hbWUiOiJjNDk3ZWQ2Mi0zOTQ0LTRmMDktODVlMC1kOTk0NTlhODQxZTYifQ.Vh12ENnlhIWN_95L_Knu5nSVEz0Be8NGPPOKE-jjCUQ
 
 ### ================= CREATE USER ======================= #
 
@@ -45,7 +45,44 @@ content-type: application/json
     "UserId": "C497ED62-3944-4F09-85E0-D99459A841E6"
 }
 
-#### ================= RECIPES ======================= #
+
+
+#### ================= Get all recipes ======================= #
+
+GET {{apiUrl}}/api/Recipes
+authorization: Bearer {{accessToken}}
+content-type: application/json
+
+
+#### ================= Get recipe details ======================= #
+
+@recipeGuid = e198f1db-4898-4c62-a34a-a182a17ddb9f
+
+GET {{apiUrl}}/api/Recipes/{{recipeGuid}}
+authorization: Bearer {{accessToken}}
+content-type: application/json
+
+
+
+#### ================= CREATERECIPES ======================= #
+
+POST {{apiUrl}}/api/Recipes
+authorization: Bearer {{accessToken}}
+content-type: application/json
+
+{
+    "Name": "recipe2",
+    "Description": "siema test23",
+    "Ingredients": 
+	[
+		{"Name": "New", "Weight": "150"},
+		{"Name": "Test2", "Weight": "160"},
+		{"Name": "Test5", "Weight": "180"}
+    ]
+}
+
+
+#### ================= CREATERECIPES ======================= #
 
 POST {{apiUrl}}/api/Recipes
 authorization: Bearer {{accessToken}}

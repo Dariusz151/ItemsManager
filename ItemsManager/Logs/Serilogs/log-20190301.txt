@@ -1,0 +1,35 @@
+2019-03-01 23:46:51.263 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/login application/json 61
+2019-03-01 23:46:51.772 +01:00 [Information] Route matched with "{action = \"LoginAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)"
+2019-03-01 23:46:51.978 +01:00 [Information] Executing action method "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)" with arguments (["ItemsManager.Users.Commands.LoginUser"]) - Validation state: Valid
+2019-03-01 23:46:52.443 +01:00 [Information] Executed action method "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 459.0438ms.
+2019-03-01 23:46:52.456 +01:00 [Information] Executing ObjectResult, writing value of type '"ItemsManager.Common.Auth.JsonWebToken"'.
+2019-03-01 23:46:52.472 +01:00 [Information] Executed action "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)" in 694.1787ms
+2019-03-01 23:46:52.482 +01:00 [Information] Request finished in 1222.3106ms 200 application/json; charset=utf-8
+2019-03-01 23:53:54.381 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/register application/json 123
+2019-03-01 23:53:54.396 +01:00 [Information] Route matched with "{action = \"RegisterAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)"
+2019-03-01 23:53:54.417 +01:00 [Information] Executing action method "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)" with arguments (["ItemsManager.Users.Commands.CreateUser"]) - Validation state: Valid
+2019-03-01 23:53:54.659 +01:00 [Information] Executed action method "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.BadRequestObjectResult" in 238.989ms.
+2019-03-01 23:53:54.664 +01:00 [Information] Executing ObjectResult, writing value of type '"ItemsManager.HTTPStatusMiddleware.ApiStatus"'.
+2019-03-01 23:53:54.669 +01:00 [Information] Executed action "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)" in 269.8092ms
+2019-03-01 23:53:54.672 +01:00 [Information] Request finished in 289.9787ms 400 application/json; charset=utf-8
+2019-03-01 23:53:58.702 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/register application/json 123
+2019-03-01 23:53:58.704 +01:00 [Information] Route matched with "{action = \"RegisterAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)"
+2019-03-01 23:53:58.709 +01:00 [Information] Executing action method "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)" with arguments (["ItemsManager.Users.Commands.CreateUser"]) - Validation state: Valid
+2019-03-01 23:53:58.855 +01:00 [Information] Executed action method "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.BadRequestObjectResult" in 144.4202ms.
+2019-03-01 23:53:58.857 +01:00 [Information] Executing ObjectResult, writing value of type '"ItemsManager.HTTPStatusMiddleware.ApiStatus"'.
+2019-03-01 23:53:58.861 +01:00 [Information] Executed action "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)" in 152.8484ms
+2019-03-01 23:53:58.863 +01:00 [Information] Request finished in 161.8884ms 400 application/json; charset=utf-8
+2019-03-01 23:54:07.228 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/register application/json 123
+2019-03-01 23:54:07.230 +01:00 [Information] Route matched with "{action = \"RegisterAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)"
+2019-03-01 23:54:07.233 +01:00 [Information] Executing action method "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)" with arguments (["ItemsManager.Users.Commands.CreateUser"]) - Validation state: Valid
+2019-03-01 23:54:07.278 +01:00 [Information] Executed action method "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.BadRequestObjectResult" in 42.73ms.
+2019-03-01 23:54:07.280 +01:00 [Information] Executing ObjectResult, writing value of type '"ItemsManager.HTTPStatusMiddleware.ApiStatus"'.
+2019-03-01 23:54:07.284 +01:00 [Information] Executed action "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)" in 50.7241ms
+2019-03-01 23:54:07.287 +01:00 [Information] Request finished in 58.7411ms 400 application/json; charset=utf-8
+2019-03-01 23:59:22.324 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/register application/json 123
+2019-03-01 23:59:22.330 +01:00 [Information] Route matched with "{action = \"RegisterAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)"
+2019-03-01 23:59:22.335 +01:00 [Information] Executing action method "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)" with arguments (["ItemsManager.Users.Commands.CreateUser"]) - Validation state: Valid
+2019-03-01 23:59:22.387 +01:00 [Information] Executed action method "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.BadRequestObjectResult" in 49.8573ms.
+2019-03-01 23:59:22.390 +01:00 [Information] Executing ObjectResult, writing value of type '"ItemsManager.HTTPStatusMiddleware.ApiStatus"'.
+2019-03-01 23:59:22.411 +01:00 [Information] Executed action "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)" in 60.3208ms
+2019-03-01 23:59:22.435 +01:00 [Information] Request finished in 95.9828ms 400 application/json; charset=utf-8

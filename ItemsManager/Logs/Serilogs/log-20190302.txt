@@ -1,0 +1,489 @@
+2019-03-02 00:01:11.742 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/register application/json 125
+2019-03-02 00:01:11.782 +01:00 [Information] Route matched with "{action = \"RegisterAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)"
+2019-03-02 00:01:11.784 +01:00 [Information] Executing action method "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)" with arguments (["ItemsManager.Users.Commands.CreateUser"]) - Validation state: Valid
+2019-03-02 00:01:11.796 +01:00 [Information] There is not such login in database.
+2019-03-02 00:01:12.131 +01:00 [Information] Executed action method "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 345.1811ms.
+2019-03-02 00:01:12.136 +01:00 [Information] Executing ObjectResult, writing value of type '"ItemsManager.HTTPStatusMiddleware.ApiStatus"'.
+2019-03-02 00:01:12.144 +01:00 [Information] Executed action "ItemsManager.Users.Controllers.UsersController.RegisterAsync (ItemsManager)" in 355.7853ms
+2019-03-02 00:01:12.158 +01:00 [Information] Request finished in 408.1648ms 200 application/json; charset=utf-8
+2019-03-02 00:01:19.050 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/login application/json 64
+2019-03-02 00:01:19.053 +01:00 [Information] Route matched with "{action = \"LoginAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)"
+2019-03-02 00:01:19.057 +01:00 [Information] Executing action method "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)" with arguments (["ItemsManager.Users.Commands.LoginUser"]) - Validation state: Valid
+2019-03-02 00:01:19.061 +01:00 [Information] Executed action method "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 2.099ms.
+2019-03-02 00:01:19.065 +01:00 [Information] Executing ObjectResult, writing value of type '"ItemsManager.Common.Auth.JsonWebToken"'.
+2019-03-02 00:01:19.067 +01:00 [Information] Executed action "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)" in 10.4936ms
+2019-03-02 00:01:19.079 +01:00 [Information] Request finished in 19.5784ms 200 application/json; charset=utf-8
+2019-03-02 00:02:37.811 +01:00 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/FoodItems application/json 
+2019-03-02 00:02:37.819 +01:00 [Information] Route matched with "{action = \"GetAsync\", controller = \"FoodItems\"}". Executing action "ItemsManager.Articles.Controllers.FoodItemsController.GetAsync (ItemsManager)"
+2019-03-02 00:02:37.960 +01:00 [Information] Successfully validated the token.
+2019-03-02 00:02:37.967 +01:00 [Information] Authorization was successful.
+2019-03-02 00:02:37.973 +01:00 [Information] Executing action method "ItemsManager.Articles.Controllers.FoodItemsController.GetAsync (ItemsManager)" - Validation state: Valid
+2019-03-02 00:02:38.014 +01:00 [Information] Executed action method "ItemsManager.Articles.Controllers.FoodItemsController.GetAsync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 39.0812ms.
+2019-03-02 00:02:38.016 +01:00 [Information] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[ItemsManager.FoodItems.DTO.FoodItemDTO, ItemsManager, Version=2.1.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+2019-03-02 00:02:38.025 +01:00 [Information] Executed action "ItemsManager.Articles.Controllers.FoodItemsController.GetAsync (ItemsManager)" in 204.2263ms
+2019-03-02 00:02:38.027 +01:00 [Information] Request finished in 216.8698ms 200 application/json; charset=utf-8
+2019-03-02 00:02:45.818 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/FoodItems application/json 141
+2019-03-02 00:02:45.825 +01:00 [Information] Route matched with "{action = \"CreateAsync\", controller = \"FoodItems\"}". Executing action "ItemsManager.Articles.Controllers.FoodItemsController.CreateAsync (ItemsManager)"
+2019-03-02 00:02:45.830 +01:00 [Information] Successfully validated the token.
+2019-03-02 00:02:45.853 +01:00 [Information] Authorization was successful.
+2019-03-02 00:02:45.879 +01:00 [Information] Executing action method "ItemsManager.Articles.Controllers.FoodItemsController.CreateAsync (ItemsManager)" with arguments (["ItemsManager.FoodItems.Commands.CreateFoodItem"]) - Validation state: Valid
+2019-03-02 00:02:45.937 +01:00 [Information] CreatedID: 6
+2019-03-02 00:02:45.941 +01:00 [Information] Executed action method "ItemsManager.Articles.Controllers.FoodItemsController.CreateAsync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 58.9328ms.
+2019-03-02 00:02:45.946 +01:00 [Information] Executing ObjectResult, writing value of type '"ItemsManager.HTTPStatusMiddleware.ApiStatus"'.
+2019-03-02 00:02:45.949 +01:00 [Information] Executed action "ItemsManager.Articles.Controllers.FoodItemsController.CreateAsync (ItemsManager)" in 120.4418ms
+2019-03-02 00:02:45.953 +01:00 [Information] Request finished in 132.5096ms 200 application/json; charset=utf-8
+2019-03-02 00:02:48.299 +01:00 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/FoodItems application/json 
+2019-03-02 00:02:48.302 +01:00 [Information] Route matched with "{action = \"GetAsync\", controller = \"FoodItems\"}". Executing action "ItemsManager.Articles.Controllers.FoodItemsController.GetAsync (ItemsManager)"
+2019-03-02 00:02:48.304 +01:00 [Information] Successfully validated the token.
+2019-03-02 00:02:48.307 +01:00 [Information] Authorization was successful.
+2019-03-02 00:02:48.309 +01:00 [Information] Executing action method "ItemsManager.Articles.Controllers.FoodItemsController.GetAsync (ItemsManager)" - Validation state: Valid
+2019-03-02 00:02:48.317 +01:00 [Information] Executed action method "ItemsManager.Articles.Controllers.FoodItemsController.GetAsync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 2.0777ms.
+2019-03-02 00:02:48.322 +01:00 [Information] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[ItemsManager.FoodItems.DTO.FoodItemDTO, ItemsManager, Version=2.1.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+2019-03-02 00:02:48.324 +01:00 [Information] Executed action "ItemsManager.Articles.Controllers.FoodItemsController.GetAsync (ItemsManager)" in 20.2734ms
+2019-03-02 00:02:48.327 +01:00 [Information] Request finished in 27.5795ms 200 application/json; charset=utf-8
+2019-03-02 00:02:50.599 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/FoodItems application/json 141
+2019-03-02 00:02:50.602 +01:00 [Information] Route matched with "{action = \"CreateAsync\", controller = \"FoodItems\"}". Executing action "ItemsManager.Articles.Controllers.FoodItemsController.CreateAsync (ItemsManager)"
+2019-03-02 00:02:50.605 +01:00 [Information] Successfully validated the token.
+2019-03-02 00:02:50.608 +01:00 [Information] Authorization was successful.
+2019-03-02 00:02:50.611 +01:00 [Information] Executing action method "ItemsManager.Articles.Controllers.FoodItemsController.CreateAsync (ItemsManager)" with arguments (["ItemsManager.FoodItems.Commands.CreateFoodItem"]) - Validation state: Valid
+2019-03-02 00:02:50.615 +01:00 [Information] CreatedID: 7
+2019-03-02 00:02:50.618 +01:00 [Information] Executed action method "ItemsManager.Articles.Controllers.FoodItemsController.CreateAsync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 4.3255ms.
+2019-03-02 00:02:50.622 +01:00 [Information] Executing ObjectResult, writing value of type '"ItemsManager.HTTPStatusMiddleware.ApiStatus"'.
+2019-03-02 00:02:50.625 +01:00 [Information] Executed action "ItemsManager.Articles.Controllers.FoodItemsController.CreateAsync (ItemsManager)" in 20.4402ms
+2019-03-02 00:02:50.633 +01:00 [Information] Request finished in 29.5709ms 200 application/json; charset=utf-8
+2019-03-02 00:02:51.454 +01:00 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/FoodItems application/json 
+2019-03-02 00:02:51.457 +01:00 [Information] Route matched with "{action = \"GetAsync\", controller = \"FoodItems\"}". Executing action "ItemsManager.Articles.Controllers.FoodItemsController.GetAsync (ItemsManager)"
+2019-03-02 00:02:51.459 +01:00 [Information] Successfully validated the token.
+2019-03-02 00:02:51.461 +01:00 [Information] Authorization was successful.
+2019-03-02 00:02:51.463 +01:00 [Information] Executing action method "ItemsManager.Articles.Controllers.FoodItemsController.GetAsync (ItemsManager)" - Validation state: Valid
+2019-03-02 00:02:51.468 +01:00 [Information] Executed action method "ItemsManager.Articles.Controllers.FoodItemsController.GetAsync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 2.4949ms.
+2019-03-02 00:02:51.477 +01:00 [Information] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[ItemsManager.FoodItems.DTO.FoodItemDTO, ItemsManager, Version=2.1.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+2019-03-02 00:02:51.479 +01:00 [Information] Executed action "ItemsManager.Articles.Controllers.FoodItemsController.GetAsync (ItemsManager)" in 20.2326ms
+2019-03-02 00:02:51.482 +01:00 [Information] Request finished in 26.8338ms 200 application/json; charset=utf-8
+2019-03-02 00:04:15.314 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/FoodItems application/json 141
+2019-03-02 00:04:15.318 +01:00 [Information] Route matched with "{action = \"CreateAsync\", controller = \"FoodItems\"}". Executing action "ItemsManager.Articles.Controllers.FoodItemsController.CreateAsync (ItemsManager)"
+2019-03-02 00:04:15.322 +01:00 [Information] Successfully validated the token.
+2019-03-02 00:04:15.325 +01:00 [Information] Authorization was successful.
+2019-03-02 00:04:15.327 +01:00 [Information] Executing action method "ItemsManager.Articles.Controllers.FoodItemsController.CreateAsync (ItemsManager)" with arguments (["ItemsManager.FoodItems.Commands.CreateFoodItem"]) - Validation state: Valid
+2019-03-02 00:04:15.342 +01:00 [Information] CreatedID: 8
+2019-03-02 00:04:15.343 +01:00 [Information] Executed action method "ItemsManager.Articles.Controllers.FoodItemsController.CreateAsync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 14.8143ms.
+2019-03-02 00:04:15.345 +01:00 [Information] Executing ObjectResult, writing value of type '"ItemsManager.HTTPStatusMiddleware.ApiStatus"'.
+2019-03-02 00:04:15.348 +01:00 [Information] Executed action "ItemsManager.Articles.Controllers.FoodItemsController.CreateAsync (ItemsManager)" in 27.5021ms
+2019-03-02 00:04:15.355 +01:00 [Information] Request finished in 35.8522ms 200 application/json; charset=utf-8
+2019-03-02 00:04:23.209 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/Recipes application/json 208
+2019-03-02 00:04:23.215 +01:00 [Information] Route matched with "{action = \"CreateAsync\", controller = \"Recipes\"}". Executing action "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)"
+2019-03-02 00:04:23.220 +01:00 [Information] Successfully validated the token.
+2019-03-02 00:04:23.223 +01:00 [Information] Authorization was successful.
+2019-03-02 00:04:23.246 +01:00 [Information] Executing action method "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)" with arguments (["ItemsManager.Recipes.Commands.CreateRecipe"]) - Validation state: Valid
+2019-03-02 00:04:23.448 +01:00 [Information] Executed action "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)" in 230.8808ms
+2019-03-02 00:04:23.553 +01:00 [Error] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ItemsManager.Recipes.Controllers.RecipesController.CreateAsync(CreateRecipe command) in M:\ItemsManager\ItemsManager\ItemsManager\Recipes\Controllers\RecipesController.cs:line 64
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-03-02 00:04:23.650 +01:00 [Information] Request finished in 439.7156ms 500 text/html; charset=utf-8
+2019-03-02 00:05:22.923 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/login application/json 64
+2019-03-02 00:05:23.149 +01:00 [Information] Route matched with "{action = \"LoginAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)"
+2019-03-02 00:05:23.304 +01:00 [Information] Executing action method "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)" with arguments (["ItemsManager.Users.Commands.LoginUser"]) - Validation state: Valid
+2019-03-02 00:05:23.400 +01:00 [Information] Executed action method "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 87.0802ms.
+2019-03-02 00:05:23.413 +01:00 [Information] Executing ObjectResult, writing value of type '"ItemsManager.Common.Auth.JsonWebToken"'.
+2019-03-02 00:05:23.432 +01:00 [Information] Executed action "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)" in 276.7509ms
+2019-03-02 00:05:23.456 +01:00 [Information] Request finished in 524.5951ms 200 application/json; charset=utf-8
+2019-03-02 00:05:37.066 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/Recipes application/json 208
+2019-03-02 00:05:37.072 +01:00 [Information] Route matched with "{action = \"CreateAsync\", controller = \"Recipes\"}". Executing action "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)"
+2019-03-02 00:05:37.112 +01:00 [Information] Successfully validated the token.
+2019-03-02 00:05:37.126 +01:00 [Information] Authorization was successful.
+2019-03-02 00:05:37.141 +01:00 [Information] Executing action method "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)" with arguments (["ItemsManager.Recipes.Commands.CreateRecipe"]) - Validation state: Valid
+2019-03-02 00:06:01.402 +01:00 [Information] Executed action "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)" in 24328.0988ms
+2019-03-02 00:06:01.438 +01:00 [Error] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ItemsManager.Recipes.Controllers.RecipesController.CreateAsync(CreateRecipe command) in M:\ItemsManager\ItemsManager\ItemsManager\Recipes\Controllers\RecipesController.cs:line 64
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-03-02 00:06:01.482 +01:00 [Information] Request finished in 24412.7823ms 500 text/html; charset=utf-8
+2019-03-02 00:06:29.655 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/login application/json 64
+2019-03-02 00:06:29.951 +01:00 [Information] Route matched with "{action = \"LoginAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)"
+2019-03-02 00:06:30.378 +01:00 [Information] Executing action method "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)" with arguments (["ItemsManager.Users.Commands.LoginUser"]) - Validation state: Valid
+2019-03-02 00:06:30.807 +01:00 [Information] Executed action method "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 417.2877ms.
+2019-03-02 00:06:30.825 +01:00 [Information] Executing ObjectResult, writing value of type '"ItemsManager.Common.Auth.JsonWebToken"'.
+2019-03-02 00:06:30.852 +01:00 [Information] Executed action "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)" in 894.8517ms
+2019-03-02 00:06:30.876 +01:00 [Information] Request finished in 1212.2699ms 200 application/json; charset=utf-8
+2019-03-02 00:06:39.980 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/Recipes application/json 208
+2019-03-02 00:06:39.988 +01:00 [Information] Route matched with "{action = \"CreateAsync\", controller = \"Recipes\"}". Executing action "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)"
+2019-03-02 00:06:40.020 +01:00 [Information] Successfully validated the token.
+2019-03-02 00:06:40.029 +01:00 [Information] Authorization was successful.
+2019-03-02 00:06:40.043 +01:00 [Information] Executing action method "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)" with arguments (["ItemsManager.Recipes.Commands.CreateRecipe"]) - Validation state: Valid
+2019-03-02 00:06:46.249 +01:00 [Information] Executed action "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)" in 6259.0002ms
+2019-03-02 00:06:46.277 +01:00 [Error] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ItemsManager.Recipes.Controllers.RecipesController.CreateAsync(CreateRecipe command) in M:\ItemsManager\ItemsManager\ItemsManager\Recipes\Controllers\RecipesController.cs:line 64
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-03-02 00:06:46.310 +01:00 [Information] Request finished in 6328.486ms 500 text/html; charset=utf-8
+2019-03-02 00:08:13.774 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/login application/json 64
+2019-03-02 00:08:14.130 +01:00 [Information] Route matched with "{action = \"LoginAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)"
+2019-03-02 00:08:14.440 +01:00 [Information] Executing action method "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)" with arguments (["ItemsManager.Users.Commands.LoginUser"]) - Validation state: Valid
+2019-03-02 00:08:14.640 +01:00 [Information] Executed action method "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 193.2093ms.
+2019-03-02 00:08:14.674 +01:00 [Information] Executing ObjectResult, writing value of type '"ItemsManager.Common.Auth.JsonWebToken"'.
+2019-03-02 00:08:14.723 +01:00 [Information] Executed action "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)" in 570.8767ms
+2019-03-02 00:08:14.797 +01:00 [Information] Request finished in 1010.4507ms 200 application/json; charset=utf-8
+2019-03-02 00:08:27.180 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/Recipes application/json 208
+2019-03-02 00:08:27.185 +01:00 [Information] Route matched with "{action = \"CreateAsync\", controller = \"Recipes\"}". Executing action "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)"
+2019-03-02 00:08:27.221 +01:00 [Information] Successfully validated the token.
+2019-03-02 00:08:27.235 +01:00 [Information] Authorization was successful.
+2019-03-02 00:08:27.255 +01:00 [Information] Executing action method "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)" with arguments (["ItemsManager.Recipes.Commands.CreateRecipe"]) - Validation state: Valid
+2019-03-02 00:08:53.131 +01:00 [Information] Executed action "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)" in 25942.008ms
+2019-03-02 00:08:53.170 +01:00 [Error] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: ItemsManager.Recipes.Domain.Ingredient cannot be serialized because it does not have a parameterless constructor.
+   at System.Xml.Serialization.TypeDesc.CheckSupported()
+   at System.Xml.Serialization.TypeDesc.CheckSupported()
+   at System.Xml.Serialization.TypeScope.GetTypeDesc(Type type, MemberInfo source, Boolean directReference, Boolean throwOnError)
+   at System.Xml.Serialization.ModelScope.GetTypeModel(Type type, Boolean directReference)
+   at System.Xml.Serialization.XmlReflectionImporter.ImportTypeMapping(Type type, XmlRootAttribute root, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type)
+   at ItemsManager.Utilities.XMLHelper.Extensions.XmlSerializeToString(Object objectInstance) in M:\ItemsManager\ItemsManager\ItemsManager\Utilities\XMLHelper\Extensions.cs:line 12
+   at ItemsManager.Recipes.Repositories.RecipesRepository.CreateAsync(Recipe recipe) in M:\ItemsManager\ItemsManager\ItemsManager\Recipes\Repositories\RecipesRepository.cs:line 143
+   at ItemsManager.Recipes.Controllers.RecipesController.CreateAsync(CreateRecipe command) in M:\ItemsManager\ItemsManager\ItemsManager\Recipes\Controllers\RecipesController.cs:line 71
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-03-02 00:08:53.204 +01:00 [Information] Request finished in 26025.0978ms 500 text/html; charset=utf-8
+2019-03-02 00:10:19.386 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/login application/json 64
+2019-03-02 00:10:19.613 +01:00 [Information] Route matched with "{action = \"LoginAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)"
+2019-03-02 00:10:19.798 +01:00 [Information] Executing action method "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)" with arguments (["ItemsManager.Users.Commands.LoginUser"]) - Validation state: Valid
+2019-03-02 00:10:19.918 +01:00 [Information] Executed action method "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 113.7355ms.
+2019-03-02 00:10:19.937 +01:00 [Information] Executing ObjectResult, writing value of type '"ItemsManager.Common.Auth.JsonWebToken"'.
+2019-03-02 00:10:19.958 +01:00 [Information] Executed action "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)" in 334.6642ms
+2019-03-02 00:10:19.974 +01:00 [Information] Request finished in 589.4212ms 200 application/json; charset=utf-8
+2019-03-02 00:10:27.615 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/Recipes application/json 208
+2019-03-02 00:10:27.625 +01:00 [Information] Route matched with "{action = \"CreateAsync\", controller = \"Recipes\"}". Executing action "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)"
+2019-03-02 00:10:27.678 +01:00 [Information] Successfully validated the token.
+2019-03-02 00:10:27.696 +01:00 [Information] Authorization was successful.
+2019-03-02 00:10:27.711 +01:00 [Information] Executing action method "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)" with arguments (["ItemsManager.Recipes.Commands.CreateRecipe"]) - Validation state: Valid
+2019-03-02 00:10:42.371 +01:00 [Information] Executed action "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)" in 14744.0398ms
+2019-03-02 00:10:42.403 +01:00 [Error] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: ItemsManager.Recipes.Domain.Ingredient cannot be serialized because it does not have a parameterless constructor.
+   at System.Xml.Serialization.TypeDesc.CheckSupported()
+   at System.Xml.Serialization.TypeDesc.CheckSupported()
+   at System.Xml.Serialization.TypeScope.GetTypeDesc(Type type, MemberInfo source, Boolean directReference, Boolean throwOnError)
+   at System.Xml.Serialization.ModelScope.GetTypeModel(Type type, Boolean directReference)
+   at System.Xml.Serialization.XmlReflectionImporter.ImportTypeMapping(Type type, XmlRootAttribute root, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type)
+   at ItemsManager.Utilities.XMLHelper.Extensions.XmlSerializeToString(Object objectInstance) in M:\ItemsManager\ItemsManager\ItemsManager\Utilities\XMLHelper\Extensions.cs:line 12
+   at ItemsManager.Recipes.Repositories.RecipesRepository.CreateAsync(Recipe recipe) in M:\ItemsManager\ItemsManager\ItemsManager\Recipes\Repositories\RecipesRepository.cs:line 143
+   at ItemsManager.Recipes.Controllers.RecipesController.CreateAsync(CreateRecipe command) in M:\ItemsManager\ItemsManager\ItemsManager\Recipes\Controllers\RecipesController.cs:line 71
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-03-02 00:10:42.450 +01:00 [Information] Request finished in 14831.5998ms 500 text/html; charset=utf-8
+2019-03-02 11:33:26.507 +01:00 [Information] Connection id ""0HLKUV9QPS5FE"" bad request data: ""Invalid request line: '\x16\x03\x01\x02\x00\x01\x00\x01\xFC\x03\x03\xB0\xC0\x1E\xF3\xBB\x0C\xB3q\xC10\xB8K\x1C\xD5Ft\x14X8a\xD2'\x08YlI\xC9\xAF\x9C\x86\xBC\xCC \xB0\x96\x89\xC56I$\xDAM\xC0\xDF\x99t\xF2\xEBK\xA95|q<p!\x0DlG,\x10\xB2\xCF\x1FW\x00\"\xBA\xBA\x13\x01\x13\x02\x13\x03\xC0+\xC0/\xC0,\xC00\xCC\xA9\xCC\xA8\xC0\x13\xC0\x14\x00\x9C\x00\x9D\x00/\x005\x00\x0A'""
+Microsoft.AspNetCore.Server.Kestrel.Core.BadHttpRequestException: Invalid request line: '\x16\x03\x01\x02\x00\x01\x00\x01\xFC\x03\x03\xB0\xC0\x1E\xF3\xBB\x0C\xB3q\xC10\xB8K\x1C\xD5Ft\x14X8a\xD2'\x08YlI\xC9\xAF\x9C\x86\xBC\xCC \xB0\x96\x89\xC56I$\xDAM\xC0\xDF\x99t\xF2\xEBK\xA95|q<p!\x0DlG,\x10\xB2\xCF\x1FW\x00"\xBA\xBA\x13\x01\x13\x02\x13\x03\xC0+\xC0/\xC0,\xC00\xCC\xA9\xCC\xA8\xC0\x13\xC0\x14\x00\x9C\x00\x9D\x00/\x005\x00\x0A'
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpParser`1.RejectRequestLine(Byte* requestLine, Int32 length)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpParser`1.GetUnknownMethod(Byte* data, Int32 length, Int32& methodLength)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpParser`1.ParseRequestLine(TRequestHandler handler, Byte* data, Int32 length)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpParser`1.ParseRequestLine(TRequestHandler handler, ReadOnlySequence`1& buffer, SequencePosition& consumed, SequencePosition& examined)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpParser`1.Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.IHttpParser<TRequestHandler>.ParseRequestLine(TRequestHandler handler, ReadOnlySequence`1& buffer, SequencePosition& consumed, SequencePosition& examined)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.Http1Connection.TakeStartLine(ReadOnlySequence`1 buffer, SequencePosition& consumed, SequencePosition& examined)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.Http1Connection.ParseRequest(ReadOnlySequence`1 buffer, SequencePosition& consumed, SequencePosition& examined)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.Http1Connection.TryParseRequest(ReadResult result, Boolean& endConnection)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequestsAsync[TContext](IHttpApplication`1 application)
+2019-03-02 11:33:26.507 +01:00 [Information] Connection id ""0HLKUV9QPS5FF"" bad request data: ""Invalid request line: '\x16\x03\x01\x02\x00\x01\x00\x01\xFC\x03\x03\xB0\xC1\xF9\xFF9\xE0\x0B\xC2=\x94p\x9D\x11\xE4n0\xEF\xCDw\x89\xCD\x171\x9C;\x07\x9E>>\xAB\xBC\x8C j\xDD7\xB4\x14!^T\xB9\x0F\xB9/v\x11c\x1C\x14)\x87 \x81G\x96.\xFB\xC0K1z#'\xB2\x00\"\xAA\xAA\x13\x01\x13\x02\x13\x03\xC0+\xC0/\xC0,\xC00\xCC\xA9\xCC\xA8\xC0\x13\xC0\x14\x00\x9C\x00\x9D\x00/\x005\x00\x0A'""
+Microsoft.AspNetCore.Server.Kestrel.Core.BadHttpRequestException: Invalid request line: '\x16\x03\x01\x02\x00\x01\x00\x01\xFC\x03\x03\xB0\xC1\xF9\xFF9\xE0\x0B\xC2=\x94p\x9D\x11\xE4n0\xEF\xCDw\x89\xCD\x171\x9C;\x07\x9E>>\xAB\xBC\x8C j\xDD7\xB4\x14!^T\xB9\x0F\xB9/v\x11c\x1C\x14)\x87 \x81G\x96.\xFB\xC0K1z#'\xB2\x00"\xAA\xAA\x13\x01\x13\x02\x13\x03\xC0+\xC0/\xC0,\xC00\xCC\xA9\xCC\xA8\xC0\x13\xC0\x14\x00\x9C\x00\x9D\x00/\x005\x00\x0A'
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpParser`1.RejectRequestLine(Byte* requestLine, Int32 length)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpParser`1.GetUnknownMethod(Byte* data, Int32 length, Int32& methodLength)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpParser`1.ParseRequestLine(TRequestHandler handler, Byte* data, Int32 length)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpParser`1.ParseRequestLine(TRequestHandler handler, ReadOnlySequence`1& buffer, SequencePosition& consumed, SequencePosition& examined)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpParser`1.Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.IHttpParser<TRequestHandler>.ParseRequestLine(TRequestHandler handler, ReadOnlySequence`1& buffer, SequencePosition& consumed, SequencePosition& examined)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.Http1Connection.TakeStartLine(ReadOnlySequence`1 buffer, SequencePosition& consumed, SequencePosition& examined)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.Http1Connection.ParseRequest(ReadOnlySequence`1 buffer, SequencePosition& consumed, SequencePosition& examined)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.Http1Connection.TryParseRequest(ReadResult result, Boolean& endConnection)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequestsAsync[TContext](IHttpApplication`1 application)
+2019-03-02 11:33:26.643 +01:00 [Information] Connection id ""0HLKUV9QPS5FG"" bad request data: ""Invalid request line: '\x16\x03\x01\x00\xC3\x01\x00\x00\xBF\x03\x03`\xCB\x00\x16_\xCDT\xE7i\x16.\x08\x09\xFD\xAE\xC8\x83\xD1G\xF04\x81\x7F\x14\xD4\xA3\xC7\x01\x97\xA6\xE2\x0E\x00\x00\x1CZZ\xC0+\xC0/\xC0,\xC00\xCC\xA9\xCC\xA8\xC0\x13\xC0\x14\x00\x9C\x00\x9D\x00/\x005\x00\x0A'""
+Microsoft.AspNetCore.Server.Kestrel.Core.BadHttpRequestException: Invalid request line: '\x16\x03\x01\x00\xC3\x01\x00\x00\xBF\x03\x03`\xCB\x00\x16_\xCDT\xE7i\x16.\x08\x09\xFD\xAE\xC8\x83\xD1G\xF04\x81\x7F\x14\xD4\xA3\xC7\x01\x97\xA6\xE2\x0E\x00\x00\x1CZZ\xC0+\xC0/\xC0,\xC00\xCC\xA9\xCC\xA8\xC0\x13\xC0\x14\x00\x9C\x00\x9D\x00/\x005\x00\x0A'
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpParser`1.RejectRequestLine(Byte* requestLine, Int32 length)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpParser`1.GetUnknownMethod(Byte* data, Int32 length, Int32& methodLength)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpParser`1.ParseRequestLine(TRequestHandler handler, Byte* data, Int32 length)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpParser`1.ParseRequestLine(TRequestHandler handler, ReadOnlySequence`1& buffer, SequencePosition& consumed, SequencePosition& examined)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpParser`1.Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.IHttpParser<TRequestHandler>.ParseRequestLine(TRequestHandler handler, ReadOnlySequence`1& buffer, SequencePosition& consumed, SequencePosition& examined)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.Http1Connection.TakeStartLine(ReadOnlySequence`1 buffer, SequencePosition& consumed, SequencePosition& examined)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.Http1Connection.ParseRequest(ReadOnlySequence`1 buffer, SequencePosition& consumed, SequencePosition& examined)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.Http1Connection.TryParseRequest(ReadResult result, Boolean& endConnection)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequestsAsync[TContext](IHttpApplication`1 application)
+2019-03-02 11:35:01.254 +01:00 [Information] Request starting HTTP/1.1 GET https://localhost:5001/api/recipes/home  
+2019-03-02 11:35:01.556 +01:00 [Information] Route matched with "{action = \"HelloSync\", controller = \"Home\"}". Executing action "ItemsManager.Recipes.Controllers.HomeController.HelloSync (ItemsManager)"
+2019-03-02 11:35:01.664 +01:00 [Information] Executing action method "ItemsManager.Recipes.Controllers.HomeController.HelloSync (ItemsManager)" - Validation state: Valid
+2019-03-02 11:35:08.544 +01:00 [Information] Executed action method "ItemsManager.Recipes.Controllers.HomeController.HelloSync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 6867.8686ms.
+2019-03-02 11:35:08.555 +01:00 [Information] Executing ObjectResult, writing value of type '"System.String"'.
+2019-03-02 11:35:08.603 +01:00 [Information] Executed action "ItemsManager.Recipes.Controllers.HomeController.HelloSync (ItemsManager)" in 7040.8178ms
+2019-03-02 11:35:08.613 +01:00 [Information] Request finished in 7366.3529ms 200 text/plain; charset=utf-8
+2019-03-02 11:35:08.727 +01:00 [Information] Request starting HTTP/1.1 GET https://localhost:5001/favicon.ico  
+2019-03-02 11:35:08.806 +01:00 [Information] Request finished in 78.5706ms 404 
+2019-03-02 11:37:53.536 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/users/login application/json 64
+2019-03-02 11:37:53.793 +01:00 [Information] Route matched with "{action = \"LoginAsync\", controller = \"Users\"}". Executing action "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)"
+2019-03-02 11:37:53.944 +01:00 [Information] Executing action method "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)" with arguments (["ItemsManager.Users.Commands.LoginUser"]) - Validation state: Valid
+2019-03-02 11:37:54.119 +01:00 [Information] Executed action method "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 166.4523ms.
+2019-03-02 11:37:54.131 +01:00 [Information] Executing ObjectResult, writing value of type '"ItemsManager.Common.Auth.JsonWebToken"'.
+2019-03-02 11:37:54.147 +01:00 [Information] Executed action "ItemsManager.Users.Controllers.UsersController.LoginAsync (ItemsManager)" in 346.8672ms
+2019-03-02 11:37:54.156 +01:00 [Information] Request finished in 626.2753ms 200 application/json; charset=utf-8
+2019-03-02 11:38:06.599 +01:00 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/Recipes application/json 
+2019-03-02 11:38:06.606 +01:00 [Information] Route matched with "{action = \"GetAllAsync\", controller = \"Recipes\"}". Executing action "ItemsManager.Recipes.Controllers.RecipesController.GetAllAsync (ItemsManager)"
+2019-03-02 11:38:06.658 +01:00 [Information] Successfully validated the token.
+2019-03-02 11:38:06.674 +01:00 [Information] Authorization was successful.
+2019-03-02 11:38:06.682 +01:00 [Information] Executing action method "ItemsManager.Recipes.Controllers.RecipesController.GetAllAsync (ItemsManager)" - Validation state: Valid
+2019-03-02 11:38:06.692 +01:00 [Information] No rows found.
+2019-03-02 11:38:06.695 +01:00 [Information] Executed action method "ItemsManager.Recipes.Controllers.RecipesController.GetAllAsync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.NotFoundObjectResult" in 10.8417ms.
+2019-03-02 11:38:06.698 +01:00 [Information] Executing ObjectResult, writing value of type '"ItemsManager.HTTPStatusMiddleware.ApiStatus"'.
+2019-03-02 11:38:06.704 +01:00 [Information] Executed action "ItemsManager.Recipes.Controllers.RecipesController.GetAllAsync (ItemsManager)" in 94.6831ms
+2019-03-02 11:38:06.708 +01:00 [Information] Request finished in 107.6571ms 404 application/json; charset=utf-8
+2019-03-02 11:38:35.189 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/Recipes application/json 208
+2019-03-02 11:38:35.196 +01:00 [Information] Route matched with "{action = \"CreateAsync\", controller = \"Recipes\"}". Executing action "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)"
+2019-03-02 11:38:35.206 +01:00 [Information] Successfully validated the token.
+2019-03-02 11:38:35.252 +01:00 [Information] Authorization was successful.
+2019-03-02 11:38:35.263 +01:00 [Information] Executing action method "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)" with arguments (["ItemsManager.Recipes.Commands.CreateRecipe"]) - Validation state: Valid
+2019-03-02 11:38:35.632 +01:00 [Information] Executed action "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)" in 433.5016ms
+2019-03-02 11:38:35.732 +01:00 [Error] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: ItemsManager.Recipes.Domain.Ingredient cannot be serialized because it does not have a parameterless constructor.
+   at System.Xml.Serialization.TypeDesc.CheckSupported()
+   at System.Xml.Serialization.TypeDesc.CheckSupported()
+   at System.Xml.Serialization.TypeScope.GetTypeDesc(Type type, MemberInfo source, Boolean directReference, Boolean throwOnError)
+   at System.Xml.Serialization.ModelScope.GetTypeModel(Type type, Boolean directReference)
+   at System.Xml.Serialization.XmlReflectionImporter.ImportTypeMapping(Type type, XmlRootAttribute root, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type)
+   at ItemsManager.Utilities.XMLHelper.Extensions.XmlSerializeToString(Object objectInstance) in M:\ItemsManager\ItemsManager\ItemsManager\Utilities\XMLHelper\Extensions.cs:line 12
+   at ItemsManager.Recipes.Repositories.RecipesRepository.CreateAsync(Recipe recipe) in M:\ItemsManager\ItemsManager\ItemsManager\Recipes\Repositories\RecipesRepository.cs:line 143
+   at ItemsManager.Recipes.Controllers.RecipesController.CreateAsync(CreateRecipe command) in M:\ItemsManager\ItemsManager\ItemsManager\Recipes\Controllers\RecipesController.cs:line 73
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-03-02 11:38:35.778 +01:00 [Information] Request finished in 588.6706ms 500 text/html; charset=utf-8
+2019-03-02 11:39:04.227 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/Recipes application/json 208
+2019-03-02 11:39:04.559 +01:00 [Information] Route matched with "{action = \"CreateAsync\", controller = \"Recipes\"}". Executing action "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)"
+2019-03-02 11:39:04.746 +01:00 [Information] Successfully validated the token.
+2019-03-02 11:39:04.759 +01:00 [Information] Authorization was successful.
+2019-03-02 11:39:04.854 +01:00 [Information] Executing action method "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)" with arguments (["ItemsManager.Recipes.Commands.CreateRecipe"]) - Validation state: Valid
+2019-03-02 11:41:15.141 +01:00 [Information] Executed action "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)" in 130574.7689ms
+2019-03-02 11:41:15.171 +01:00 [Error] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: ItemsManager.Recipes.Domain.Ingredient cannot be serialized because it does not have a parameterless constructor.
+   at System.Xml.Serialization.TypeDesc.CheckSupported()
+   at System.Xml.Serialization.TypeDesc.CheckSupported()
+   at System.Xml.Serialization.TypeScope.GetTypeDesc(Type type, MemberInfo source, Boolean directReference, Boolean throwOnError)
+   at System.Xml.Serialization.ModelScope.GetTypeModel(Type type, Boolean directReference)
+   at System.Xml.Serialization.XmlReflectionImporter.ImportTypeMapping(Type type, XmlRootAttribute root, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type)
+   at ItemsManager.Utilities.XMLHelper.Extensions.XmlSerializeToString(Object objectInstance) in M:\ItemsManager\ItemsManager\ItemsManager\Utilities\XMLHelper\Extensions.cs:line 12
+   at ItemsManager.Recipes.Repositories.RecipesRepository.CreateAsync(Recipe recipe) in M:\ItemsManager\ItemsManager\ItemsManager\Recipes\Repositories\RecipesRepository.cs:line 143
+   at ItemsManager.Recipes.Controllers.RecipesController.CreateAsync(CreateRecipe command) in M:\ItemsManager\ItemsManager\ItemsManager\Recipes\Controllers\RecipesController.cs:line 73
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-03-02 11:41:15.217 +01:00 [Information] Request finished in 130992.1402ms 500 text/html; charset=utf-8
+2019-03-02 11:45:51.794 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/Recipes application/json 208
+2019-03-02 11:45:52.139 +01:00 [Information] Route matched with "{action = \"CreateAsync\", controller = \"Recipes\"}". Executing action "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)"
+2019-03-02 11:45:52.368 +01:00 [Information] Successfully validated the token.
+2019-03-02 11:45:52.414 +01:00 [Information] Authorization was successful.
+2019-03-02 11:45:52.530 +01:00 [Information] Executing action method "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)" with arguments (["ItemsManager.Recipes.Commands.CreateRecipe"]) - Validation state: Valid
+2019-03-02 11:47:25.232 +01:00 [Information] Executed action "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)" in 93078.6741ms
+2019-03-02 11:47:25.265 +01:00 [Error] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: ItemsManager.Recipes.Domain.Ingredient cannot be serialized because it does not have a parameterless constructor.
+   at System.Xml.Serialization.TypeDesc.CheckSupported()
+   at System.Xml.Serialization.TypeDesc.CheckSupported()
+   at System.Xml.Serialization.TypeScope.GetTypeDesc(Type type, MemberInfo source, Boolean directReference, Boolean throwOnError)
+   at System.Xml.Serialization.ModelScope.GetTypeModel(Type type, Boolean directReference)
+   at System.Xml.Serialization.XmlReflectionImporter.ImportTypeMapping(Type type, XmlRootAttribute root, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type)
+   at ItemsManager.Utilities.XMLHelper.Extensions.XmlSerializeToString(Object objectInstance) in M:\ItemsManager\ItemsManager\ItemsManager\Utilities\XMLHelper\Extensions.cs:line 12
+   at ItemsManager.Recipes.Repositories.RecipesRepository.CreateAsync(Recipe recipe) in M:\ItemsManager\ItemsManager\ItemsManager\Recipes\Repositories\RecipesRepository.cs:line 143
+   at ItemsManager.Recipes.Controllers.RecipesController.CreateAsync(CreateRecipe command) in M:\ItemsManager\ItemsManager\ItemsManager\Recipes\Controllers\RecipesController.cs:line 73
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-03-02 11:47:25.334 +01:00 [Information] Request finished in 93540.8413ms 500 text/html; charset=utf-8
+2019-03-02 11:50:27.976 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/Recipes application/json 208
+2019-03-02 11:50:28.297 +01:00 [Information] Route matched with "{action = \"CreateAsync\", controller = \"Recipes\"}". Executing action "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)"
+2019-03-02 11:50:28.499 +01:00 [Information] Successfully validated the token.
+2019-03-02 11:50:28.523 +01:00 [Information] Authorization was successful.
+2019-03-02 11:50:28.676 +01:00 [Information] Executing action method "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)" with arguments (["ItemsManager.Recipes.Commands.CreateRecipe"]) - Validation state: Valid
+2019-03-02 11:52:46.722 +01:00 [Information] CreatedID: 1
+2019-03-02 11:53:06.335 +01:00 [Information] Executed action method "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 157651.3966ms.
+2019-03-02 11:53:06.347 +01:00 [Information] Executing ObjectResult, writing value of type '"ItemsManager.HTTPStatusMiddleware.ApiStatus"'.
+2019-03-02 11:53:10.538 +01:00 [Information] Executed action "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)" in 162232.5854ms
+2019-03-02 11:53:10.558 +01:00 [Information] Request finished in 162585.0589ms 200 application/json; charset=utf-8
+2019-03-02 11:53:15.633 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/Recipes application/json 208
+2019-03-02 11:53:15.636 +01:00 [Information] Route matched with "{action = \"CreateAsync\", controller = \"Recipes\"}". Executing action "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)"
+2019-03-02 11:53:15.645 +01:00 [Information] Successfully validated the token.
+2019-03-02 11:53:15.647 +01:00 [Information] Authorization was successful.
+2019-03-02 11:53:15.652 +01:00 [Information] Executing action method "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)" with arguments (["ItemsManager.Recipes.Commands.CreateRecipe"]) - Validation state: Valid
+2019-03-02 11:53:46.042 +01:00 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/Recipes application/json 
+2019-03-02 11:53:46.328 +01:00 [Information] Route matched with "{action = \"GetAllAsync\", controller = \"Recipes\"}". Executing action "ItemsManager.Recipes.Controllers.RecipesController.GetAllAsync (ItemsManager)"
+2019-03-02 11:53:46.493 +01:00 [Information] Successfully validated the token.
+2019-03-02 11:53:46.512 +01:00 [Information] Authorization was successful.
+2019-03-02 11:53:46.529 +01:00 [Information] Executing action method "ItemsManager.Recipes.Controllers.RecipesController.GetAllAsync (ItemsManager)" - Validation state: Valid
+2019-03-02 11:53:46.644 +01:00 [Information] Executed action method "ItemsManager.Recipes.Controllers.RecipesController.GetAllAsync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 100.5508ms.
+2019-03-02 11:53:46.657 +01:00 [Information] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[ItemsManager.Recipes.DTO.RecipeDTO, ItemsManager, Version=2.1.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+2019-03-02 11:53:46.696 +01:00 [Information] Executed action "ItemsManager.Recipes.Controllers.RecipesController.GetAllAsync (ItemsManager)" in 359.3929ms
+2019-03-02 11:53:46.769 +01:00 [Information] Request finished in 678.0849ms 200 application/json; charset=utf-8
+2019-03-02 11:53:59.852 +01:00 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/Recipes/e198f1db-4898-4c62-a34a-a182a17ddb9f application/json 
+2019-03-02 11:53:59.895 +01:00 [Information] Route matched with "{action = \"GetAsync\", controller = \"Recipes\"}". Executing action "ItemsManager.Recipes.Controllers.RecipesController.GetAsync (ItemsManager)"
+2019-03-02 11:53:59.898 +01:00 [Information] Successfully validated the token.
+2019-03-02 11:53:59.905 +01:00 [Information] Authorization was successful.
+2019-03-02 11:53:59.935 +01:00 [Information] Executing action method "ItemsManager.Recipes.Controllers.RecipesController.GetAsync (ItemsManager)" with arguments (["e198f1db-4898-4c62-a34a-a182a17ddb9f"]) - Validation state: Valid
+2019-03-02 11:54:00.060 +01:00 [Information] Executed action method "ItemsManager.Recipes.Controllers.RecipesController.GetAsync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 121.7331ms.
+2019-03-02 11:54:00.064 +01:00 [Information] Executing ObjectResult, writing value of type '"ItemsManager.Recipes.DTO.RecipeDetailsDTO"'.
+2019-03-02 11:54:00.074 +01:00 [Information] Executed action "ItemsManager.Recipes.Controllers.RecipesController.GetAsync (ItemsManager)" in 175.9596ms
+2019-03-02 11:54:00.079 +01:00 [Information] Request finished in 225.0107ms 200 application/json; charset=utf-8
+2019-03-02 11:54:14.062 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/Recipes application/json 210
+2019-03-02 11:54:14.068 +01:00 [Information] Route matched with "{action = \"CreateAsync\", controller = \"Recipes\"}". Executing action "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)"
+2019-03-02 11:54:14.074 +01:00 [Information] Successfully validated the token.
+2019-03-02 11:54:14.077 +01:00 [Information] Authorization was successful.
+2019-03-02 11:54:14.102 +01:00 [Information] Executing action method "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)" with arguments (["ItemsManager.Recipes.Commands.CreateRecipe"]) - Validation state: Valid
+2019-03-02 11:54:14.120 +01:00 [Information] CreatedID: 2
+2019-03-02 11:54:14.125 +01:00 [Information] Executed action method "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 19.6877ms.
+2019-03-02 11:54:14.127 +01:00 [Information] Executing ObjectResult, writing value of type '"ItemsManager.HTTPStatusMiddleware.ApiStatus"'.
+2019-03-02 11:54:14.133 +01:00 [Information] Executed action "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)" in 61.7647ms
+2019-03-02 11:54:14.141 +01:00 [Information] Request finished in 73.7992ms 200 application/json; charset=utf-8
+2019-03-02 11:54:16.586 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/Recipes application/json 210
+2019-03-02 11:54:16.592 +01:00 [Information] Route matched with "{action = \"CreateAsync\", controller = \"Recipes\"}". Executing action "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)"
+2019-03-02 11:54:16.595 +01:00 [Information] Successfully validated the token.
+2019-03-02 11:54:16.597 +01:00 [Information] Authorization was successful.
+2019-03-02 11:54:16.603 +01:00 [Information] Executing action method "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)" with arguments (["ItemsManager.Recipes.Commands.CreateRecipe"]) - Validation state: Valid
+2019-03-02 11:54:16.615 +01:00 [Information] CreatedID: 3
+2019-03-02 11:54:16.619 +01:00 [Information] Executed action method "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 11.1066ms.
+2019-03-02 11:54:16.621 +01:00 [Information] Executing ObjectResult, writing value of type '"ItemsManager.HTTPStatusMiddleware.ApiStatus"'.
+2019-03-02 11:54:16.625 +01:00 [Information] Executed action "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)" in 29.4926ms
+2019-03-02 11:54:16.629 +01:00 [Information] Request finished in 44.687ms 200 application/json; charset=utf-8
+2019-03-02 11:54:17.531 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/Recipes application/json 210
+2019-03-02 11:54:17.537 +01:00 [Information] Route matched with "{action = \"CreateAsync\", controller = \"Recipes\"}". Executing action "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)"
+2019-03-02 11:54:17.541 +01:00 [Information] Successfully validated the token.
+2019-03-02 11:54:17.544 +01:00 [Information] Authorization was successful.
+2019-03-02 11:54:17.550 +01:00 [Information] Executing action method "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)" with arguments (["ItemsManager.Recipes.Commands.CreateRecipe"]) - Validation state: Valid
+2019-03-02 11:54:17.559 +01:00 [Information] CreatedID: 4
+2019-03-02 11:54:17.563 +01:00 [Information] Executed action method "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 9.8429ms.
+2019-03-02 11:54:17.565 +01:00 [Information] Executing ObjectResult, writing value of type '"ItemsManager.HTTPStatusMiddleware.ApiStatus"'.
+2019-03-02 11:54:17.569 +01:00 [Information] Executed action "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)" in 28.1112ms
+2019-03-02 11:54:17.574 +01:00 [Information] Request finished in 40.5013ms 200 application/json; charset=utf-8
+2019-03-02 11:54:18.554 +01:00 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/Recipes application/json 210
+2019-03-02 11:54:18.560 +01:00 [Information] Route matched with "{action = \"CreateAsync\", controller = \"Recipes\"}". Executing action "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)"
+2019-03-02 11:54:18.572 +01:00 [Information] Successfully validated the token.
+2019-03-02 11:54:18.579 +01:00 [Information] Authorization was successful.
+2019-03-02 11:54:18.584 +01:00 [Information] Executing action method "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)" with arguments (["ItemsManager.Recipes.Commands.CreateRecipe"]) - Validation state: Valid
+2019-03-02 11:54:18.589 +01:00 [Information] CreatedID: 5
+2019-03-02 11:54:18.592 +01:00 [Information] Executed action method "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 5.0781ms.
+2019-03-02 11:54:18.594 +01:00 [Information] Executing ObjectResult, writing value of type '"ItemsManager.HTTPStatusMiddleware.ApiStatus"'.
+2019-03-02 11:54:18.596 +01:00 [Information] Executed action "ItemsManager.Recipes.Controllers.RecipesController.CreateAsync (ItemsManager)" in 33.734ms
+2019-03-02 11:54:18.607 +01:00 [Information] Request finished in 45.2201ms 200 application/json; charset=utf-8
+2019-03-02 11:54:21.235 +01:00 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/Recipes application/json 
+2019-03-02 11:54:21.239 +01:00 [Information] Route matched with "{action = \"GetAllAsync\", controller = \"Recipes\"}". Executing action "ItemsManager.Recipes.Controllers.RecipesController.GetAllAsync (ItemsManager)"
+2019-03-02 11:54:21.244 +01:00 [Information] Successfully validated the token.
+2019-03-02 11:54:21.246 +01:00 [Information] Authorization was successful.
+2019-03-02 11:54:21.252 +01:00 [Information] Executing action method "ItemsManager.Recipes.Controllers.RecipesController.GetAllAsync (ItemsManager)" - Validation state: Valid
+2019-03-02 11:54:21.259 +01:00 [Information] Executed action method "ItemsManager.Recipes.Controllers.RecipesController.GetAllAsync (ItemsManager)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 3.0289ms.
+2019-03-02 11:54:21.261 +01:00 [Information] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[ItemsManager.Recipes.DTO.RecipeDTO, ItemsManager, Version=2.1.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+2019-03-02 11:54:21.268 +01:00 [Information] Executed action "ItemsManager.Recipes.Controllers.RecipesController.GetAllAsync (ItemsManager)" in 23.1161ms
+2019-03-02 11:54:21.275 +01:00 [Information] Request finished in 39.2111ms 200 application/json; charset=utf-8

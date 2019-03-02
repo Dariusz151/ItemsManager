@@ -66,11 +66,13 @@ namespace ItemsManager.Recipes.Controllers
                 return BadRequest(new ApiStatus(400, "DescriptionError", "Recipe description is null or empty."));
             }
 
+            //TODO: cant serialize List<Ingredient>
+
             command.Ingredients.ForEach(x => x.Name = x.Name.ToLower());
 
             bool isCreated = await _repository.CreateAsync(
                 new Recipe(
-                    new Guid(),
+                    Guid.NewGuid(),
                     command.Name,
                     command.Description,
                     command.Ingredients

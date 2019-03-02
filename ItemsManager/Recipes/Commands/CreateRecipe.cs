@@ -14,10 +14,10 @@ namespace ItemsManager.Recipes.Commands
         public List<Ingredient> Ingredients { get; }
 
         [JsonConstructor]
-        public CreateRecipe(string name, string desc, List<Ingredient> ingredients)
+        public CreateRecipe(string name, string description, List<Ingredient> ingredients)
         {
             Name = name;
-            Description = desc;
+            Description = description;
             Ingredients = ingredients;
         }
     }
