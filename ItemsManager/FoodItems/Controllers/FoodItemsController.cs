@@ -1,13 +1,14 @@
-﻿using ItemsManager.Common.HTTP.Responses;
+﻿using ItemsManager.Common.Auth;
+using ItemsManager.Common.HTTP.Responses;
 using ItemsManager.FoodItems.Commands;
 using ItemsManager.FoodItems.Domain.Models;
 using ItemsManager.FoodItems.Domain.Repositories;
+using ItemsManager.FoodItems.Types;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Net;
-using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace ItemsManager.Articles.Controllers
@@ -30,13 +31,8 @@ namespace ItemsManager.Articles.Controllers
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         public async Task<IActionResult> GetAsync()
         {
-            Guid id = new Guid();
-            var identity = HttpContext.User.Identity as ClaimsIdentity;
-            if (identity != null)
-            {
-                id = Guid.Parse(identity.Name);
-            }
-
+            var id = GuidFromToken.Get(HttpContext);
+           
             var list = await _repository.GetAsync(id);
 
             if (list == null)
@@ -62,26 +58,25 @@ namespace ItemsManager.Articles.Controllers
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         public async Task<IActionResult> CreateAsync([FromBody] CreateFoodItem command)
         {
+            var userId = GuidFromToken.Get(HttpContext);
+
+            if (userId == Guid.Empty)
+                return BadRequest(new ApiStatus(400, "UserIdEmpty", "User id is empty."));
+
             if (command is null)
-            {
                 return BadRequest(new ApiStatus(400, "UnknownError", "Item null error."));
-            }
+
             if (string.IsNullOrEmpty(command.Name))
-            {
                 return BadRequest(new ApiStatus(400, "ArticleNameError", "ArticleName null error."));
-            }
+
             if (string.IsNullOrEmpty(command.Quantity.ToString()))
-            {
                 return BadRequest(new ApiStatus(400, "ItemQuantityError", "Item quantity null error."));
-            }
+
             if (string.IsNullOrEmpty(command.Weight.ToString()))
-            {
                 return BadRequest(new ApiStatus(400, "UnknownError", "Item weight null error."));
-            }
+
             if (string.IsNullOrEmpty(command.CategoryId.ToString()))
-            {
                 return BadRequest(new ApiStatus(400, "CategoryError", "Item category ID null error."));
-            }
 
             var isCreated = await _repository.CreateAsync(
                 new FoodItem(
@@ -90,7 +85,7 @@ namespace ItemsManager.Articles.Controllers
                     command.Weight,
                     command.Quantity,
                     command.CategoryId,
-                    command.UserId)
+                    userId)
                 );
 
             if (isCreated)
