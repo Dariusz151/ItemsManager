@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using System.Reflection;
 using ItemsManager.Common.Auth;
 using ItemsManager.FoodItems.Domain.Repositories;
 using ItemsManager.FoodItems.Repositories;
@@ -15,6 +17,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
 using Serilog;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace ItemsManager
 {
@@ -47,6 +50,28 @@ namespace ItemsManager
             services.AddSingleton<IEncrypter, Encrypter>();
             services.AddMvc();
             services.AddSingleton<IConfiguration>(Configuration);
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info
+                {
+                    Version = "v1",
+                    Title = "Smart Fridge API",
+                    Description = "An API for SmartFridgeApp.",
+                    Contact = new Contact
+                    {
+                        Name = "Dariusz Koziol",
+                        Email = "dariusz151@gmail.com"
+                    }
+                });
+
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
+            });
+
+           
+
         }
         
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -61,7 +86,7 @@ namespace ItemsManager
             {
                 app.UseHsts();
             }
-
+            app.UseSwagger();
             app.UseCors(builder => builder
                 .AllowAnyOrigin()
                 .AllowAnyMethod()
@@ -87,6 +112,12 @@ namespace ItemsManager
                 FileProvider = new PhysicalFileProvider(
             Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/static")),
                 RequestPath = "/static"
+            });
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Smart Fridge API");
+                c.RoutePrefix = string.Empty;
             });
 
             app.UseHttpsRedirection();

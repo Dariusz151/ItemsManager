@@ -26,6 +26,10 @@ namespace ItemsManager.Articles.Controllers
             _repository = repository;
         }
 
+        /// <summary>
+        /// Gets all FoodItems connected with user.
+        /// </summary>
+        /// <returns>List of FoodItem</returns>
         [HttpGet]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(FoodItem))]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
@@ -40,6 +44,11 @@ namespace ItemsManager.Articles.Controllers
             return Ok(list);
         }
 
+        /// <summary>
+        /// Get specific food item by id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>FoodItem</returns>
         [HttpGet("{id}")]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(FoodItem))]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
@@ -53,6 +62,11 @@ namespace ItemsManager.Articles.Controllers
             return Ok(list);
         }
 
+        /// <summary>
+        /// Create a new food item to the database (by user).
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns>isCreated (if operation succeeded).</returns>
         [HttpPost]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(int))]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
@@ -93,6 +107,11 @@ namespace ItemsManager.Articles.Controllers
             return BadRequest(new ApiStatus(400, "UnknownError", "Unknown SmartFridgeCreate error."));
         }
 
+        /// <summary>
+        /// Delete specific food item.
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         [ProducesResponseType((int)HttpStatusCode.NoContent)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]

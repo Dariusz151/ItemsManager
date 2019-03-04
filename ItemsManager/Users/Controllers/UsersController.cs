@@ -27,6 +27,9 @@ namespace ItemsManager.Users.Controllers
             _usersService = usersService;
         }
 
+        /// <summary>
+        /// Login for users. Require user login and password.
+        /// </summary>
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         [Route("api/[controller]/login")]
         [HttpPost]
@@ -46,6 +49,9 @@ namespace ItemsManager.Users.Controllers
             return Ok(token);
         }
         
+        /// <summary>
+        /// Register for users. Require login, firstname, email and password.
+        /// </summary>
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [Route("api/[controller]/register")]

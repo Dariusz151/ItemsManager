@@ -1,14 +1,11 @@
 ﻿using ItemsManager.Common.HTTP.Responses;
 using ItemsManager.Recipes.Commands;
 using ItemsManager.Recipes.Domain;
-using ItemsManager.Recipes.DTO;
 using ItemsManager.Recipes.Repositories;
-using ItemsManager.Recipes.Utils;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 
@@ -27,6 +24,10 @@ namespace ItemsManager.Recipes.Controllers
             _repository = repository;
         }
 
+        /// <summary>
+        /// Gets all available recipes (no specific user)
+        /// </summary>
+        /// <returns>List of recipes</returns>
         [HttpGet]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         public async Task<IActionResult> GetAllAsync()
@@ -38,6 +39,11 @@ namespace ItemsManager.Recipes.Controllers
             return Ok(list);
         }
 
+        /// <summary>
+        /// Gets details of a specific recipe by Guid.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>RecipeDetails</returns>
         [HttpGet("{id}")]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         public async Task<IActionResult> GetAsync(Guid id)
@@ -49,6 +55,11 @@ namespace ItemsManager.Recipes.Controllers
             return Ok(recipeDetails);
         }
 
+        /// <summary>
+        /// Create a new recipe to the database.
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns>IsCreated (if operation succeeded).</returns>
         [HttpPost]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         public async Task<IActionResult> CreateAsync([FromBody] CreateRecipe command)
@@ -65,9 +76,7 @@ namespace ItemsManager.Recipes.Controllers
             {
                 return BadRequest(new ApiStatus(400, "DescriptionError", "Recipe description is null or empty."));
             }
-
-            //TODO: cant serialize List<Ingredient>
-
+            
             command.Ingredients.ForEach(x => x.Name = x.Name.ToLower());
 
             bool isCreated = await _repository.CreateAsync(
@@ -81,23 +90,6 @@ namespace ItemsManager.Recipes.Controllers
             if (isCreated)
                 return Ok(new ApiStatus(200, "RecipeCreated", "Recipe created successfully."));
             return BadRequest(new ApiStatus(400, "RecipesError", "Recipes Bad Request."));
-        }
-
-        [HttpPost]
-        [Route("api/[controller]/find")]
-        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        public async Task<IActionResult> FindAsync([FromBody] List<Ingredient> list)
-        {
-            IEnumerable<RecipeDetailsDTO> recipes = await _repository.GetAllRecipesAsync();
-            
-            var matchedRecipes = MatchIngredients.Match(recipes, list);
-
-            if (matchedRecipes != null)
-            {
-                return Ok(matchedRecipes);
-            }
-
-            return BadRequest(new ApiStatus(400, "CheckRecipeError", "Can't find and match any recipe."));
         }
     }
 }

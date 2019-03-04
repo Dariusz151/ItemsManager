@@ -1,6 +1,6 @@
 @apiUrl = http://localhost:5000
 
-@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmMjdhZTI0OS1jMjBkLTQ3MTAtYWVmNi1jYWNmMjhiOWNkMTQiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAiLCJpYXQiOjE1NTE1MzIxODAsImV4cCI6MTU1MTUzMjQ4MCwidW5pcXVlX25hbWUiOiJmMjdhZTI0OS1jMjBkLTQ3MTAtYWVmNi1jYWNmMjhiOWNkMTQifQ.2rRNcSg-luDkxl9pWAdEopNPC-fjjRVh_lNiP6XI0No
+@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmMjdhZTI0OS1jMjBkLTQ3MTAtYWVmNi1jYWNmMjhiOWNkMTQiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAiLCJpYXQiOjE1NTE3Mzc2MTYsImV4cCI6MTU1MTczNzkxNiwidW5pcXVlX25hbWUiOiJmMjdhZTI0OS1jMjBkLTQ3MTAtYWVmNi1jYWNmMjhiOWNkMTQifQ.x4chSpANhIJbNrBMXKlf8qih1NbJpH5Y2K2sSYWDTdk
 
 ### ================= CREATE USER ======================= #
 
@@ -24,12 +24,21 @@ content-type: application/json
     "Password": "2marca"
 }
 
+
+
+
 ### ================= GET FOOD ITEMS ======================= #
 
 GET {{apiUrl}}/api/FoodItems
 authorization: Bearer {{accessToken}}
 content-type: application/json
 
+### ================= GET FOOD ITEM BY ID ======================= #
+
+@userId = C497ED62-3944-4F09-85E0-D99459A841E6
+GET {{apiUrl}}/api/FoodItems/{{userId}}
+authorization: Bearer {{accessToken}}
+content-type: application/json
 
 ### ================= CREATE FOOD ITEMS ======================= #
 
@@ -46,24 +55,24 @@ content-type: application/json
 
 
 
+
+
+
 #### ================= Get all recipes ======================= #
 
 GET {{apiUrl}}/api/Recipes
 authorization: Bearer {{accessToken}}
 content-type: application/json
 
-
 #### ================= Get recipe details ======================= #
 
-@recipeGuid = 031c6c40-9bf5-42ac-8722-f8dd0b72e72b
+@recipeGuid = e198f1db-4898-4c62-a34a-a182a17ddb9f
 
 GET {{apiUrl}}/api/Recipes/{{recipeGuid}}
 authorization: Bearer {{accessToken}}
 content-type: application/json
 
-
-
-#### ================= CREATERECIPES ======================= #
+#### ================= CREATE RECIPES ======================= #
 
 POST {{apiUrl}}/api/Recipes
 authorization: Bearer {{accessToken}}
@@ -76,9 +85,28 @@ content-type: application/json
 	[
 		{"Name": "New", "Weight": "150"},
 		{"Name": "ziemniak", "Weight": "160"},
-		{"Name": "pyra", "Weight": "180"}
+		{"Name": "pyra2", "Weight": "180"}
     ]
 }
+
+#### ================= Find recipe ======================= #
+POST {{apiUrl}}/api/findrecipe
+authorization: Bearer {{accessToken}}
+content-type: application/json
+
+[
+    {
+        "Name": "2marzec",
+        "Weight" : 2
+    },
+    {
+        "Name": "2marzec",
+        "Weight" : 2
+    }
+]
+
+
+
 
 
 
