@@ -112,7 +112,7 @@ namespace ItemsManager.Articles.Controllers
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        [HttpDelete("{id}")]
+        [HttpDelete]
         [ProducesResponseType((int)HttpStatusCode.NoContent)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         public async Task<IActionResult> DeleteAsync(DeleteFoodItem command)

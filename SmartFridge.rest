@@ -1,6 +1,6 @@
 @apiUrl = http://localhost:5000
 
-@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmMjdhZTI0OS1jMjBkLTQ3MTAtYWVmNi1jYWNmMjhiOWNkMTQiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAiLCJpYXQiOjE1NTE3Mzc2MTYsImV4cCI6MTU1MTczNzkxNiwidW5pcXVlX25hbWUiOiJmMjdhZTI0OS1jMjBkLTQ3MTAtYWVmNi1jYWNmMjhiOWNkMTQifQ.x4chSpANhIJbNrBMXKlf8qih1NbJpH5Y2K2sSYWDTdk
+@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmMjdhZTI0OS1jMjBkLTQ3MTAtYWVmNi1jYWNmMjhiOWNkMTQiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAiLCJpYXQiOjE1NTE3NDAxNTcsImV4cCI6MTU1MTc0MDQ1NywidW5pcXVlX25hbWUiOiJmMjdhZTI0OS1jMjBkLTQ3MTAtYWVmNi1jYWNmMjhiOWNkMTQifQ.kOMKA4A_ZJaPgx10OGFvHqnVfL4FA1O551G7Gy9xAXI
 
 ### ================= CREATE USER ======================= #
 
@@ -52,6 +52,17 @@ content-type: application/json
     "Quantity": 22,
     "CategoryId": 2
 }
+
+### ================= DELETE FOOD ITEM ======================= #
+@foodId = D32F08E7-D830-4A40-91A3-207AB192ED14
+DELETE {{apiUrl}}/api/FoodItems
+authorization: Bearer {{accessToken}}
+content-type: application/json
+
+{
+    "Id" : "{{foodId}}"
+}
+
 
 
 
