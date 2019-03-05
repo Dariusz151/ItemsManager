@@ -16,7 +16,9 @@ function checkCheckboxes() {
     });
 
     selectedItems.forEach(function (value, index) {
-        article.Name = articlesTable[articlesTable.findIndex(x => x.id === value)].articleName;
+        
+        article.Name = articlesTable[articlesTable.findIndex(x => x.id === value)].name;
+
         article.Weight = articlesTable[articlesTable.findIndex(x => x.id === value)].quantity
             * articlesTable[articlesTable.findIndex(x => x.id === value)].weight;
 
@@ -36,8 +38,11 @@ function ReturnSingleArticle(name, weight) {
 function EditList(selectedArticles) {
     $("ol").parent().empty();
 
+    //console.log(selectedArticles);
     $("#selectedItemsList").append("<ol></ol>");
     selectedArticles.forEach(function (item) {
+
+        console.log(item);
         $("ol").append("<li><h2>" + item.Name + "</li></h2>")
     });
 }

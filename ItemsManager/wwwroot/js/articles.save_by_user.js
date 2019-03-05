@@ -1,16 +1,18 @@
 ﻿var articlesTable = [];
 
-function SaveArticlesByUser(userID) {
+function SaveArticlesByUser() {
     
-    var urlAddress = url + "/api/SmartFridge";
+    var urlAddress = url + "/api/FoodItems";
 
     $.ajax({
         async: false,
-        url: urlAddress + "/" + userID,
+        url: urlAddress,
         type: "GET",
         dataType: "json",
+        headers: { "Authorization": "Bearer " + sessionStorage.getItem('token') },
         contentType: "application/json",
         success: function (fridge) {
+            console.log(fridge);
             SaveArticles(fridge);
         },
         error: function (error) {

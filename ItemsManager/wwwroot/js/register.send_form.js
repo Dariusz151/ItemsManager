@@ -5,6 +5,8 @@
     }
 });
 
+//TODO: fix changes (error codes etc.)
+
 function SendRegisterForm() {
     var fname = $("#register_fname").val();
     var login = $("#register_login").val();
@@ -23,12 +25,10 @@ function SendRegisterForm() {
     data["Login"] = login;
     data["Firstname"] = fname;
     data["Email"] = email;
-    data["Phone"] = phone;
-    data["Role"] = 3;  //User role
     data["Password"] = pswd;
     
     if (pswd_equal) {
-        fetch(url + "/api/Register",
+        fetch(url + "/api/users/Register",
             {
                 method: 'POST', 
                 body: JSON.stringify(data),

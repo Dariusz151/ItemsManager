@@ -14,7 +14,7 @@ function SendLoginForm() {
     login_data.Login = login;
     login_data.Password = pswd;
     
-    fetch(url + "/api/Login",
+    fetch(url + "/api/users/Login",
         {
             method: 'POST', 
             body: JSON.stringify(login_data), 
@@ -24,37 +24,19 @@ function SendLoginForm() {
         }).then(res => res.json())
         .then(response => {
             if (response.statusCode == 400) {
-                var responseStatus = response.statusDescription;
-                switch (responseStatus) {
-                    case "ObjectNull":
-                        toastr.error('Object is null!', 'Error');
-                        break;
-                    case "LoginEmpty":
-                        toastr.error('Login field is empty!', 'Error');
-                        break;
-                    case "PasswordEmpty":
-                        toastr.error('Password field is empty!', 'Error');
-                        break;
-                    default:
-                        toastr.error('Can\'t logg in!', 'Unknown Error');
-                        break;
-                }
+                toastr.error('Can\'t log in. Invalid login!', 'Invalid login');
             }
-            else if (response.statusCode == 200) {
-                sessionStorage.setItem("userID", response.userID);
-                sessionStorage.setItem("userName", login);
+            if (response.token != null) {
+                sessionStorage.setItem('token', response.token);
+
                 toastr.options = {
                     "positionClass": "toast-bottom-center"
                 }
                 toastr.warning('Successfully logged in. Redirecting!', 'Success');
-                
+
                 setTimeout(function () {
                     location.replace(url + "/static/");
                 }, 1000);
-            }
-            else {
-                toastr.error('Can\'t log in!', 'Unknown Error');
-                console.log(response);
             }
         })
         .catch(error => {

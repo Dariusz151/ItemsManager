@@ -1,6 +1,6 @@
 ﻿function FillTable(articlesTable) {
-    var userID = sessionStorage.getItem("userID");
-    SaveArticlesByUser(userID);
+
+    SaveArticlesByUser();
     
     $("#cont_tableBody").children().remove();
     $("#cont_tableBody").append(" <table class='table table-hover'><tbody id='myTable'></tbody></table> ");
@@ -15,7 +15,7 @@ function AddFridgeItemToTable(index, item) {
     $("#myTable").append("<tr class='row' id='row" + index + "'></tr>")
 
     $("#row" + index).append("<td class='col-7 col_articleName'></td");
-    $("#row" + index + " .col_articleName").html(item.articleName);
+    $("#row" + index + " .col_articleName").html(item.name);
 
     $("#row" + index).append("<td class='col-2 text-center col_quantity'></td");
     $("#row" + index + " .col_quantity").html(item.quantity);

@@ -1,6 +1,6 @@
-@apiUrl = http://localhost:5000
+@apiUrl = https://localhost:5001
 
-@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmMjdhZTI0OS1jMjBkLTQ3MTAtYWVmNi1jYWNmMjhiOWNkMTQiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAiLCJpYXQiOjE1NTE3NDAxNTcsImV4cCI6MTU1MTc0MDQ1NywidW5pcXVlX25hbWUiOiJmMjdhZTI0OS1jMjBkLTQ3MTAtYWVmNi1jYWNmMjhiOWNkMTQifQ.kOMKA4A_ZJaPgx10OGFvHqnVfL4FA1O551G7Gy9xAXI
+@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1NTM2MjYwYi01MjljLTQzZjctOWQ0MC01NDc5YWNhNDk5NzAiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAiLCJpYXQiOjE1NTE4MTE3MjAsImV4cCI6MTU1MTgxMjAyMCwidW5pcXVlX25hbWUiOiI1NTM2MjYwYi01MjljLTQzZjctOWQ0MC01NDc5YWNhNDk5NzAifQ.6KJpdA7vgZX0DwkxlcJf4A4N9cDmC7ndTrSTCpSaKFg
 
 ### ================= CREATE USER ======================= #
 
@@ -8,10 +8,10 @@ POST {{apiUrl}}/api/users/register
 content-type: application/json
 
 {
-    "Login": "2marca",
+    "Login": "2marca22",
     "Firstname": "marzec2",
     "Email": "marzec2@op.pl",
-    "Password": "2marca"
+    "Password": "2marca22"
 }
 
 ### ================= LOGIN USER ======================= #
@@ -20,8 +20,8 @@ POST {{apiUrl}}/api/users/login
 content-type: application/json
 
 {
-    "Login": "2marca",
-    "Password": "2marca"
+    "Login": "testt",
+    "Password": "test"
 }
 
 
@@ -47,7 +47,7 @@ authorization: Bearer {{accessToken}}
 content-type: application/json
 
 {
-    "Name": "piwo",
+    "Name": "piwo222",
     "Weight": 1,
     "Quantity": 22,
     "CategoryId": 2
