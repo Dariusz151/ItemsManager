@@ -9,7 +9,16 @@ function fetchRecipes() {
 }
 
 function asyncGetRecipes() {
-    return fetch(url + '/api/Recipes').then(response => response.json());
+
+    return fetch(url + '/api/Recipes',
+        {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + sessionStorage.getItem('token')
+            }
+        })
+        .then(response => response.json());
 }
 
 function FillRecipesTable(json) {
@@ -24,17 +33,14 @@ function FillRecipesTable(json) {
 }
 
 function AddRecipeToTable(index, item) {
-
+    console.log(item);
     $("#myTable").append("<tr class='row' id='row" + index + "'></tr>")
 
-    $("#row" + index).append("<td class='col-8 col_recipeName'></td");
+    $("#row" + index).append("<td class='col-12 col_recipeName'></td");
     $("#row" + index + " .col_recipeName").html(item.name);
-
-    $("#row" + index).append("<td class='col-3 text-center col_date'></td");
-    $("#row" + index + " .col_date").html(item.createdAt);
-
-    $("#row" + index).append("<td class='col-lg-1 text-center col_functions'></td>");
-    $("#row" + index + " .col_functions").html("<label class='customcheck'><input type='checkbox' autocomplete='off' id='checkbox" + index + "' onchange='checkCheckboxes();'><span class='checkmark'></span></label>");
+    
+    //$("#row" + index).append("<td class='col-lg-1 text-center col_functions'></td>");
+    //$("#row" + index + " .col_functions").html("<label class='customcheck'><input type='checkbox' autocomplete='off' id='checkbox" + index + "' onchange='checkCheckboxes();'><span class='checkmark'></span></label>");
 }
 
 function SaveRecipesToTable(json) {
