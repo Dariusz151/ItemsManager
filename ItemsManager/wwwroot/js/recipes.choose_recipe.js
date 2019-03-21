@@ -6,39 +6,35 @@ function ChooseRecipe() {
 
 function WhichRecipe(selectedArticles) {
 
-    fetch(url + "/api/CheckRecipe",
+    asyncGetChosenRecipe().then(function (response) {
+        if (response.length > 0) {
+            $("#modal_chosenRecipeDescription").html("");
+            $("#modal_chosenRecipeIngredients").html("");
+
+            $("#modal_chosenRecipeDescription").html(response[0].description);
+            $("#modal_chosenRecipeIngredients").append("<ul></ul>");
+            $.each(response[0].ingredients, function (index, item) {
+                $("#modal_chosenRecipeIngredients ul").append("<li>" + item.name + " " + item.weight + " g</li>");
+            });
+        }
+        else {
+            $("#modal_chosenRecipeDescription").html("");
+            $("#modal_chosenRecipeIngredients").html("");
+            $("#modal_chosenRecipeDescription").html("No recipes found.");
+        }
+    });
+}
+
+function asyncGetChosenRecipe() {
+    return fetch(url + "/api/FindRecipe",
         {
             method: 'POST',
             body: JSON.stringify(selectedArticles),
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + sessionStorage.getItem('token')
             }
         }).then(res => res.json())
-        .then(response => {
-           
-            $('#recipeModal').modal('show');
-            try {
-                $("#modalHeader1").text(response[0].name);
-                $("#modalContent1").text(response[0].description);
-            }
-            catch{
-                console.log('Cant add first recipe to modal.');
-            }
-            try {
-                $("#modalHeader2").text(response[1].name);
-                $("#modalContent2").text(response[1].description);
-            }
-            catch{
-                console.log('Cant add second recipe to modal.');
-            }
-            try {
-                $("#modalHeader3").text(response[2].name);
-                $("#modalContent3").text(response[2].description);
-            }
-            catch{
-                console.log('Cant add third recipe to modal.');
-            }
-        })
         .catch(error => {
             console.error('Error:', error)
             toastr.error('Can\'t find any recipes!', 'Error');

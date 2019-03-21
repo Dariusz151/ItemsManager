@@ -1,12 +1,12 @@
 ﻿var state = false;
 
-function ChangeSortState(property) {
+function ChangeSortState(property ) {
     state = !state;
     SortTableAlph(state);
 }
 
 function SortTableAlph(state) {
-    
+
     switch (state) {
         case false:
             propName = "-name";
@@ -15,13 +15,15 @@ function SortTableAlph(state) {
             propName = "name";
             break;
     }
-    articlesTable.sort(dynamicSort(propName));
-    
+    console.log(recipes);
+
+    recipes.sort(dynamicSort(propName));
+
     $("#cont_tableBody").children().remove();
     $("ul").parent().empty();
     $("#cont_tableBody").append(" <table class='table table-hover'><tbody id='myTable'></tbody></table> ");
-    $.each(articlesTable, function (index, item) {
-        AddFridgeItemToTable(index, item);
+    $.each(recipes, function (index, item) {
+        AddRecipeToTable(index, item);
     });
 }
 

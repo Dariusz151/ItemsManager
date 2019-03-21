@@ -1,6 +1,6 @@
-@apiUrl = http://localhost:5000
+@apiUrl = https://localhost:5001
 
-@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmMjdhZTI0OS1jMjBkLTQ3MTAtYWVmNi1jYWNmMjhiOWNkMTQiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAiLCJpYXQiOjE1NTE3Mzc2MTYsImV4cCI6MTU1MTczNzkxNiwidW5pcXVlX25hbWUiOiJmMjdhZTI0OS1jMjBkLTQ3MTAtYWVmNi1jYWNmMjhiOWNkMTQifQ.x4chSpANhIJbNrBMXKlf8qih1NbJpH5Y2K2sSYWDTdk
+@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1NTM2MjYwYi01MjljLTQzZjctOWQ0MC01NDc5YWNhNDk5NzAiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAiLCJpYXQiOjE1NTMyMDkzNTQsImV4cCI6MTU1MzIwOTY1NCwidW5pcXVlX25hbWUiOiI1NTM2MjYwYi01MjljLTQzZjctOWQ0MC01NDc5YWNhNDk5NzAifQ.VRdT4I0n7q1kGsZIrOEJZzRZ3ZdFNwEr5H2w-LkSFIY
 
 ### ================= CREATE USER ======================= #
 
@@ -8,10 +8,10 @@ POST {{apiUrl}}/api/users/register
 content-type: application/json
 
 {
-    "Login": "2marca",
+    "Login": "2marca22",
     "Firstname": "marzec2",
     "Email": "marzec2@op.pl",
-    "Password": "2marca"
+    "Password": "2marca22"
 }
 
 ### ================= LOGIN USER ======================= #
@@ -20,8 +20,8 @@ POST {{apiUrl}}/api/users/login
 content-type: application/json
 
 {
-    "Login": "2marca",
-    "Password": "2marca"
+    "Login": "testt",
+    "Password": "test"
 }
 
 
@@ -47,11 +47,22 @@ authorization: Bearer {{accessToken}}
 content-type: application/json
 
 {
-    "Name": "piwo",
+    "Name": "piwo222",
     "Weight": 1,
     "Quantity": 22,
     "CategoryId": 2
 }
+
+### ================= DELETE FOOD ITEM ======================= #
+@foodId = D32F08E7-D830-4A40-91A3-207AB192ED14
+DELETE {{apiUrl}}/api/FoodItems
+authorization: Bearer {{accessToken}}
+content-type: application/json
+
+{
+    "Id" : "{{foodId}}"
+}
+
 
 
 
@@ -66,7 +77,7 @@ content-type: application/json
 
 #### ================= Get recipe details ======================= #
 
-@recipeGuid = e198f1db-4898-4c62-a34a-a182a17ddb9f
+@recipeGuid = bb10265d-501e-4135-a368-0a665bf87437
 
 GET {{apiUrl}}/api/Recipes/{{recipeGuid}}
 authorization: Bearer {{accessToken}}
@@ -96,12 +107,12 @@ content-type: application/json
 
 [
     {
-        "Name": "2marzec",
-        "Weight" : 2
+        "Name": "banan",
+        "Weight" : 11
     },
     {
-        "Name": "2marzec",
-        "Weight" : 2
+        "Name": "kiwi",
+        "Weight" : 50
     }
 ]
 
