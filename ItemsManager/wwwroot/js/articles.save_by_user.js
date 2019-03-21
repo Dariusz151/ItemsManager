@@ -12,7 +12,7 @@ function SaveArticlesByUser() {
         headers: { "Authorization": "Bearer " + sessionStorage.getItem('token') },
         contentType: "application/json",
         success: function (fridge) {
-            console.log(fridge);
+            //console.log(fridge);
             SaveArticles(fridge);
         },
         error: function (error) {

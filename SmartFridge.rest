@@ -107,12 +107,12 @@ content-type: application/json
 
 [
     {
-        "Name": "2marzec",
-        "Weight" : 2
+        "Name": "banan",
+        "Weight" : 11
     },
     {
-        "Name": "2marzec",
-        "Weight" : 2
+        "Name": "kiwi",
+        "Weight" : 50
     }
 ]
 

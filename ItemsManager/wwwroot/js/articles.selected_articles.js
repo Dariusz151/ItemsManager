@@ -37,12 +37,9 @@ function ReturnSingleArticle(name, weight) {
 
 function EditList(selectedArticles) {
     $("ol").parent().empty();
-
-    //console.log(selectedArticles);
+    
     $("#selectedItemsList").append("<ol></ol>");
     selectedArticles.forEach(function (item) {
-
-        console.log(item);
         $("ol").append("<li><h2>" + item.Name + "</li></h2>")
     });
 }
