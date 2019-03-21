@@ -17,6 +17,9 @@ function asyncGetRecipeDetails(id) {
 }
 
 function FillModal(response) {
+    $("#recipeModalIngredients").html("");
+    $("#recipeModalDescription").html("");
+
     $("#recipeModalIngredients").html(response.description);
 
     $("#recipeModalDescription").append("<ul></ul>");
