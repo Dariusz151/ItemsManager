@@ -7,15 +7,21 @@ function ChooseRecipe() {
 function WhichRecipe(selectedArticles) {
 
     asyncGetChosenRecipe().then(function (response) {
-        console.log(response);
-        $("#modal_chosenRecipeDescription").html("");
-        $("#modal_chosenRecipeIngredients").html("");
+        if (response.length > 0) {
+            $("#modal_chosenRecipeDescription").html("");
+            $("#modal_chosenRecipeIngredients").html("");
 
-        $("#modal_chosenRecipeDescription").html(response[0].description);
-        $("#modal_chosenRecipeIngredients").append("<ul></ul>");
-        $.each(response[0].ingredients, function (index, item) {
-            $("#modal_chosenRecipeIngredients ul").append("<li>" + item.name + " " + item.weight + " g</li>");
-        });
+            $("#modal_chosenRecipeDescription").html(response[0].description);
+            $("#modal_chosenRecipeIngredients").append("<ul></ul>");
+            $.each(response[0].ingredients, function (index, item) {
+                $("#modal_chosenRecipeIngredients ul").append("<li>" + item.name + " " + item.weight + " g</li>");
+            });
+        }
+        else {
+            $("#modal_chosenRecipeDescription").html("");
+            $("#modal_chosenRecipeIngredients").html("");
+            $("#modal_chosenRecipeDescription").html("No recipes found.");
+        }
     });
 }
 
