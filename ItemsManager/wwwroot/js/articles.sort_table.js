@@ -9,10 +9,10 @@ function SortTableAlph(state) {
     
     switch (state) {
         case false:
-            propName = "-articleName";
+            propName = "-name";
             break;
         case true:
-            propName = "articleName";
+            propName = "name";
             break;
     }
     articlesTable.sort(dynamicSort(propName));
