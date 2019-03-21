@@ -1,6 +1,6 @@
 @apiUrl = https://localhost:5001
 
-@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1NTM2MjYwYi01MjljLTQzZjctOWQ0MC01NDc5YWNhNDk5NzAiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAiLCJpYXQiOjE1NTE4MTE3MjAsImV4cCI6MTU1MTgxMjAyMCwidW5pcXVlX25hbWUiOiI1NTM2MjYwYi01MjljLTQzZjctOWQ0MC01NDc5YWNhNDk5NzAifQ.6KJpdA7vgZX0DwkxlcJf4A4N9cDmC7ndTrSTCpSaKFg
+@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1NTM2MjYwYi01MjljLTQzZjctOWQ0MC01NDc5YWNhNDk5NzAiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAiLCJpYXQiOjE1NTMyMDkzNTQsImV4cCI6MTU1MzIwOTY1NCwidW5pcXVlX25hbWUiOiI1NTM2MjYwYi01MjljLTQzZjctOWQ0MC01NDc5YWNhNDk5NzAifQ.VRdT4I0n7q1kGsZIrOEJZzRZ3ZdFNwEr5H2w-LkSFIY
 
 ### ================= CREATE USER ======================= #
 
@@ -77,7 +77,7 @@ content-type: application/json
 
 #### ================= Get recipe details ======================= #
 
-@recipeGuid = e198f1db-4898-4c62-a34a-a182a17ddb9f
+@recipeGuid = bb10265d-501e-4135-a368-0a665bf87437
 
 GET {{apiUrl}}/api/Recipes/{{recipeGuid}}
 authorization: Bearer {{accessToken}}

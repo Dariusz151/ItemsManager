@@ -33,11 +33,17 @@ function FillRecipesTable(json) {
 }
 
 function AddRecipeToTable(index, item) {
-    console.log(item);
+    //console.log(item.id);
+
+
     $("#myTable").append("<tr class='row' id='row" + index + "'></tr>")
 
-    $("#row" + index).append("<td class='col-12 col_recipeName'></td");
-    $("#row" + index + " .col_recipeName").html(item.name);
+    $("#row" + index).append("<td class='col-11 col_recipeName'></td");
+    //$("#row" + index + " .col_recipeName").html("<a data-toggle='modal' href='' data-target='#myRecipeModal' id='recipeDetailsLink'>" + item.name + "</a>");
+    $("#row" + index + " .col_recipeName").html("<b>" + item.name + "</b>");
+
+    $("#row" + index).append("<td class='col-lg-1 text-center col_functions'></td>");
+    $("#row" + index + " .col_functions").html('<button data-toggle="modal" data-target="#myRecipeModal" onclick="GetRecipeDetails(this.value);" value="' + item.id + '">Details</button>');
     
     //$("#row" + index).append("<td class='col-lg-1 text-center col_functions'></td>");
     //$("#row" + index + " .col_functions").html("<label class='customcheck'><input type='checkbox' autocomplete='off' id='checkbox" + index + "' onchange='checkCheckboxes();'><span class='checkmark'></span></label>");
