@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
+using ItemsManager.Common.XML;
 using ItemsManager.FoodItems.Domain.Models;
 using ItemsManager.FoodItems.Domain.Repositories;
 using ItemsManager.FoodItems.DTO;
+using ItemsManager.Recipes.Domain;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -21,6 +23,8 @@ namespace ItemsManager.FoodItems.Repositories
         private readonly string _selectByIdQuery = "SELECT [article_id], [article_name], [quantity], [weight], [id_user], [id_category] FROM [dbo].[article] WHERE id_user=@id";
         private readonly string _insertQuery = "INSERT INTO [dbo].[article] ([article_id], [article_name], [quantity], [weight], [createdAt], [id_user], [id_category]) OUTPUT INSERTED.id VALUES(@param1,@param2,@param3,@param4,@param5,@param6, @param7)";
         private readonly string _deleteQuery = "DELETE FROM [dbo].[article] WHERE [article_id] = @id";
+
+        private readonly string sp_name = "sp_U_ConsumeFoodItemsByList";
 
         public FoodItemsRepository(IConfiguration configuration, IHostingEnvironment environment, ILogger<FoodItemsRepository> logger)
         {
@@ -187,6 +191,43 @@ namespace ItemsManager.FoodItems.Repositories
                 cmd.CommandText = _deleteQuery;
 
                 cmd.Parameters.AddWithValue("@id", id);
+                try
+                {
+                    connection.Open();
+                    rowsAffected = await cmd.ExecuteNonQueryAsync();
+                    _logger.LogInformation("Rows Affected: " + rowsAffected);
+                }
+                catch (Exception e)
+                {
+                    _logger.LogError(e.Message.ToString(), "Error Message");
+                }
+                if (connection.State == ConnectionState.Open)
+                    connection.Close();
+            }
+
+            return rowsAffected != 0;
+        }
+
+        public async Task<bool> ConsumeFoodItemsAsync(List<Ingredient> ingredients, Guid userId)
+        {
+            int rowsAffected = 0;
+
+            var ingredientsXML = ingredients.XmlSerializeToString();
+
+            if (_environment.IsProduction())
+            {
+                _logger.LogInformation("(ConsumeFoodItemsAsync) in DBFridgeRepository ");
+            }
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                cmd.Connection = connection;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = sp_name;
+
+                cmd.Parameters.Add(new SqlParameter("@ingredientsXML", ingredientsXML));
+                
                 try
                 {
                     connection.Open();

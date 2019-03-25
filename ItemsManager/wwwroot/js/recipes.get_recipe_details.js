@@ -1,6 +1,6 @@
 ﻿function GetRecipeDetails(id) {
     asyncGetRecipeDetails(id).then(function (response) {
-        FillModal(response);
+        FillModal(response, id);
     });
 }
 
@@ -16,7 +16,7 @@ function asyncGetRecipeDetails(id) {
         .then(response => response.json());
 }
 
-function FillModal(response) {
+function FillModal(response, id) {
     $("#recipeModalIngredients").html("");
     $("#recipeModalDescription").html("");
 
@@ -24,8 +24,13 @@ function FillModal(response) {
 
     $("#recipeModalDescription").append("<ul></ul>");
     $.each(response.ingredients, function (index, item) {
-        $("#recipeModalDescription ul").append("<li>" + item.name + " " +item.weight +" g</li>");
+        $("#recipeModalDescription ul").append("<li>" + item.name + " " + item.weight +" g</li>");
     });
+
+    $("#testest").html("teststest");
+
+
+    $("#consumeDiv").append('<button onclick="ConsumeFoodItems(this.value);" value="' + id + '">Consume</button>');
 }
 
 
