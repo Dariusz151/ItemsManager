@@ -1,6 +1,7 @@
 ﻿var recipes = {};
 
 function ChooseRecipe() {
+    ingredients_to_consume = [];  // CLEAR
     WhichRecipe(selectedArticles);
 }
 
@@ -10,12 +11,16 @@ function WhichRecipe(selectedArticles) {
         if (response.length > 0) {
             $("#modal_chosenRecipeDescription").html("");
             $("#modal_chosenRecipeIngredients").html("");
+            $("#consumeDiv").html("");
 
             $("#modal_chosenRecipeDescription").html(response[0].description);
             $("#modal_chosenRecipeIngredients").append("<ul></ul>");
             $.each(response[0].ingredients, function (index, item) {
+                ingredients_to_consume.push(item);
                 $("#modal_chosenRecipeIngredients ul").append("<li>" + item.name + " " + item.weight + " g</li>");
             });
+            
+            $("#consumeDiv").append('<button onclick="ConsumeFoodItems();">Consume</button>');
         }
         else {
             $("#modal_chosenRecipeDescription").html("");

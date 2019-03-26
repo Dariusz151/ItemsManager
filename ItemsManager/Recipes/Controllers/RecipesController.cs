@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 
@@ -97,13 +98,13 @@ namespace ItemsManager.Recipes.Controllers
         }
 
         /// <summary>
-        /// Consume food items from given recipe.
+        /// Consume food items from given list of ingredients.
         /// </summary>
-        /// <param name="command"></param>
+        /// <param name="ingredientsList"></param>
         /// <returns>IsSucceeded (if operation succeeded).</returns>
         [HttpPut]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        public async Task<IActionResult> ConsumeAsync([FromBody] ConsumeFoodItems command)
+        public async Task<IActionResult> ConsumeAsync([FromBody] List<Ingredient> ingredientsList)
         {
             bool isSucceded = false;
             var userId = GuidFromToken.Get(HttpContext);
@@ -111,19 +112,8 @@ namespace ItemsManager.Recipes.Controllers
             if (userId == Guid.Empty)
                 return BadRequest(new ApiStatus(400, "UserIdEmpty", "User id is empty."));
             
-            if (command.RecipeId != null)
-            {
-                var foodItems = await _recipeRepository.GetAsync(command.RecipeId);
-                if (foodItems != null)
-                {
-                    isSucceded = await _foodItemsRepository.ConsumeFoodItemsAsync(foodItems.Ingredients, userId);
-                }
-                else
-                {
-                    return BadRequest(new ApiStatus(400, "RecipesError", "Recipes Bad Request."));
-                }
-            }
-
+            isSucceded = await _foodItemsRepository.ConsumeFoodItemsAsync(ingredientsList, userId);
+            
             if (isSucceded)
                 return Ok(new ApiStatus(200, "FoodItemsConsumed", "Food items from recipe consumed."));
             return BadRequest(new ApiStatus(400, "RecipesError", "Recipes id bad request."));

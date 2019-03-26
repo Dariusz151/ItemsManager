@@ -36,7 +36,7 @@ namespace ItemsManager.FoodItems.Repositories
         public async Task<IEnumerable<FoodItemDTO>> GetAllAsync()
         {
             IList<FoodItemDTO> list = null;
-            
+
             if (_environment.IsProduction())
             {
                 _logger.LogInformation("(GetAllAsync) in DBFridgeRepos");
@@ -87,7 +87,7 @@ namespace ItemsManager.FoodItems.Repositories
         public async Task<IEnumerable<FoodItemDTO>> GetAsync(Guid id)
         {
             IList<FoodItemDTO> list = null;
-            
+
             if (_environment.IsProduction())
             {
                 _logger.LogInformation("(GetAsync) in DBFridgeRepos. GUID :" + id);
@@ -139,7 +139,7 @@ namespace ItemsManager.FoodItems.Repositories
         public async Task<bool> CreateAsync(FoodItem foodItem)
         {
             int createdId = 0;
-            
+
             if (_environment.IsProduction())
             {
                 _logger.LogInformation("(CreateAsync) in DBFridgeRepository ");
@@ -177,7 +177,7 @@ namespace ItemsManager.FoodItems.Repositories
         public async Task<bool> DeleteAsync(Guid id)
         {
             int rowsAffected = 0;
-            
+
             if (_environment.IsProduction())
             {
                 _logger.LogInformation("(DeleteAsync) in DBFridgeRepository ");
@@ -227,11 +227,22 @@ namespace ItemsManager.FoodItems.Repositories
                 cmd.CommandText = sp_name;
 
                 cmd.Parameters.Add(new SqlParameter("@ingredientsXML", ingredientsXML));
-                
+                cmd.Parameters.Add(new SqlParameter
+                {
+                    ParameterName = "@userId",
+                    SqlDbType = SqlDbType.UniqueIdentifier,
+                    Value = userId
+                });
+
                 try
                 {
                     connection.Open();
-                    rowsAffected = await cmd.ExecuteNonQueryAsync();
+                    SqlDataReader rdr = await cmd.ExecuteReaderAsync();
+                    while (rdr.Read())
+                    {
+                        rowsAffected++;
+                    }
+                    
                     _logger.LogInformation("Rows Affected: " + rowsAffected);
                 }
                 catch (Exception e)
@@ -242,7 +253,7 @@ namespace ItemsManager.FoodItems.Repositories
                     connection.Close();
             }
 
-            return rowsAffected != 0;
+            return rowsAffected == ingredients.Count;
         }
     }
 }
