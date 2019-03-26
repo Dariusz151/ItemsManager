@@ -1,4 +1,6 @@
-﻿using ItemsManager.Common.HTTP.Responses;
+﻿using ItemsManager.Common.Auth;
+using ItemsManager.Common.HTTP.Responses;
+using ItemsManager.FoodItems.Domain.Repositories;
 using ItemsManager.Recipes.Commands;
 using ItemsManager.Recipes.Domain;
 using ItemsManager.Recipes.Repositories;
@@ -6,6 +8,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 
@@ -17,11 +20,13 @@ namespace ItemsManager.Recipes.Controllers
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class RecipesController : ControllerBase
     {
-        private readonly IRecipesRepository _repository;
+        private readonly IRecipesRepository _recipeRepository;
+        private readonly IFoodItemsRepository _foodItemsRepository;
 
-        public RecipesController(IRecipesRepository repository)
+        public RecipesController(IRecipesRepository repository, IFoodItemsRepository foodItemsRepository)
         {
-            _repository = repository;
+            _recipeRepository = repository;
+            _foodItemsRepository = foodItemsRepository;
         }
 
         /// <summary>
@@ -32,7 +37,7 @@ namespace ItemsManager.Recipes.Controllers
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         public async Task<IActionResult> GetAllAsync()
         {
-            var list = await _repository.GetAllAsync();
+            var list = await _recipeRepository.GetAllAsync();
 
             if (list == null)
                 return NotFound(new ApiStatus(404, "RecipesError", "Recipes not found."));
@@ -48,7 +53,7 @@ namespace ItemsManager.Recipes.Controllers
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         public async Task<IActionResult> GetAsync(Guid id)
         {
-            var recipeDetails = await _repository.GetAsync(id);
+            var recipeDetails = await _recipeRepository.GetAsync(id);
 
             if (recipeDetails == null)
                 return NotFound(new ApiStatus(404, "RecipeError", "Recipe not found."));
@@ -79,7 +84,7 @@ namespace ItemsManager.Recipes.Controllers
             
             command.Ingredients.ForEach(x => x.Name = x.Name.ToLower());
 
-            bool isCreated = await _repository.CreateAsync(
+            bool isCreated = await _recipeRepository.CreateAsync(
                 new Recipe(
                     Guid.NewGuid(),
                     command.Name,
@@ -90,6 +95,28 @@ namespace ItemsManager.Recipes.Controllers
             if (isCreated)
                 return Ok(new ApiStatus(200, "RecipeCreated", "Recipe created successfully."));
             return BadRequest(new ApiStatus(400, "RecipesError", "Recipes Bad Request."));
+        }
+
+        /// <summary>
+        /// Consume food items from given list of ingredients.
+        /// </summary>
+        /// <param name="ingredientsList"></param>
+        /// <returns>IsSucceeded (if operation succeeded).</returns>
+        [HttpPut]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        public async Task<IActionResult> ConsumeAsync([FromBody] List<Ingredient> ingredientsList)
+        {
+            bool isSucceded = false;
+            var userId = GuidFromToken.Get(HttpContext);
+
+            if (userId == Guid.Empty)
+                return BadRequest(new ApiStatus(400, "UserIdEmpty", "User id is empty."));
+            
+            isSucceded = await _foodItemsRepository.ConsumeFoodItemsAsync(ingredientsList, userId);
+            
+            if (isSucceded)
+                return Ok(new ApiStatus(200, "FoodItemsConsumed", "Food items from recipe consumed."));
+            return BadRequest(new ApiStatus(400, "RecipesError", "Recipes id bad request."));
         }
     }
 }

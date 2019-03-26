@@ -162,3 +162,12 @@ GO
 ALTER TABLE [dbo].[recipes] ADD  CONSTRAINT [DF_recipes_Created]  DEFAULT (sysdatetime()) FOR [createdAt]
 GO
 
+-- OWN TYPES
+
+CREATE TYPE [dbo].[ListIngredient] AS TABLE
+(
+	[Name] NVARCHAR(50),
+	[Weight] INT 
+);
+
+GO

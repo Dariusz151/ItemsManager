@@ -24,7 +24,7 @@ function FillModal(response) {
 
     $("#recipeModalDescription").append("<ul></ul>");
     $.each(response.ingredients, function (index, item) {
-        $("#recipeModalDescription ul").append("<li>" + item.name + " " +item.weight +" g</li>");
+        $("#recipeModalDescription ul").append("<li>" + item.name + " " + item.weight +" g</li>");
     });
 }
 
